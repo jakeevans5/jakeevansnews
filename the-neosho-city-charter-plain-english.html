@@ -2,225 +2,216 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Charter — Explained</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
       margin: 0;
-      background: #e5e7eb;
-    }
-
-    .neosho-charter-explained {
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      line-height: 1.55;
+      background-color: #f9fafb;
       color: #111827;
     }
 
-    .neosho-wrap {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 18px 16px;
+    /* ========== HEADER ========== */
+    header.site-header {
+      padding: 30px 20px 18px;
+      text-align: center;
+      background-color: #f9fafb;
+      border-top: 4px solid #0f172a;
+      border-bottom: 1px solid #e5e7eb;
     }
 
-    .neosho-title {
-      margin: 0 0 10px;
-      font-size: clamp(26px, 3vw, 38px);
-      font-weight: 750;
-      letter-spacing: -0.02em;
+    .site-header h1 {
+      font-size: clamp(30px, 5vw, 46px);
+      margin: 0;
+      color: #0f172a;
     }
 
-    .neosho-subtitle {
-      margin: 0 0 14px;
-      font-size: 16px;
+    .site-header p {
+      margin: 8px 0 0;
+      font-size: 15px;
       color: #374151;
     }
 
-    /* COMPACT NAVIGATION */
-    .neosho-actions {
+    .site-nav {
       display: flex;
-      flex-wrap: nowrap;
       justify-content: center;
-      gap: 8px;
-      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
     }
 
-    .neosho-btn {
-      display: inline-block;
-      padding: 7px 12px;
+    .site-nav a {
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 16px;
       border-radius: 999px;
-      border: 1px solid #bfdbfe;
-      background: #eff6ff;
+      border: 1px solid #c7d8ee;
+      background-color: #f1f5ff;
+      text-decoration: none;
+      color: #1e3a8a;
+      transition: all 0.2s ease;
+    }
+
+    .site-nav a:hover {
+      background-color: #1e3a8a;
+      color: white;
+    }
+
+    .site-nav a.disabled {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      z-index: 10;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px 16px;
+      text-align: left;
       color: #1e3a8a;
       text-decoration: none;
-      font-size: 13px;
-      font-weight: 600;
-      white-space: nowrap;
-      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      font-weight: 500;
+      border-bottom: 1px solid #e5e7eb;
     }
 
-    .neosho-btn:hover {
-      background: #1d4ed8;
-      color: #ffffff;
-      border-color: #1d4ed8;
+    .dropdown-content a:last-child {
+      border-bottom: none;
     }
 
-    .neosho-btn--current {
-      border-color: #e5e7eb;
-      background: #f3f4f6;
-      color: #6b7280;
-      cursor: default;
-      pointer-events: none;
+    .dropdown-content a:hover {
+      background-color: #eff6ff;
     }
 
-    .neosho-card {
-      border: 1px solid #e5e7eb;
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 18px;
-      box-shadow: 0 6px 16px rgba(17, 24, 39, 0.06);
-    }
-
-    .neosho-h2 {
-      margin: 18px 0 8px;
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-    }
-
-    .neosho-p {
-      margin: 0 0 12px;
-      font-size: 15.5px;
-    }
-
-    .neosho-ul {
-      margin: 8px 0 14px 18px;
-      padding: 0;
-    }
-
-    .neosho-ul li {
-      margin: 6px 0;
-    }
-
-    .neosho-callout {
-      border-left: 4px solid #1d4ed8;
-      background: #eff6ff;
+    /* ========== MAIN ========== */
+    main {
+      max-width: 860px;
+      margin: 32px auto;
+      background: white;
       border-radius: 12px;
-      padding: 12px;
-      margin: 14px 0;
-      font-size: 15.5px;
+      padding: 24px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
     }
 
-    .neosho-grid {
-      display: grid;
-      gap: 14px;
-      grid-template-columns: 1fr;
+    main h2 {
+      font-size: 22px;
+      margin-top: 0;
     }
 
-    @media (min-width: 840px) {
-      .neosho-grid {
-        grid-template-columns: 1.2fr 0.8fr;
-      }
+    main ul {
+      padding-left: 20px;
     }
 
-    .neosho-box {
-      border: 1px solid #e5e7eb;
-      background: #f9fafb;
-      border-radius: 16px;
-      padding: 14px;
+    main li {
+      margin-bottom: 8px;
     }
 
-    .neosho-disclaimer {
-      margin-top: 14px;
-      font-size: 12.5px;
-      color: #6b7280;
+    .info-box {
+      background: #e0edff;
+      padding: 12px 16px;
+      margin: 16px 0;
+      border-radius: 10px;
+      border-left: 4px solid #3b82f6;
+    }
+
+    .order-box {
+      background: #f8f9fa;
+      padding: 16px;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+      margin-top: 24px;
+    }
+
+    .note {
       font-style: italic;
+      font-size: 13.5px;
+      color: #555;
+      margin-top: 24px;
+      text-align: center;
     }
   </style>
 </head>
 
 <body>
-  <section class="neosho-charter-explained" aria-label="Neosho City Charter plain English explanation">
-    <div class="neosho-wrap">
-      <h1 class="neosho-title">The Neosho City Charter — Plain English</h1>
-      <p class="neosho-subtitle">
-        What the Charter is, what it does, and why it matters.
-      </p>
 
-      <!-- NAVIGATION -->
-      <nav class="neosho-actions" aria-label="Related Charter and Code pages">
-        <a class="neosho-btn" href="charter-code.html">Charter &amp; Code Hub</a>
-        <span class="neosho-btn neosho-btn--current" aria-current="page">Charter — Explained</span>
-        <a class="neosho-btn" href="/city-code-explained.html">City Code — Explained</a>
-        <a class="neosho-btn" href="/who-has-authority.html">Who Has Authority</a>
-        <a class="neosho-btn" href="/how-to-look-up.html">How to Look Things Up</a>
-      </nav>
+  <!-- ✅ HEADER -->
+  <header class="site-header">
+    <h1>Jake Evans News</h1>
+    <p>Local updates • Civic preparation • Charter & Code • Upcoming meetings</p>
 
-      <div class="neosho-card">
-        <p class="neosho-p">
-          The City Charter is the foundational governing document for Neosho. It functions much like a local constitution and sets the structure, authority, and limits of city government.
-        </p>
-
-        <div class="neosho-callout">
-          <strong>Key idea:</strong> If something is not authorized by the Charter (or is prohibited by Missouri law), the City cannot legally do it — regardless of popularity or intent.
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Jake Evans</a>
+      <a href="preparing-to-serve.html">Preparing to Serve</a>
+      <div class="dropdown">
+        <a href="charter-code.html">Neosho Charter & Code ▾</a>
+        <div class="dropdown-content">
+          <a href="the-neosho-city-charter-plain-english.html">Charter — Explained</a>
+          <a href="city-code-explained.html">City Code — Explained</a>
+          <a href="who-has-authority.html">Who Has Authority</a>
+          <a href="how-to-look-up.html">How to Look Things Up</a>
         </div>
-
-        <div class="neosho-grid">
-          <div>
-            <h2 class="neosho-h2">What the Charter establishes</h2>
-            <ul class="neosho-ul">
-              <li>The form of government used by the City</li>
-              <li>The powers and limits of City Council</li>
-              <li>The role and authority of the City Manager</li>
-              <li>How ordinances and resolutions are adopted</li>
-              <li>Financial, ethical, and election-related rules</li>
-            </ul>
-
-            <h2 class="neosho-h2">Neosho’s form of government</h2>
-            <p class="neosho-p">
-              Neosho operates under a <strong>Council–Manager</strong> form of government. This means City Council serves as the legislative body, while the City Manager is responsible for day-to-day administration.
-            </p>
-
-            <p class="neosho-p">
-              This separation is intentional. It prevents political interference in operations and helps ensure consistent, professional management.
-            </p>
-          </div>
-
-          <aside class="neosho-box">
-            <strong>What City Council does</strong>
-            <ul class="neosho-ul">
-              <li>Sets policy</li>
-              <li>Passes ordinances and resolutions</li>
-              <li>Approves the budget</li>
-              <li>Appoints the City Manager and boards</li>
-            </ul>
-
-            <strong style="display:block;margin-top:10px;">What City Council does not do</strong>
-            <ul class="neosho-ul">
-              <li>Run daily operations</li>
-              <li>Direct individual staff members</li>
-              <li>Decide enforcement outcomes</li>
-              <li>Override due process</li>
-            </ul>
-          </aside>
-        </div>
-
-        <h2 class="neosho-h2">Why the Charter matters to citizens</h2>
-        <p class="neosho-p">
-          Many frustrations with local government come from misunderstandings about authority. The Charter exists to protect residents, staff, and the City itself by clearly defining who can do what — and how.
-        </p>
-
-        <p class="neosho-p">
-          Understanding the Charter helps set realistic expectations and leads to more productive public discussion.
-        </p>
-
-        <p class="neosho-disclaimer">
-          Disclaimer: This page is for educational purposes only. It reflects my understanding as a citizen and public servant and is not an official City of Neosho publication or legal advice.
-        </p>
       </div>
+      <a href="#" class="disabled">Upcoming Meetings</a>
+    </nav>
+  </header>
+
+  <!-- ✅ MAIN CONTENT -->
+  <main>
+    <h2>Why this page exists</h2>
+    <p>When local issues come up, it’s common to hear:</p>
+    <ul>
+      <li>“Why doesn’t City Council just fix this?”</li>
+      <li>“Didn’t Council already vote on that?”</li>
+      <li>“Can the City even do that?”</li>
+    </ul>
+
+    <div class="info-box">
+      <strong>The honest answer is simple:</strong> it depends on the law.
     </div>
-  </section>
+
+    <p>Neosho operates under a <strong>Home Rule Charter</strong> and an adopted <strong>City Code</strong>. These documents — not personalities or politics — define:</p>
+
+    <ul>
+      <li>Who has authority</li>
+      <li>How decisions are made</li>
+      <li>What processes must be followed</li>
+      <li>What limits exist to protect citizens and the City</li>
+    </ul>
+
+    <p>This page exists to explain those rules in plain English and connect you to deeper resources if you want to explore further.</p>
+
+    <div class="order-box">
+      <strong>The order of authority</strong><br>
+      1. Missouri State Law<br>
+      2. Neosho City Charter<br>
+      3. Adopting Ordinance<br>
+      4. Neosho City Code<br>
+      5. Policies & procedures
+    </div>
+
+    <div class="note">
+      This page is part of a citizen-led project to make local government more understandable.
+    </div>
+  </main>
+
 </body>
 </html>
-
-
-
