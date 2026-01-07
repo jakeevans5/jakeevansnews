@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Neosho’s Charter & City Code</title>
+
   <style>
+
+    /* GLOBAL STYLES */
     body {
       margin: 0;
-      background: #1e2f45; /* Dark navy background for Hub */
+      background: #1e2f45; /* Dark navy */
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: #111827;
     }
 
-    .hub-wrap {
-      max-width: 960px;
-      margin: auto;
-      padding: 30px 16px 80px;
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 18px 60px;
     }
 
-    .hub-title {
-      font-size: clamp(32px, 4vw, 46px);
-      color: #ffffff;
+    h1 {
+      font-size: clamp(32px, 4vw, 48px);
       font-weight: 800;
+      color: #ffffff;
+      margin: 0;
       text-align: center;
-      margin: 0 0 10px;
     }
 
-    .hub-subtitle {
+    .subtitle {
       font-size: 16px;
       color: #dbeafe;
       text-align: center;
-      margin-bottom: 24px;
+      margin: 6px 0 24px;
     }
 
     /* NAVIGATION */
-    .hub-nav {
+    .nav-bar {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -42,7 +45,8 @@
       margin-bottom: 28px;
     }
 
-    .hub-btn {
+    .nav-bar a,
+    .nav-bar span {
       padding: 10px 18px;
       border-radius: 999px;
       border: 1px solid #bfdbfe;
@@ -55,86 +59,135 @@
       transition: all 0.2s ease;
     }
 
-    .hub-btn:hover {
+    .nav-bar a:hover {
       background: #1d4ed8;
       color: #fff;
       border-color: #1d4ed8;
     }
 
-    .hub-btn--current {
+    .nav-bar .current {
       background: #f3f4f6;
       border-color: #e5e7eb;
       color: #6b7280;
-      cursor: default;
       pointer-events: none;
+      cursor: default;
     }
 
-    .hub-card {
+    /* CONTENT CARD */
+    .card {
       background: #ffffff;
       border-radius: 16px;
       padding: 24px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
       border: 1px solid #e5e7eb;
+      box-shadow: 0 6px 16px rgba(17,24,39,0.06);
     }
 
-    .hub-section-title {
+    .section-title {
       font-size: 20px;
       font-weight: 700;
       margin-top: 0;
       margin-bottom: 14px;
     }
 
-    .hub-p {
+    .p {
       margin: 0 0 14px;
       font-size: 15.5px;
-      line-height: 1.6;
+      line-height: 1.62;
     }
+
+    .ul {
+      margin: 0 0 14px 22px;
+      padding: 0;
+    }
+
+    .ul li {
+      margin: 6px 0;
+    }
+
+    .highlight-box {
+      border-left: 4px solid #1d4ed8;
+      background: #dbeafe;
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin: 14px 0;
+      font-size: 15.5px;
+    }
+
+    .callout-box {
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-top:14px;
+      font-size:15.5px;
+    }
+
   </style>
 </head>
 
 <body>
-  <div class="hub-wrap">
 
-    <h1 class="hub-title">Neosho’s Charter &amp; City Code</h1>
-    <p class="hub-subtitle">A practical, plain-English guide to how local government authority and rules work.</p>
+  <div class="container">
 
-    <!-- Fixed Navigation -->
-    <nav class="hub-nav">
-      <span class="hub-btn hub-btn--current">Charter &amp; Code Hub</span>
-      <a class="hub-btn" href="the-neosho-city-charter-plain-english.html">Charter — Explained</a>
-      <a class="hub-btn" href="city-code-explained.html">City Code — Explained</a>
-      <a class="hub-btn" href="who-has-authority.html">Who Has Authority</a>
-      <a class="hub-btn" href="how-to-look-up.html">How to Look Things Up</a>
-    </nav>
+    <h1>Neosho’s Charter & City Code</h1>
+    <p class="subtitle">A practical, plain-English guide to how local government authority and rules work.</p>
 
-    <div class="hub-card">
-      <h2 class="hub-section-title">Why this page exists</h2>
+    <!-- NAV -->
+    <div class="nav-bar">
+      <span class="current">Charter &amp; Code Hub</span>
+      <a href="the-neosho-city-charter-plain-english.html">Charter — Explained</a>
+      <a href="city-code-explained.html">City Code — Explained</a>
+      <a href="who-has-authority.html">Who Has Authority</a>
+      <a href="how-to-look-up.html">How to Look Things Up</a>
+    </div>
 
-      <p class="hub-p">When local issues come up, it’s common to hear:</p>
-      <ul class="hub-p" style="margin-left:20px;margin-bottom:14px;">
+    <div class="card">
+
+      <h2 class="section-title">Why this page exists</h2>
+
+      <p class="p">When local issues come up, it’s common to hear:</p>
+
+      <ul class="ul">
         <li>“Why doesn’t City Council just fix this?”</li>
         <li>“Didn’t Council already vote on that?”</li>
         <li>“Can the City even do that?”</li>
       </ul>
 
-      <p class="hub-p"><strong>The honest answer is simple:</strong> it depends on the law.</p>
+      <div class="highlight-box">
+        <strong>The honest answer is simple:</strong> it depends on the law.
+      </div>
 
-      <p class="hub-p">
-        Neosho operates under a <strong>Home Rule Charter</strong> and an adopted <strong>City Code</strong>.
-        These documents — not personalities or politics — define:
+      <p class="p">
+        Neosho operates under a <strong>Home Rule Charter</strong> and an adopted
+        <strong>City Code</strong>. These documents — not personalities or politics —
+        define:
       </p>
 
-      <ul class="hub-p" style="margin-left:20px;margin-bottom:14px;">
+      <ul class="ul">
         <li>Who has authority</li>
         <li>How decisions are made</li>
         <li>What processes must be followed</li>
         <li>What limits exist to protect citizens and the City</li>
       </ul>
 
-      <p class="hub-p">This page exists to explain those rules in plain English and connect you to deeper resources if you want to explore further.</p>
-    </div>
+      <p class="p">
+        This page exists to explain those rules in plain English and connect you
+        to deeper resources if you want to explore further.
+      </p>
 
+      <div class="callout-box">
+        <strong>The order of authority</strong>
+        <ol class="ul">
+          <li>Missouri State Law</li>
+          <li>Neosho City Charter</li>
+          <li>Adopting Ordinance</li>
+          <li>Neosho City Code</li>
+          <li>Policies &amp; procedures</li>
+        </ol>
+      </div>
+
+    </div>
   </div>
+
 </body>
 </html>
-
