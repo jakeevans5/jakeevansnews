@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jake Evans News</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f9fafb;
+    }
+    .jenews-home {
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      color: #111827;
+      line-height: 1.45;
+    }
+    .jenews-wrap {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 18px 16px 28px;
+    }
+    .jenews-masthead {
+      border-top: 3px solid #111827;
+      border-bottom: 1px solid #d1d5db;
+      padding: 14px 0 12px;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    .jenews-name {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 54px);
+      letter-spacing: -0.02em;
+      font-weight: 800;
+    }
+    .jenews-tagline {
+      margin: 6px 0 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: #374151;
+      font-size: 14.5px;
+    }
+    .jenews-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      padding: 12px 0 14px;
+      border-bottom: 1px solid #e5e7eb;
+      margin-bottom: 16px;
+    }
+    .jenews-pill {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 13.5px;
+      font-weight: 650;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid #bfdbfe;
+      background: #eff6ff;
+      color: #1e3a8a;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .jenews-pill:hover {
+      background: #1d4ed8;
+      color: #ffffff;
+      border-color: #1d4ed8;
+    }
+    .jenews-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 920px) {
+      .jenews-grid {
+        grid-template-columns: 1.55fr 1fr;
+        align-items: start;
+      }
+    }
+    .jenews-card {
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 6px 16px rgba(17, 24, 39, 0.06);
+    }
+    .jenews-kicker {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 11px;
+      font-weight: 750;
+      color: #1e3a8a;
+      margin: 0 0 8px;
+    }
+    .jenews-headline {
+      margin: 0 0 8px;
+      font-size: clamp(22px, 2.7vw, 34px);
+      line-height: 1.15;
+      font-weight: 850;
+      letter-spacing: -0.02em;
+    }
+    .jenews-deck {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: #374151;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    .jenews-link {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      border-radius: 14px;
+      padding: 2px;
+      transition: transform 0.12s ease;
+    }
+    .jenews-link:hover {
+      transform: translateY(-1px);
+    }
+    .jenews-link:focus {
+      outline: 3px solid #93c5fd;
+      outline-offset: 3px;
+    }
+    .jenews-side {
+      display: grid;
+      gap: 12px;
+    }
+    .jenews-mini {
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 14px;
+      box-shadow: 0 6px 16px rgba(17, 24, 39, 0.06);
+    }
+    .jenews-mini .jenews-headline {
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+    .jenews-footer-note {
+      margin-top: 16px;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 12px;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 12.5px;
+      color: #6b7280;
+      font-style: italic;
+      text-align: center;
+    }
+  </style>
+</head>
+<body class="jenews-home">
+  <div class="jenews-wrap">
+    <header class="jenews-masthead">
+      <h1 class="jenews-name">Jake Evans News</h1>
+      <p class="jenews-tagline">Local updates • Civic preparation • Charter &amp; Code • Upcoming meetings</p>
+    </header>
+
+    <nav class="jenews-nav" aria-label="Homepage sections">
+      <a class="jenews-pill" href="https://www.jakeevansnews.com/about">About Jake Evans</a>
+      <a class="jenews-pill" href="https://www.jakeevansnews.com/preparing-to-serve">Preparing to Serve</a>
+      <a class="jenews-pill" href="https://www.jakeevansnews.com/neoshos-charter-city-code">Neosho Charter &amp; Code</a>
+      <span class="jenews-pill" style="opacity:.55; cursor:default;">Upcoming Meetings</span>
+    </nav>
+
+    <main class="jenews-grid">
+      <article class="jenews-card">
+        <a class="jenews-link" href="https://jakeevansnews.substack.com/p/2025-year-end-summary-neosho-city">
+          <p class="jenews-kicker">Lead Story</p>
+          <h2 class="jenews-headline">2025 Year-End Summary: Neosho City Council Actions</h2>
+          <p class="jenews-deck">Based on Approved Meeting Minutes Through November 4, 2025</p>
+        </a>
+      </article>
+
+      <aside class="jenews-side" aria-label="More stories">
+        <article class="jenews-mini">
+          <a class="jenews-link" href="https://jakeevansnews.substack.com/p/start-here">
+            <p class="jenews-kicker">Featured</p>
+            <h3 class="jenews-headline">Start Here</h3>
+            <p class="jenews-deck">How my Substack is organized and how to read it</p>
+          </a>
+        </article>
+
+        <div class="jenews-mini" aria-hidden="true">
+          <p class="jenews-kicker">Coming Soon</p>
+          <h3 class="jenews-headline">Preparing to Serve</h3>
+          <p class="jenews-deck">Short, practical posts explaining how I prepare to participate responsibly in local government.</p>
+        </div>
+
+        <div class="jenews-mini" aria-hidden="true">
+          <p class="jenews-kicker">Coming Soon</p>
+          <h3 class="jenews-headline">Upcoming Meetings</h3>
+          <p class="jenews-deck">Agendas, packets, and what to watch for — posted ahead of meetings when available.</p>
+        </div>
+      </aside>
+    </main>
+
+    <div class="jenews-footer-note">
+      Disclaimer: This site is for informational purposes only and is not an official City of Neosho publication.
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('a.jenews-link, a.jenews-pill').forEach(link => {
+      link.setAttribute('target', '_self');
+    });
+  </script>
+</body>
+</html>
