@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Neosho’s Charter & City Code</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
-      background: #1e2f45; /* Dark navy blue background */
+      background: #1e2f45; /* Dark navy background for Hub */
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      line-height: 1.55;
       color: #111827;
     }
 
-    .neosho-legal-wrap {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 24px 16px;
+    .hub-wrap {
+      max-width: 960px;
+      margin: auto;
+      padding: 30px 16px 80px;
     }
 
-    .neosho-legal-title {
-      font-size: clamp(30px, 4vw, 44px);
-      font-weight: 800;
+    .hub-title {
+      font-size: clamp(32px, 4vw, 46px);
       color: #ffffff;
-      margin-bottom: 8px;
+      font-weight: 800;
+      text-align: center;
+      margin: 0 0 10px;
     }
 
-    .neosho-legal-subtitle {
+    .hub-subtitle {
       font-size: 16px;
       color: #dbeafe;
+      text-align: center;
       margin-bottom: 24px;
     }
 
-    .neosho-legal-actions {
+    /* NAVIGATION */
+    .hub-nav {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 12px;
-      margin-bottom: 30px;
+      margin-bottom: 28px;
     }
 
-    .neosho-legal-btn {
+    .hub-btn {
       padding: 10px 18px;
       border-radius: 999px;
       border: 1px solid #bfdbfe;
@@ -48,151 +51,89 @@
       text-decoration: none;
       font-size: 14px;
       font-weight: 600;
+      white-space: nowrap;
       transition: all 0.2s ease;
     }
 
-    .neosho-legal-btn:hover {
-      background: #1e40af;
-      color: #ffffff;
-      border-color: #1e40af;
+    .hub-btn:hover {
+      background: #1d4ed8;
+      color: #fff;
+      border-color: #1d4ed8;
     }
 
-    .neosho-legal-btn--current {
+    .hub-btn--current {
       background: #f3f4f6;
-      border-color: #d1d5db;
+      border-color: #e5e7eb;
       color: #6b7280;
       cursor: default;
       pointer-events: none;
     }
 
-    .neosho-legal-card {
+    .hub-card {
       background: #ffffff;
       border-radius: 16px;
       padding: 24px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-    }
-
-    .neosho-legal-h2 {
-      margin-top: 0;
-      font-size: 22px;
-      font-weight: 700;
-    }
-
-    .neosho-legal-p {
-      font-size: 15.5px;
-      margin: 0 0 14px;
-    }
-
-    .neosho-legal-quote {
-      border-left: 4px solid #1d4ed8;
-      background: #e0edff;
-      border-radius: 12px;
-      padding: 12px 16px;
-      margin: 16px 0;
-      font-size: 15.5px;
-    }
-
-    .neosho-legal-grid {
-      display: grid;
-      gap: 18px;
-      grid-template-columns: 1fr;
-      margin-top: 20px;
-    }
-
-    @media (min-width: 800px) {
-      .neosho-legal-grid {
-        grid-template-columns: 1.2fr 0.8fr;
-      }
-    }
-
-    .neosho-legal-ul {
-      margin: 0 0 12px 20px;
-      padding: 0;
-    }
-
-    .neosho-legal-ul li {
-      margin: 6px 0;
-    }
-
-    .neosho-legal-callout {
-      background: #f9fafb;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
       border: 1px solid #e5e7eb;
-      border-radius: 16px;
-      padding: 16px;
     }
 
-    .neosho-legal-disclaimer {
-      font-size: 12.5px;
-      color: #6b7280;
-      font-style: italic;
-      margin-top: 20px;
+    .hub-section-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 14px;
+    }
+
+    .hub-p {
+      margin: 0 0 14px;
+      font-size: 15.5px;
+      line-height: 1.6;
     }
   </style>
 </head>
-<body>
-  <div class="neosho-legal-wrap">
-    <h1 class="neosho-legal-title">Neosho’s Charter &amp; City Code</h1>
-    <p class="neosho-legal-subtitle">
-      A practical, plain-English guide to how local government authority and rules work.
-    </p>
 
-    <nav class="neosho-legal-actions" aria-label="Charter and Code navigation">
-      <span class="neosho-legal-btn neosho-legal-btn--current">Charter &amp; Code Hub</span>
-      <a class="neosho-legal-btn" href="#">Charter — Explained</a>
-      <a class="neosho-legal-btn" href="#">City Code — Explained</a>
-      <a class="neosho-legal-btn" href="#">Who Has Authority</a>
-      <a class="neosho-legal-btn" href="#">How to Look Things Up</a>
+<body>
+  <div class="hub-wrap">
+
+    <h1 class="hub-title">Neosho’s Charter &amp; City Code</h1>
+    <p class="hub-subtitle">A practical, plain-English guide to how local government authority and rules work.</p>
+
+    <!-- Fixed Navigation -->
+    <nav class="hub-nav">
+      <span class="hub-btn hub-btn--current">Charter &amp; Code Hub</span>
+      <a class="hub-btn" href="charter-explained.html">Charter — Explained</a>
+      <a class="hub-btn" href="city-code-explained.html">City Code — Explained</a>
+      <a class="hub-btn" href="who-has-authority.html">Who Has Authority</a>
+      <a class="hub-btn" href="how-to-look-up.html">How to Look Things Up</a>
     </nav>
 
-    <div class="neosho-legal-card">
-      <h2 class="neosho-legal-h2">Why this page exists</h2>
+    <div class="hub-card">
+      <h2 class="hub-section-title">Why this page exists</h2>
 
-      <p class="neosho-legal-p">When local issues come up, it’s common to hear:</p>
-      <ul class="neosho-legal-ul">
+      <p class="hub-p">When local issues come up, it’s common to hear:</p>
+      <ul class="hub-p" style="margin-left:20px;margin-bottom:14px;">
         <li>“Why doesn’t City Council just fix this?”</li>
         <li>“Didn’t Council already vote on that?”</li>
         <li>“Can the City even do that?”</li>
       </ul>
 
-      <div class="neosho-legal-quote">
-        <strong>The honest answer is simple:</strong> it depends on the law.
-      </div>
+      <p class="hub-p"><strong>The honest answer is simple:</strong> it depends on the law.</p>
 
-      <div class="neosho-legal-grid">
-        <div>
-          <p class="neosho-legal-p">
-            Neosho operates under a <strong>Home Rule Charter</strong> and an adopted <strong>City Code</strong>.
-            These documents — not personalities or politics — define:
-          </p>
-
-          <ul class="neosho-legal-ul">
-            <li>Who has authority</li>
-            <li>How decisions are made</li>
-            <li>What processes must be followed</li>
-            <li>What limits exist to protect citizens and the City</li>
-          </ul>
-
-          <p class="neosho-legal-p">
-            This page exists to explain those rules in plain English and connect you to deeper resources if you want to explore further.
-          </p>
-        </div>
-
-        <aside class="neosho-legal-callout">
-          <strong>The order of authority</strong>
-          <ol class="neosho-legal-ul">
-            <li>Missouri State Law</li>
-            <li>Neosho City Charter</li>
-            <li>Adopting Ordinance</li>
-            <li>Neosho City Code</li>
-            <li>Policies &amp; procedures</li>
-          </ol>
-        </aside>
-      </div>
-
-      <p class="neosho-legal-disclaimer">
-        Disclaimer: This page is for educational purposes only. It reflects my understanding as a citizen and public servant and is not an official City of Neosho publication or legal advice.
+      <p class="hub-p">
+        Neosho operates under a <strong>Home Rule Charter</strong> and an adopted <strong>City Code</strong>.
+        These documents — not personalities or politics — define:
       </p>
+
+      <ul class="hub-p" style="margin-left:20px;margin-bottom:14px;">
+        <li>Who has authority</li>
+        <li>How decisions are made</li>
+        <li>What processes must be followed</li>
+        <li>What limits exist to protect citizens and the City</li>
+      </ul>
+
+      <p class="hub-p">This page exists to explain those rules in plain English and connect you to deeper resources if you want to explore further.</p>
     </div>
+
   </div>
 </body>
 </html>
