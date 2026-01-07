@@ -7,7 +7,7 @@
   <style>
     body {
       margin: 0;
-      background: #e5e7eb; /* Light gray background */
+      background: #e5e7eb;
     }
 
     .neosho-charter-explained {
@@ -35,24 +35,26 @@
       color: #374151;
     }
 
-    /* NAVIGATION */
+    /* COMPACT NAVIGATION */
     .neosho-actions {
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 18px;
+      flex-wrap: nowrap;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 20px;
     }
 
     .neosho-btn {
       display: inline-block;
-      padding: 9px 14px;
+      padding: 7px 12px;
       border-radius: 999px;
       border: 1px solid #bfdbfe;
       background: #eff6ff;
       color: #1e3a8a;
       text-decoration: none;
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 600;
+      white-space: nowrap;
       transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
     }
 
