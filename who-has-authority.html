@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Who Has Authority</title>
+  <style>
+    body {
+      margin: 0;
+      background: #e5e7eb; /* Light gray background */
+    }
+
+    .neosho-authority-explained {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.55;
+      color: #111827;
+    }
+
+    .neosho-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 18px 16px;
+    }
+
+    .neosho-title {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 750;
+      letter-spacing: -0.02em;
+    }
+
+    .neosho-subtitle {
+      margin: 0 0 14px;
+      font-size: 16px;
+      color: #374151;
+    }
+
+    /* NAVIGATION */
+    .neosho-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .neosho-btn {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid #bfdbfe;
+      background: #eff6ff;
+      color: #1e3a8a;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .neosho-btn:hover {
+      background: #1d4ed8;
+      color: #ffffff;
+      border-color: #1d4ed8;
+    }
+
+    .neosho-btn--current {
+      border-color: #e5e7eb;
+      background: #f3f4f6;
+      color: #6b7280;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .neosho-card {
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 6px 16px rgba(17,24,39,0.06);
+    }
+
+    .neosho-h2 {
+      margin: 18px 0 8px;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .neosho-p {
+      margin: 0 0 12px;
+      font-size: 15.5px;
+    }
+
+    .neosho-ul {
+      margin: 8px 0 14px 18px;
+      padding: 0;
+    }
+
+    .neosho-ul li {
+      margin: 6px 0;
+    }
+
+    .neosho-callout {
+      border-left: 4px solid #1d4ed8;
+      background: #eff6ff;
+      border-radius: 12px;
+      padding: 12px;
+      margin: 14px 0;
+      font-size: 15.5px;
+    }
+
+    .neosho-grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr;
+      margin-top: 10px;
+    }
+
+    @media (min-width: 840px) {
+      .neosho-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .neosho-box {
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .neosho-disclaimer {
+      margin-top: 14px;
+      font-size: 12.5px;
+      color: #6b7280;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="neosho-authority-explained" aria-label="Authority roles in Neosho city government">
+    <div class="neosho-wrap">
+      <h1 class="neosho-title">Who Has Authority to Do What</h1>
+      <p class="neosho-subtitle">
+        Understanding the separation of roles in Neosho city government.
+      </p>
+
+      <!-- NAVIGATION -->
+      <nav class="neosho-actions" aria-label="Related Charter and Code pages">
+        <a class="neosho-btn" href="/charter-code.html">Charter &amp; Code Hub</a>
+        <a class="neosho-btn" href="/the-neosho-city-charter-plain-english.html">Charter — Explained</a>
+        <a class="neosho-btn" href="/city-code-explained.html">City Code — Explained</a>
+        <span class="neosho-btn neosho-btn--current" aria-current="page">Who Has Authority</span>
+        <a class="neosho-btn" href="/how-to-look-up.html">How to Look Things Up</a>
+      </nav>
+
+      <div class="neosho-card">
+        <p class="neosho-p">
+          One of the most common sources of frustration in local government is confusion about
+          who actually has the authority to make decisions.
+        </p>
+
+        <div class="neosho-callout">
+          <strong>Key principle:</strong> Authority in Neosho is intentionally divided.
+          No single person or body controls everything — and that’s by design.
+        </div>
+
+        <h2 class="neosho-h2">City Council (Legislative Authority)</h2>
+        <p class="neosho-p">
+          City Council is the legislative body of the City. Council acts collectively in public meetings
+          and exercises authority only through votes.
+        </p>
+
+        <ul class="neosho-ul">
+          <li>Adopts ordinances and resolutions</li>
+          <li>Sets policy and long-term direction</li>
+          <li>Approves the City budget</li>
+          <li>Appoints the City Manager and boards/commissions</li>
+        </ul>
+
+        <div class="neosho-box">
+          <strong>What City Council does <em>not</em> do</strong>
+          <ul class="neosho-ul">
+            <li>Run daily operations</li>
+            <li>Direct individual staff members</li>
+            <li>Decide enforcement outcomes</li>
+            <li>Prejudge appeals, hearings, or variances</li>
+          </ul>
+        </div>
+
+        <h2 class="neosho-h2">City Manager (Administrative Authority)</h2>
+        <p class="neosho-p">
+          The City Manager is responsible for administering the City’s operations and carrying out
+          the policies adopted by City Council.
+        </p>
+
+        <ul class="neosho-ul">
+          <li>Supervises City staff and departments</li>
+          <li>Implements Council-adopted policy</li>
+          <li>Oversees enforcement of ordinances</li>
+          <li>Manages contracts, services, and daily operations</li>
+        </ul>
+
+        <h2 class="neosho-h2">Boards &amp; Commissions (Limited / Quasi-Judicial Authority)</h2>
+        <p class="neosho-p">
+          Certain boards and commissions are established by ordinance or the Charter to handle
+          specific matters, often involving hearings or appeals.
+        </p>
+
+        <ul class="neosho-ul">
+          <li>Act within narrowly defined authority</li>
+          <li>Must follow due-process requirements</li>
+          <li>Do not take direction from individual Council members</li>
+        </ul>
+
+        <h2 class="neosho-h2">City Staff (Operational Authority)</h2>
+        <p class="neosho-p">
+          City staff carry out the day-to-day work of the City under the direction of the City Manager.
+        </p>
+
+        <ul class="neosho-ul">
+          <li>Apply and enforce adopted ordinances</li>
+          <li>Follow established procedures</li>
+          <li>Provide professional recommendations</li>
+        </ul>
+
+        <div class="neosho-callout">
+          <strong>Why this separation matters:</strong>
+          It protects fairness, prevents favoritism, ensures due process, and shields the City
+          from legal and financial risk.
+        </div>
+
+        <h2 class="neosho-h2">A helpful rule of thumb</h2>
+        <p class="neosho-p">
+          If a question is about <strong>policy</strong>, it usually belongs to City Council.
+          If it’s about <strong>execution or enforcement</strong>, it usually belongs to the City Manager and staff.
+        </p>
+
+        <p class="neosho-disclaimer">
+          Disclaimer: This page is for educational purposes only. It reflects my understanding as a citizen
+          and public servant and is not an official City of Neosho publication or legal advice.
+        </p>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
