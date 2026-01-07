@@ -6,8 +6,7 @@
   <title>Neosho’s Charter & City Code</title>
 
   <style>
-
-    /* GLOBAL STYLES */
+    /* ===== GLOBAL ===== */
     body {
       margin: 0;
       background: #1e2f45; /* Dark navy */
@@ -18,7 +17,7 @@
     .container {
       max-width: 900px;
       margin: 0 auto;
-      padding: 30px 18px 60px;
+      padding: 36px 18px 64px;
     }
 
     h1 {
@@ -33,16 +32,18 @@
       font-size: 16px;
       color: #dbeafe;
       text-align: center;
-      margin: 6px 0 24px;
+      margin: 8px 0 26px;
     }
 
-    /* NAVIGATION */
+    /* ===== NAVIGATION ===== */
     .nav-bar {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;            /* prevent stacking */
       justify-content: center;
       gap: 12px;
-      margin-bottom: 28px;
+      margin-bottom: 30px;
+      overflow-x: auto;             /* safe fallback */
+      padding-bottom: 6px;
     }
 
     .nav-bar a,
@@ -61,7 +62,7 @@
 
     .nav-bar a:hover {
       background: #1d4ed8;
-      color: #fff;
+      color: #ffffff;
       border-color: #1d4ed8;
     }
 
@@ -69,30 +70,35 @@
       background: #f3f4f6;
       border-color: #e5e7eb;
       color: #6b7280;
-      pointer-events: none;
       cursor: default;
+      pointer-events: none;
     }
 
-    /* CONTENT CARD */
+    @media (max-width: 720px) {
+      .nav-bar {
+        flex-wrap: wrap;
+      }
+    }
+
+    /* ===== CONTENT CARD ===== */
     .card {
       background: #ffffff;
-      border-radius: 16px;
-      padding: 24px;
+      border-radius: 18px;
+      padding: 26px;
       border: 1px solid #e5e7eb;
-      box-shadow: 0 6px 16px rgba(17,24,39,0.06);
+      box-shadow: 0 8px 20px rgba(17,24,39,0.08);
     }
 
     .section-title {
       font-size: 20px;
       font-weight: 700;
-      margin-top: 0;
-      margin-bottom: 14px;
+      margin: 0 0 14px;
     }
 
     .p {
       margin: 0 0 14px;
       font-size: 15.5px;
-      line-height: 1.62;
+      line-height: 1.65;
     }
 
     .ul {
@@ -104,24 +110,25 @@
       margin: 6px 0;
     }
 
+    /* ===== HIGHLIGHT ===== */
     .highlight-box {
       border-left: 4px solid #1d4ed8;
       background: #dbeafe;
       border-radius: 12px;
-      padding: 12px 16px;
-      margin: 14px 0;
+      padding: 14px 18px;
+      margin: 16px 0;
       font-size: 15.5px;
     }
 
+    /* ===== CALLOUT ===== */
     .callout-box {
       border: 1px solid #e5e7eb;
       background: #f9fafb;
-      border-radius: 12px;
-      padding: 12px 14px;
-      margin-top:14px;
-      font-size:15.5px;
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-top: 16px;
+      font-size: 15.5px;
     }
-
   </style>
 </head>
 
@@ -129,18 +136,33 @@
 
   <div class="container">
 
-    <h1>Neosho’s Charter & City Code</h1>
-    <p class="subtitle">A practical, plain-English guide to how local government authority and rules work.</p>
+    <h1>Neosho’s Charter &amp; City Code</h1>
+    <p class="subtitle">
+      A practical, plain‑English guide to how local government authority and rules work.
+    </p>
 
-    <!-- NAV -->
-    <div class="nav-bar">
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="nav-bar" aria-label="Charter and Code navigation">
       <span class="current">Charter &amp; Code Hub</span>
-      <a href="the-neosho-city-charter-plain-english.html">Charter — Explained</a>
-      <a href="city-code-explained.html">City Code — Explained</a>
-      <a href="who-has-authority.html">Who Has Authority</a>
-      <a href="how-to-look-up.html">How to Look Things Up</a>
-    </div>
 
+      <a href="the-neosho-city-charter-plain-english.html">
+        Charter — Explained
+      </a>
+
+      <a href="city-code-explained.html">
+        City Code — Explained
+      </a>
+
+      <a href="who-has-authority.html">
+        Who Has Authority
+      </a>
+
+      <a href="how-to-look-up.html">
+        How to Look Things Up
+      </a>
+    </nav>
+
+    <!-- ===== CONTENT ===== -->
     <div class="card">
 
       <h2 class="section-title">Why this page exists</h2>
