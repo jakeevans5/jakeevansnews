@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>City Code — Explained</title>
+  <style>
+    body {
+      margin: 0;
+      background: #e5e7eb;
+    }
+
+    .neosho-code-explained {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.55;
+      color: #111827;
+    }
+
+    .neosho-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 18px 16px;
+    }
+
+    .neosho-title {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 750;
+      letter-spacing: -0.02em;
+    }
+
+    .neosho-subtitle {
+      margin: 0 0 14px;
+      font-size: 16px;
+      color: #374151;
+    }
+
+    /* NAVIGATION */
+    .neosho-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .neosho-btn {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid #bfdbfe;
+      background: #eff6ff;
+      color: #1e3a8a;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .neosho-btn:hover {
+      background: #1d4ed8;
+      color: #ffffff;
+      border-color: #1d4ed8;
+    }
+
+    .neosho-btn--current {
+      border-color: #e5e7eb;
+      background: #f3f4f6;
+      color: #6b7280;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .neosho-card {
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 6px 16px rgba(17, 24, 39, 0.06);
+    }
+
+    .neosho-h2 {
+      margin: 18px 0 8px;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .neosho-p {
+      margin: 0 0 12px;
+      font-size: 15.5px;
+    }
+
+    .neosho-ul {
+      margin: 8px 0 14px 18px;
+      padding: 0;
+    }
+
+    .neosho-ul li {
+      margin: 6px 0;
+    }
+
+    .neosho-callout {
+      border-left: 4px solid #1d4ed8;
+      background: #eff6ff;
+      border-radius: 12px;
+      padding: 12px;
+      margin: 14px 0;
+      font-size: 15.5px;
+    }
+
+    .neosho-grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr;
+      margin-top: 10px;
+    }
+
+    @media (min-width: 840px) {
+      .neosho-grid {
+        grid-template-columns: 1.2fr 0.8fr;
+      }
+    }
+
+    .neosho-box {
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .neosho-steps {
+      counter-reset: step;
+      margin: 8px 0 14px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .neosho-steps li {
+      counter-increment: step;
+      margin: 10px 0;
+      padding-left: 34px;
+      position: relative;
+    }
+
+    .neosho-steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1e3a8a;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .neosho-disclaimer {
+      margin-top: 14px;
+      font-size: 12.5px;
+      color: #6b7280;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="neosho-code-explained" aria-label="Neosho City Code plain English explanation">
+    <div class="neosho-wrap">
+      <h1 class="neosho-title">The Neosho City Code — How Local Laws Work</h1>
+      <p class="neosho-subtitle">
+        What the City Code is, how ordinances become enforceable rules, and how to read a code section.
+      </p>
+
+      <nav class="neosho-actions" aria-label="Related Charter and Code pages">
+        <a class="neosho-btn" href="/charter-code.html">Charter &amp; Code Hub</a>
+        <a class="neosho-btn" href="/the-neosho-city-charter-plain-english.html">Charter — Explained</a>
+        <span class="neosho-btn neosho-btn--current" aria-current="page">City Code — Explained</span>
+        <a class="neosho-btn" href="/who-has-authority.html">Who Has Authority</a>
+        <a class="neosho-btn" href="/how-to-look-up.html">How to Look Things Up</a>
+      </nav>
+
+      <div class="neosho-card">
+        <p class="neosho-p">
+          The Neosho City Code is a collection of local laws (ordinances) adopted over time.
+          It covers everyday topics like land use, traffic, utilities, animals, buildings, and business regulations.
+        </p>
+
+        <div class="neosho-callout">
+          <strong>Key idea:</strong> The City Code must follow higher authority —
+          Missouri state law and the Neosho City Charter. If there’s a conflict, the higher authority controls.
+        </div>
+
+        <div class="neosho-grid">
+          <div>
+            <h2 class="neosho-h2">What the City Code does</h2>
+            <ul class="neosho-ul">
+              <li>Organizes local ordinances into topics (titles/chapters/sections)</li>
+              <li>Defines rules residents and businesses must follow</li>
+              <li>Sets procedures (permits, inspections, hearings, penalties, etc.)</li>
+              <li>Provides standards for consistent enforcement</li>
+            </ul>
+
+            <h2 class="neosho-h2">What the City Code does not do</h2>
+            <ul class="neosho-ul">
+              <li>Override Missouri law or the City Charter</li>
+              <li>Grant authority that the Charter does not allow</li>
+              <li>Replace due process (notice, hearings, appeals where required)</li>
+            </ul>
+          </div>
+
+          <aside class="neosho-box">
+            <strong>How it’s organized</strong>
+            <ul class="neosho-ul">
+              <li><strong>Titles</strong> (big topic areas)</li>
+              <li><strong>Chapters</strong> (subject groupings)</li>
+              <li><strong>Sections</strong> (the actual rules)</li>
+            </ul>
+            <div style="margin-top:10px;font-size:13px;color:#4b5563;">
+              Tip: If you know a keyword (like “fence,” “dog,” or “zoning”), you can usually search it and land in the right chapter fast.
+            </div>
+          </aside>
+        </div>
+
+        <h2 class="neosho-h2">How a local law becomes “the rule”</h2>
+        <p class="neosho-p">
+          City Council adopts local laws through ordinances. Once properly adopted and effective, they are codified (organized)
+          into the City Code so people can find them and follow them.
+        </p>
+
+        <h2 class="neosho-h2">How to read a code section (plain English)</h2>
+        <ol class="neosho-steps">
+          <li><strong>Read the main text first.</strong> That’s the enforceable rule as it exists today.</li>
+          <li><strong>Look for definitions.</strong> Many disputes come down to how a term is defined in the Code.</li>
+          <li><strong>Check for exceptions.</strong> Often the rule has carve-outs or special cases.</li>
+          <li><strong>Note enforcement process.</strong> Some issues are complaint-driven, some require notice/hearing steps.</li>
+          <li><strong>Use the history notes wisely.</strong> They show how the rule evolved, but the main text is what applies now.</li>
+        </ol>
+
+        <div class="neosho-callout">
+          <strong>Practical takeaway:</strong> When someone says “Council should just do X,” the next question should be:
+          <em>Is that allowed under state law and the Charter — and does the Code actually authorize it?</em>
+        </div>
+
+        <p class="neosho-disclaimer">
+          Disclaimer: This page is for educational purposes only. It reflects my understanding as a citizen
+          and public servant and is not an official City of Neosho publication or legal advice.
+        </p>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
