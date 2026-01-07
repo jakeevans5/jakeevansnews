@@ -1,0 +1,195 @@
+<section class="neosho-legal-hub" aria-label="Neosho Charter and City Code education page">
+  <style>
+    .neosho-legal-hub{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.55;
+      color: #111827;
+    }
+
+    /* FORCE WHITE TEXT IN DARK HEADER */
+    .neosho-legal-hub .neosho-legal-title{
+      color: #ffffff !important;
+    }
+    .neosho-legal-hub .neosho-legal-subtitle{
+      color: #e5e7eb !important;
+    }
+
+    .neosho-legal-wrap{
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 18px 16px;
+    }
+    .neosho-legal-title{
+      margin: 0 0 10px;
+      font-size: clamp(28px, 3.2vw, 40px);
+      font-weight: 750;
+      letter-spacing: -0.02em;
+    }
+    .neosho-legal-subtitle{
+      margin: 0 0 18px;
+      font-size: 16px;
+    }
+
+    /* NAV BUTTONS */
+    .neosho-legal-actions{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .neosho-legal-btn{
+      display: inline-block;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid #bfdbfe;
+      background: #eff6ff;
+      color: #1e3a8a;
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 600;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .neosho-legal-btn:hover{
+      background: #1d4ed8;
+      color: #ffffff;
+      border-color: #1d4ed8;
+    }
+
+    /* GHOSTED CURRENT PAGE */
+    .neosho-legal-btn--current{
+      border-color: #e5e7eb;
+      background: #f3f4f6;
+      color: #6b7280;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .neosho-legal-card{
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 6px 16px rgba(17,24,39,0.06);
+    }
+    .neosho-legal-h2{
+      margin: 0 0 10px;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .neosho-legal-p{
+      margin: 0 0 12px;
+      font-size: 15.5px;
+    }
+    .neosho-legal-quote{
+      border-left: 4px solid #1d4ed8;
+      padding: 10px 12px;
+      margin: 14px 0;
+      background: #eff6ff;
+      border-radius: 12px;
+      font-size: 15.5px;
+    }
+    .neosho-legal-grid{
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr;
+      margin-top: 14px;
+    }
+    @media (min-width: 840px){
+      .neosho-legal-grid{ grid-template-columns: 1.2fr 0.8fr; }
+    }
+    .neosho-legal-ul{
+      margin: 8px 0 0 18px;
+      padding: 0;
+    }
+    .neosho-legal-ul li{
+      margin: 6px 0;
+    }
+    .neosho-legal-callout{
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      border-radius: 16px;
+      padding: 14px;
+    }
+    .neosho-legal-disclaimer{
+      margin-top: 14px;
+      font-size: 12.5px;
+      color: #6b7280;
+      font-style: italic;
+    }
+  </style>
+
+  <div class="neosho-legal-wrap">
+    <h1 class="neosho-legal-title">Neosho’s Charter &amp; City Code</h1>
+    <p class="neosho-legal-subtitle">
+      A practical, plain-English guide to how local government authority and rules work.
+    </p>
+
+    <!-- NAVIGATION (STANDARD ORDER, HUB GHOSTED) -->
+    <nav class="neosho-legal-actions" aria-label="Charter and Code navigation">
+      <span class="neosho-legal-btn neosho-legal-btn--current">Charter &amp; Code Hub</span>
+      <a class="neosho-legal-btn" href="https://www.jakeevansnews.com/neoshos-charter-city-code/the-neosho-city-charter-plain-english">
+        Charter — Explained
+      </a>
+      <a class="neosho-legal-btn" href="https://www.jakeevansnews.com/neoshos-charter-city-code/the-neosho-city-code-how-local-laws-work">
+        City Code — Explained
+      </a>
+      <a class="neosho-legal-btn" href="https://www.jakeevansnews.com/neoshos-charter-city-code/who-has-authority-to-do-what">
+        Who Has Authority
+      </a>
+      <a class="neosho-legal-btn" href="https://www.jakeevansnews.com/neoshos-charter-city-code/how-to-look-things-up-yourself">
+        How to Look Things Up
+      </a>
+    </nav>
+
+    <div class="neosho-legal-card">
+      <h2 class="neosho-legal-h2">Why this page exists</h2>
+
+      <p class="neosho-legal-p">When local issues come up, it’s common to hear:</p>
+      <ul class="neosho-legal-ul">
+        <li>“Why doesn’t City Council just fix this?”</li>
+        <li>“Didn’t Council already vote on that?”</li>
+        <li>“Can the City even do that?”</li>
+      </ul>
+
+      <div class="neosho-legal-quote">
+        <strong>The honest answer is simple:</strong> it depends on the law.
+      </div>
+
+      <div class="neosho-legal-grid">
+        <div>
+          <p class="neosho-legal-p">
+            Neosho operates under a <strong>Home Rule Charter</strong> and an adopted <strong>City Code</strong>.
+            These documents — not personalities or politics — define:
+          </p>
+
+          <ul class="neosho-legal-ul">
+            <li>Who has authority</li>
+            <li>How decisions are made</li>
+            <li>What processes must be followed</li>
+            <li>What limits exist to protect citizens and the City</li>
+          </ul>
+
+          <p class="neosho-legal-p" style="margin-top:12px;">
+            This page exists to explain those rules in plain English and connect you to deeper resources if you want to explore further.
+          </p>
+        </div>
+
+        <aside class="neosho-legal-callout">
+          <strong>The order of authority</strong>
+          <ol class="neosho-legal-ul">
+            <li>Missouri State Law</li>
+            <li>Neosho City Charter</li>
+            <li>Adopting Ordinance</li>
+            <li>Neosho City Code</li>
+            <li>Policies &amp; procedures</li>
+          </ol>
+        </aside>
+      </div>
+
+      <p class="neosho-legal-disclaimer">
+        Disclaimer: This page is for educational purposes only. It reflects my understanding as a citizen and public servant and is not an official City of Neosho publication or legal advice.
+      </p>
+    </div>
+  </div>
+</section>
