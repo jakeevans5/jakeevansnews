@@ -3,90 +3,264 @@
 <head>
   <meta charset="UTF-8">
   <title>About Jake Evans</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
       margin: 0;
+      padding: 0;
+      background: #f9fafb;
     }
 
-    /* Navigation bar styles */
-    .navbar {
-      background-color: #003366;
-      padding: 15px;
+    .jenews-home {
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      color: #111827;
+      line-height: 1.45;
+    }
+
+    .jenews-wrap {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 18px 16px 28px;
+    }
+
+    .jenews-masthead {
+      border-top: 3px solid #111827;
+      border-bottom: 1px solid #d1d5db;
+      padding: 14px 0 12px;
+      margin-bottom: 14px;
       text-align: center;
     }
 
-    .navbar a {
-      color: white;
-      margin: 0 20px;
-      text-decoration: none;
+    .jenews-name {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 54px);
+      letter-spacing: -0.02em;
+      font-weight: 800;
+    }
+
+    .jenews-tagline {
+      margin: 6px 0 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: #374151;
+      font-size: 14.5px;
+    }
+
+    .jenews-hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 20px;
+      background: none;
+      border: none;
+      color: #1e3a8a;
       font-weight: bold;
+      padding: 12px 0;
+      margin: 0 auto;
+      text-align: center;
     }
 
-    .navbar a:hover {
-      text-decoration: underline;
-    }
-
-    /* Main content styles */
-    .container {
+    .jenews-nav-wrap {
       display: flex;
-      background-color: white;
-      padding: 30px;
-      max-width: 1000px;
-      margin: 30px auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      align-items: flex-start;
+      flex-direction: column;
+      align-items: center;
     }
 
-    img {
-      max-width: 300px;
-      margin-right: 30px;
-      border-radius: 5px;
+    .jenews-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      padding: 12px 0 14px;
+      border-bottom: 1px solid #e5e7eb;
+      margin-bottom: 16px;
     }
 
-    .text {
-      flex: 1;
+    .jenews-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    .text h1 {
-      color: #003366;
+    .jenews-nav li {
+      position: relative;
+    }
+
+    .jenews-nav a {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 13.5px;
+      font-weight: 650;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid #bfdbfe;
+      background: #eff6ff;
+      color: #1e3a8a;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      display: inline-block;
+    }
+
+    .jenews-nav a:hover {
+      background: #1d4ed8;
+      color: #ffffff;
+      border-color: #1d4ed8;
+    }
+
+    .jenews-nav ul ul {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 110%;
+      left: 0;
+      background: #eff6ff;
+      padding: 10px;
+      border-radius: 12px;
+      z-index: 100;
+    }
+
+    @media (max-width: 768px) {
+      .jenews-nav {
+        flex-direction: column;
+        display: none;
+      }
+
+      .jenews-nav.show {
+        display: flex;
+      }
+
+      .jenews-nav ul {
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .jenews-nav ul ul {
+        position: relative;
+        top: auto;
+        left: auto;
+      }
+
+      .jenews-hamburger {
+        display: block;
+      }
+    }
+
+    .jenews-content {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 6px 16px rgba(17, 24, 39, 0.06);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .jenews-content h2 {
+      font-size: 24px;
       margin-top: 0;
     }
 
-    .text p {
-      line-height: 1.6;
+    .jenews-content img {
+      max-width: 100%;
+      height: auto;
+      margin: 12px 0 20px;
+      border-radius: 12px;
+    }
+
+    .jenews-footer-note {
+      margin-top: 16px;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 12px;
+      font-size: 12.5px;
+      color: #6b7280;
+      font-style: italic;
+      text-align: center;
     }
   </style>
 </head>
-<body>
+<body class="jenews-home">
+  <div class="jenews-wrap">
+    <header class="jenews-masthead">
+      <h1 class="jenews-name">Jake Evans News</h1>
+      <p class="jenews-tagline">Local updates • Civic preparation • Charter &amp; Code • Upcoming meetings</p>
+    </header>
 
-  <!-- Navigation bar -->
-  <div class="navbar">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </div>
+    <button class="jenews-hamburger" onclick="document.querySelector('.jenews-nav').classList.toggle('show')">
+      ☰ Menu
+    </button>
 
-  <!-- About content -->
-  <div class="container">
-    <img src="jake-evans.jpg" alt="Jake Evans">
+    <nav class="jenews-nav-wrap">
+      <div class="jenews-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Jake Evans</a></li>
+          <li><a href="preparing-to-serve.html">Preparing to Serve</a></li>
+          <li>
+            <a href="charter-code.html">Neosho Charter &amp; Code ▾</a>
+            <ul>
+              <li><a href="the-neosho-city-charter-plain-english.html">Charter - Explained</a></li>
+              <li><a href="city-code-explained.html">City Code - Explained</a></li>
+              <li><a href="who-has-authority.html">Who Has Authority</a></li>
+              <li><a href="how-to-look-up.html">How to Look Things Up</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="jenews-pill" style="pointer-events:none; opacity:0.55;">Upcoming Meetings</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-    <div class="text">
-      <h1>Jake Evans</h1>
-      <p>I’m Jake Evans. I live, work, and raise my family in Neosho, and this site exists to share information, context, and thoughtful perspective on issues that affect our community.</p>
+    <main>
+      <section class="jenews-content">
+        <h2>About Jake Evans</h2>
+        <img src="jake-evans.jpg" alt="Jake Evans">
+        <p>I’m a father, husband, neighbor, and member of the Neosho community.</p>
+        <p>In 2023, I began to attend City Council meetings to understand what was happening with city government. Over time, I grew more interested in public participation, transparency, and understanding how Neosho’s charter form of government actually works.</p>
+        <p>I created this website to help others who also want to understand the charter and code of ordinances in plain English, and to prepare to participate effectively in local government.</p>
+        <p>My goal is to share information in a nonpartisan way that helps more citizens feel confident, competent, and involved in civic life. I’m not affiliated with the city, and this site is not an official publication.</p>
+      </section>
+    </main>
 
-      <p>By profession, I’m a business process analyst with more than a decade of experience working in operations, data analysis, and accountability-driven decision-making. My work centers on asking practical questions: <em>How does this actually work? Why does it exist this way? And is it serving people the way it should?</em></p>
-
-      <p>I’m also a U.S. Army veteran, where I learned the value of preparation, clear communication, and knowing when to slow things down so better decisions can be made.</p>
-
-      <p>Locally, I stay involved by attending public meetings, reviewing agendas and packets, reading ordinances and city code, and paying attention to how decisions move from discussion to implementation.</p>
-
-      <p>This site is not affiliated with the City of Neosho or any government office. The views expressed here are my own. My goal isn’t to persuade, inflame, or posture—it’s to inform, reflect, and document.</p>
-
-      <p>Above all, I believe communities are strongest when citizens are informed, curious, and willing to engage with facts—even when the answers aren’t simple.</p>
+    <div class="jenews-footer-note">
+      Disclaimer: This site is for informational purposes only and is not an official City of Neosho publication.
     </div>
   </div>
 
+  <script>
+    document.querySelectorAll('a.jenews-link, a.jenews-pill').forEach(link => {
+      link.setAttribute('target', '_self');
+    });
+
+    document.querySelectorAll('.jenews-nav li').forEach(li => {
+      let timer;
+      const submenu = li.querySelector('ul');
+
+      if (submenu) {
+        li.addEventListener('mouseenter', () => {
+          clearTimeout(timer);
+          submenu.style.display = 'flex';
+        });
+
+        li.addEventListener('mouseleave', () => {
+          timer = setTimeout(() => {
+            submenu.style.display = 'none';
+          }, 300);
+        });
+
+        submenu.addEventListener('mouseenter', () => {
+          clearTimeout(timer);
+        });
+
+        submenu.addEventListener('mouseleave', () => {
+          timer = setTimeout(() => {
+            submenu.style.display = 'none';
+          }, 300);
+        });
+      }
+    });
+  </script>
 </body>
 </html>
