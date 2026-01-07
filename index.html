@@ -4,22 +4,26 @@
   <meta charset="UTF-8">
   <title>Jake Evans News</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <style>
     body {
       margin: 0;
       padding: 0;
       background: #f9fafb;
     }
+
     .jenews-home {
       font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
       color: #111827;
       line-height: 1.45;
     }
+
     .jenews-wrap {
       max-width: 1040px;
       margin: 0 auto;
       padding: 18px 16px 28px;
     }
+
     .jenews-masthead {
       border-top: 3px solid #111827;
       border-bottom: 1px solid #d1d5db;
@@ -27,18 +31,40 @@
       margin-bottom: 14px;
       text-align: center;
     }
+
     .jenews-name {
       margin: 0;
       font-size: clamp(30px, 4vw, 54px);
       letter-spacing: -0.02em;
       font-weight: 800;
     }
+
     .jenews-tagline {
       margin: 6px 0 0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: #374151;
       font-size: 14.5px;
     }
+
+    .jenews-hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 20px;
+      background: none;
+      border: none;
+      color: #1e3a8a;
+      font-weight: bold;
+      padding: 12px 0;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .jenews-nav-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     .jenews-nav {
       display: flex;
       flex-wrap: wrap;
@@ -48,7 +74,22 @@
       border-bottom: 1px solid #e5e7eb;
       margin-bottom: 16px;
     }
-    .jenews-pill {
+
+    .jenews-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .jenews-nav li {
+      position: relative;
+    }
+
+    .jenews-nav a {
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       font-size: 13.5px;
       font-weight: 650;
@@ -59,23 +100,70 @@
       color: #1e3a8a;
       text-decoration: none;
       transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      display: inline-block;
     }
-    .jenews-pill:hover {
+
+    .jenews-nav a:hover {
       background: #1d4ed8;
       color: #ffffff;
       border-color: #1d4ed8;
     }
+
+    .jenews-nav ul ul {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 110%;
+      left: 0;
+      background: #eff6ff;
+      padding: 10px;
+      border-radius: 12px;
+      z-index: 100;
+    }
+
+    .jenews-nav li:hover > ul {
+      display: flex;
+    }
+
+    @media (max-width: 768px) {
+      .jenews-nav {
+        flex-direction: column;
+        display: none;
+      }
+
+      .jenews-nav.show {
+        display: flex;
+      }
+
+      .jenews-nav ul {
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .jenews-nav ul ul {
+        position: relative;
+        top: auto;
+        left: auto;
+      }
+
+      .jenews-hamburger {
+        display: block;
+      }
+    }
+
     .jenews-grid {
       display: grid;
       gap: 16px;
       grid-template-columns: 1fr;
     }
+
     @media (min-width: 920px) {
       .jenews-grid {
         grid-template-columns: 1.55fr 1fr;
         align-items: start;
       }
     }
+
     .jenews-card {
       border: 1px solid #e5e7eb;
       background: #ffffff;
@@ -83,8 +171,8 @@
       padding: 16px;
       box-shadow: 0 6px 16px rgba(17, 24, 39, 0.06);
     }
+
     .jenews-kicker {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       font-size: 11px;
@@ -92,6 +180,7 @@
       color: #1e3a8a;
       margin: 0 0 8px;
     }
+
     .jenews-headline {
       margin: 0 0 8px;
       font-size: clamp(22px, 2.7vw, 34px);
@@ -99,13 +188,14 @@
       font-weight: 850;
       letter-spacing: -0.02em;
     }
+
     .jenews-deck {
       margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: #374151;
       font-size: 15px;
       line-height: 1.5;
     }
+
     .jenews-link {
       display: block;
       color: inherit;
@@ -114,17 +204,16 @@
       padding: 2px;
       transition: transform 0.12s ease;
     }
+
     .jenews-link:hover {
       transform: translateY(-1px);
     }
-    .jenews-link:focus {
-      outline: 3px solid #93c5fd;
-      outline-offset: 3px;
-    }
+
     .jenews-side {
       display: grid;
       gap: 12px;
     }
+
     .jenews-mini {
       border: 1px solid #e5e7eb;
       background: #ffffff;
@@ -132,15 +221,16 @@
       padding: 14px;
       box-shadow: 0 6px 16px rgba(17, 24, 39, 0.06);
     }
+
     .jenews-mini .jenews-headline {
       font-size: 18px;
       margin-bottom: 6px;
     }
+
     .jenews-footer-note {
       margin-top: 16px;
       border-top: 1px solid #e5e7eb;
       padding-top: 12px;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       font-size: 12.5px;
       color: #6b7280;
       font-style: italic;
@@ -155,11 +245,30 @@
       <p class="jenews-tagline">Local updates • Civic preparation • Charter &amp; Code • Upcoming meetings</p>
     </header>
 
-    <nav class="jenews-nav" aria-label="Homepage sections">
-      <a class="jenews-pill" href="about.html">About Jake Evans</a>
-      <a class="jenews-pill" href="preparing-to-serve.html">Preparing to Serve</a>
-      <a class="jenews-pill" href="charter-code.html">Neosho Charter &amp; Code</a>
-      <span class="jenews-pill" style="opacity:.55; cursor:default;">Upcoming Meetings</span>
+    <button class="jenews-hamburger" onclick="document.querySelector('.jenews-nav').classList.toggle('show')">
+      ☰ Menu
+    </button>
+
+    <nav class="jenews-nav-wrap">
+      <div class="jenews-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Jake Evans</a></li>
+          <li><a href="preparing-to-serve.html">Preparing to Serve</a></li>
+          <li>
+            <a href="charter-code.html">Neosho Charter &amp; Code ▾</a>
+            <ul>
+              <li><a href="the-neosho-city-charter-plain-english.html">Charter - Explained</a></li>
+              <li><a href="city-code-explained.html">City Code - Explained</a></li>
+              <li><a href="who-has-authority.html">Who Has Authority</a></li>
+              <li><a href="how-to-look-up.html">How to Look Things Up</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="jenews-pill" style="pointer-events:none; opacity:0.55;">Upcoming Meetings</a>
+          </li>
+        </ul>
+      </div>
     </nav>
 
     <main class="jenews-grid">
@@ -206,5 +315,3 @@
   </script>
 </body>
 </html>
-
-
