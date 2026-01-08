@@ -2,17 +2,149 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Neosho’s Charter & City Code</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
     body {
       margin: 0;
-      background: #1e2f45;
+      background: #f9fafb;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: #111827;
     }
 
+    .jenews-home {
+      line-height: 1.45;
+    }
+
+    .jenews-wrap {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 18px 16px 28px;
+    }
+
+    .jenews-masthead {
+      border-top: 3px solid #111827;
+      border-bottom: 1px solid #d1d5db;
+      padding: 14px 0 12px;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .jenews-name {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 54px);
+      letter-spacing: -0.02em;
+      font-weight: 800;
+    }
+
+    .jenews-tagline {
+      margin: 6px 0 0;
+      font-size: 14.5px;
+      color: #374151;
+    }
+
+    .jenews-hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 20px;
+      background: none;
+      border: none;
+      color: #1e3a8a;
+      font-weight: bold;
+      padding: 12px 0;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .jenews-nav-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .jenews-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      padding: 12px 0 14px;
+      border-bottom: 1px solid #e5e7eb;
+      margin-bottom: 16px;
+    }
+
+    .jenews-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .jenews-nav li {
+      position: relative;
+    }
+
+    .jenews-nav a {
+      font-size: 13.5px;
+      font-weight: 650;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid #bfdbfe;
+      background: #eff6ff;
+      color: #1e3a8a;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      display: inline-block;
+    }
+
+    .jenews-nav a:hover {
+      background: #1d4ed8;
+      color: #ffffff;
+      border-color: #1d4ed8;
+    }
+
+    .jenews-nav ul ul {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 110%;
+      left: 0;
+      background: #eff6ff;
+      padding: 10px;
+      border-radius: 12px;
+      z-index: 100;
+    }
+
+    @media (max-width: 768px) {
+      .jenews-nav {
+        flex-direction: column;
+        display: none;
+      }
+
+      .jenews-nav.show {
+        display: flex;
+      }
+
+      .jenews-nav ul {
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .jenews-nav ul ul {
+        position: relative;
+        top: auto;
+        left: auto;
+      }
+
+      .jenews-hamburger {
+        display: block;
+      }
+    }
+
+    /* Page content styles */
     .container {
       max-width: 900px;
       margin: 0 auto;
@@ -22,56 +154,18 @@
     h1 {
       font-size: clamp(32px, 4vw, 48px);
       font-weight: 800;
-      color: #ffffff;
+      color: #111827;
       margin: 0;
       text-align: center;
     }
 
     .subtitle {
       font-size: 16px;
-      color: #dbeafe;
+      color: #374151;
       text-align: center;
       margin: 8px 0 26px;
     }
 
-    /* COMPACT NAVIGATION */
-    .nav-bar {
-      display: flex;
-      flex-wrap: nowrap;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 28px;
-    }
-
-    .nav-bar a,
-    .nav-bar span {
-      padding: 7px 12px;
-      border-radius: 999px;
-      border: 1px solid #bfdbfe;
-      background: #eff6ff;
-      color: #1e3a8a;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 600;
-      white-space: nowrap;
-      transition: all 0.2s ease;
-    }
-
-    .nav-bar a:hover {
-      background: #1d4ed8;
-      color: #ffffff;
-      border-color: #1d4ed8;
-    }
-
-    .nav-bar .current {
-      background: #f3f4f6;
-      border-color: #e5e7eb;
-      color: #6b7280;
-      cursor: default;
-      pointer-events: none;
-    }
-
-    /* CONTENT */
     .card {
       background: #ffffff;
       border-radius: 18px;
@@ -121,31 +215,45 @@
   </style>
 </head>
 
-<body>
+<body class="jenews-home">
+  <div class="jenews-wrap">
+    <header class="jenews-masthead">
+      <h1 class="jenews-name">Jake Evans News</h1>
+      <p class="jenews-tagline">Local updates • Civic preparation • Charter &amp; Code • Upcoming meetings</p>
+    </header>
+
+    <button class="jenews-hamburger" onclick="document.querySelector('.jenews-nav').classList.toggle('show')">
+      ☰ Menu
+    </button>
+
+    <nav class="jenews-nav-wrap">
+      <div class="jenews-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Jake Evans</a></li>
+          <li><a href="preparing-to-serve.html">Preparing to Serve</a></li>
+          <li>
+            <a href="charter-code.html" class="jenews-pill">Neosho Charter &amp; Code ▾</a>
+            <ul>
+              <li><a href="the-neosho-city-charter-plain-english.html">Charter - Explained</a></li>
+              <li><a href="city-code-explained.html">City Code - Explained</a></li>
+              <li><a href="who-has-authority.html">Who Has Authority</a></li>
+              <li><a href="how-to-look-up.html">How to Look Things Up</a></li>
+            </ul>
+          </li>
+          <li><a href="#" class="jenews-pill" style="pointer-events:none; opacity:0.55;">Upcoming Meetings</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 
   <div class="container">
-
     <h1>Neosho’s Charter &amp; City Code</h1>
-    <p class="subtitle">
-      A practical, plain‑English guide to how local government authority and rules work.
-    </p>
+    <p class="subtitle">A practical, plain‑English guide to how local government authority and rules work.</p>
 
-    <!-- NAVIGATION -->
-    <nav class="nav-bar" aria-label="Charter and Code navigation">
-      <span class="current">Charter &amp; Code Hub</span>
-      <a href="the-neosho-city-charter-plain-english.html">Charter — Explained</a>
-      <a href="city-code-explained.html">City Code — Explained</a>
-      <a href="who-has-authority.html">Who Has Authority</a>
-      <a href="how-to-look-up.html">How to Look Things Up</a>
-    </nav>
-
-    <!-- MAIN CONTENT -->
     <div class="card">
-
       <h2 class="section-title">Why this page exists</h2>
-
       <p class="p">When local issues come up, it’s common to hear:</p>
-
       <ul class="ul">
         <li>“Why doesn’t City Council just fix this?”</li>
         <li>“Didn’t Council already vote on that?”</li>
@@ -158,8 +266,7 @@
 
       <p class="p">
         Neosho operates under a <strong>Home Rule Charter</strong> and an adopted
-        <strong>City Code</strong>. These documents — not personalities or politics —
-        define:
+        <strong>City Code</strong>. These documents — not personalities or politics — define:
       </p>
 
       <ul class="ul">
@@ -169,10 +276,7 @@
         <li>What limits exist to protect citizens and the City</li>
       </ul>
 
-      <p class="p">
-        This page exists to explain those rules in plain English and connect you
-        to deeper resources if you want to explore further.
-      </p>
+      <p class="p">This page exists to explain those rules in plain English and connect you to deeper resources if you want to explore further.</p>
 
       <div class="callout-box">
         <strong>The order of authority</strong>
@@ -184,9 +288,43 @@
           <li>Policies &amp; procedures</li>
         </ol>
       </div>
-
     </div>
   </div>
 
+  <script>
+    // Force all links to open in same tab
+    document.querySelectorAll('a.jenews-link, a.jenews-pill').forEach(link => {
+      link.setAttribute('target', '_self');
+    });
+
+    // Hover menu fix
+    document.querySelectorAll('.jenews-nav li').forEach(li => {
+      let timer;
+      const submenu = li.querySelector('ul');
+
+      if (submenu) {
+        li.addEventListener('mouseenter', () => {
+          clearTimeout(timer);
+          submenu.style.display = 'flex';
+        });
+
+        li.addEventListener('mouseleave', () => {
+          timer = setTimeout(() => {
+            submenu.style.display = 'none';
+          }, 300);
+        });
+
+        submenu.addEventListener('mouseenter', () => {
+          clearTimeout(timer);
+        });
+
+        submenu.addEventListener('mouseleave', () => {
+          timer = setTimeout(() => {
+            submenu.style.display = 'none';
+          }, 300);
+        });
+      }
+    });
+  </script>
 </body>
 </html>
