@@ -13,11 +13,7 @@
       color: #111827;
     }
 
-    .jenews-home {
-      line-height: 1.45;
-    }
-
-    /* ===== SITE HEADER (same as other pages) ===== */
+    /* ===== SITE HEADER ===== */
     .jenews-wrap {
       max-width: 1040px;
       margin: 0 auto;
@@ -161,25 +157,26 @@
       }
     }
 
-    /* ===== PAGE SPECIFIC ===== */
-    .prepping-wrap {
-      max-width: 1040px;
-      margin: auto;
-      padding: 18px 16px 40px;
-    }
-
+    /* ===== PREPARING TO SERVE CONTENT ===== */
     .prepping-title {
       font-size: clamp(32px, 5vw, 48px);
       font-weight: 700;
       text-align: center;
+      margin-bottom: 4px;
+    }
+
+    .prepping-sub {
+      text-align: center;
+      color: #374151;
+      font-size: 14.5px;
       margin-bottom: 18px;
     }
 
     .card-grid {
       display: grid;
       gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      margin-top: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-top: 20px;
     }
 
     .series-card {
@@ -189,6 +186,8 @@
       text-align: center;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       transition: transform 0.2s ease;
+      display: flex;
+      flex-direction: column;
     }
 
     .series-card:hover {
@@ -198,19 +197,24 @@
 
     .series-card img {
       width: 100%;
-      display: block;
+      height: 160px;        /* FIXED HEIGHT */
+      object-fit: cover;    /* CROP & FILL */
+      flex-shrink: 0;
     }
 
     .series-card h3 {
-      margin: 10px 0;
+      margin: 12px 10px;
       font-size: 18px;
       color: #1e3a8a;
-      padding: 0 10px 10px;
     }
 
     .series-card a {
       text-decoration: none;
       color: inherit;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
   </style>
 </head>
@@ -220,8 +224,10 @@
   <!-- SITE HEADER -->
   <div class="jenews-wrap">
     <header class="jenews-masthead">
-      <h1 class="jenews-name">Preparing to Serve</h1>
-      <p class="jenews-tagline">Series overview • Articles • Insight • Civic participation</p>
+      <h1 class="jenews-name">Jake Evans News</h1>
+      <p class="jenews-tagline">
+        Local updates • Civic preparation • Charter &amp; Code • Upcoming meetings
+      </p>
     </header>
 
     <button class="jenews-hamburger" onclick="document.querySelector('.jenews-nav').classList.toggle('show')">
@@ -247,56 +253,47 @@
         </ul>
       </div>
     </nav>
+
+    <!-- PAGE TITLE -->
+    <div class="prepping-title">Preparing to Serve</div>
+    <div class="prepping-sub">Series overview • Articles • Insight • Civic participation</div>
   </div>
 
-  <!-- PAGE CONTENT -->
-  <section class="prepping-wrap">
-
-    <div class="card-grid">
-
-      <!-- Series 1 -->
-      <div class="series-card">
-        <a href="https://jakeevansnews.substack.com/s/who-i-am-before-the-title">
-          <img src="who-i-am.jpg" alt="Who I Am (Before the Title)" />
-          <h3>Who I Am (Before the Title)</h3>
-        </a>
-      </div>
-
-      <!-- Series 2 -->
-      <div class="series-card">
-        <a href="https://jakeevansnews.substack.com/s/how-i-think-about-series-1">
-          <img src="how-i-think-about.png" alt="How I Think About..." />
-          <h3>How I Think About…</h3>
-        </a>
-      </div>
-
-      <!-- Series 3 -->
-      <div class="series-card">
-        <a href="https://jakeevansnews.substack.com/s/what-im-learning">
-          <img src="what-im-learning.png" alt="What I’m Learning" />
-          <h3>What I’m Learning</h3>
-        </a>
-      </div>
-
-      <!-- Series 4 -->
-      <div class="series-card">
-        <a href="https://jakeevansnews.substack.com/s/before-the-vote-series-4">
-          <img src="before-the-vote.png" alt="Before the Vote" />
-          <h3>Before the Vote</h3>
-        </a>
-      </div>
-
-      <!-- Series 5 -->
-      <div class="series-card">
-        <a href="https://jakeevansnews.substack.com/s/before-im-sworn-in-series-5">
-          <img src="before-im-sworn-in.png" alt="Before I’m Sworn In" />
-          <h3>Before I’m Sworn In</h3>
-        </a>
-      </div>
-
+  <!-- CARD GRID -->
+  <section class="card-grid">
+    <div class="series-card">
+      <a href="https://jakeevansnews.substack.com/s/who-i-am-before-the-title">
+        <img src="who-i-am.jpg" alt="Who I Am (Before the Title)" />
+        <h3>Who I Am (Before the Title)</h3>
+      </a>
     </div>
 
-  </section>
+    <div class="series-card">
+      <a href="https://jakeevansnews.substack.com/s/how-i-think-about-series-1">
+        <img src="how-i-think-about.png" alt="How I Think About..." />
+        <h3>How I Think About…</h3>
+      </a>
+    </div>
 
+    <div class="series-card">
+      <a href="https://jakeevansnews.substack.com/s/what-im-learning">
+        <img src="what-im-learning.png" alt="What I’m Learning" />
+        <h3>What I’m Learning</h3>
+      </a>
+    </div>
+
+    <div class="series-card">
+      <a href="https://jakeevansnews.substack.com/s/before-the-vote-series-4">
+        <img src="before-the-vote.png" alt="Before the Vote" />
+        <h3>Before the Vote</h3>
+      </a>
+    </div>
+
+    <div class="series-card">
+      <a href="https://jakeevansnews.substack.com/s/before-im-sworn-in-series-5">
+        <img src="before-im-sworn-in.png" alt="Before I’m Sworn In" />
+        <h3>Before I’m Sworn In</h3>
+      </a>
+    </section>
 </body>
 </html>
