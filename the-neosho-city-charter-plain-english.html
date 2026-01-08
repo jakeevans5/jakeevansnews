@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Charter — Explained</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <style>
     body {
       margin: 0;
-      background: #f9fafb;
+      background: #e5e7eb;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: #111827;
     }
@@ -33,8 +34,8 @@
     .jenews-name {
       margin: 0;
       font-size: clamp(30px, 4vw, 54px);
-      letter-spacing: -0.02em;
       font-weight: 800;
+      letter-spacing: -0.02em;
     }
 
     .jenews-tagline {
@@ -53,7 +54,6 @@
       font-weight: bold;
       padding: 12px 0;
       margin: 0 auto;
-      text-align: center;
     }
 
     .jenews-nav-wrap {
@@ -95,7 +95,7 @@
       background: #eff6ff;
       color: #1e3a8a;
       text-decoration: none;
-      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      transition: all 0.2s ease;
       display: inline-block;
     }
 
@@ -111,16 +111,36 @@
       position: absolute;
       top: 110%;
       left: 0;
-      background: #eff6ff;
-      padding: 10px;
+      background: #ffffff;
+      border: 1px solid #c7d2fe;
+      padding: 6px;
       border-radius: 12px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.06);
       z-index: 100;
+      min-width: 220px;
+    }
+
+    .jenews-nav li:hover > ul {
+      display: flex;
+    }
+
+    .jenews-nav ul ul a {
+      background: #eff6ff;
+      border-radius: 999px;
+      padding: 8px 14px;
+      margin: 4px 0;
+      white-space: nowrap;
+    }
+
+    .jenews-nav ul ul a:hover {
+      background: #1d4ed8;
+      color: white;
     }
 
     @media (max-width: 768px) {
       .jenews-nav {
-        flex-direction: column;
         display: none;
+        flex-direction: column;
       }
 
       .jenews-nav.show {
@@ -129,13 +149,10 @@
 
       .jenews-nav ul {
         flex-direction: column;
-        gap: 5px;
       }
 
       .jenews-nav ul ul {
         position: relative;
-        top: auto;
-        left: auto;
       }
 
       .jenews-hamburger {
@@ -143,53 +160,92 @@
       }
     }
 
-    /* CONTENT STYLES */
-    .container {
+    /* === Page Content === */
+    .neosho-wrap {
       max-width: 860px;
       margin: 0 auto;
-      padding: 32px 18px 64px;
+      padding: 18px 16px 48px;
     }
 
-    h2 {
-      font-size: 22px;
-      margin-top: 0;
+    .neosho-title {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 750;
     }
 
-    ul {
-      padding-left: 20px;
+    .neosho-subtitle {
+      margin: 0 0 16px;
+      font-size: 16px;
+      color: #374151;
     }
 
-    li {
-      margin-bottom: 8px;
+    .neosho-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 18px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 6px 16px rgba(17,24,39,0.06);
     }
 
-    .info-box {
-      background: #e0edff;
-      padding: 12px 16px;
-      margin: 16px 0;
-      border-radius: 10px;
-      border-left: 4px solid #3b82f6;
+    .neosho-h2 {
+      margin: 18px 0 8px;
+      font-size: 20px;
+      font-weight: 700;
     }
 
-    .order-box {
-      background: #f8f9fa;
-      padding: 16px;
-      border-radius: 10px;
-      border: 1px solid #e2e8f0;
-      margin-top: 24px;
+    .neosho-p {
+      margin: 0 0 12px;
+      font-size: 15.5px;
+      line-height: 1.55;
     }
 
-    .note {
+    .neosho-ul {
+      margin: 8px 0 14px 18px;
+      padding: 0;
+    }
+
+    .neosho-ul li {
+      margin: 6px 0;
+    }
+
+    .neosho-callout {
+      border-left: 4px solid #1d4ed8;
+      background: #eff6ff;
+      border-radius: 12px;
+      padding: 12px;
+      margin: 14px 0;
+    }
+
+    .neosho-grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 840px) {
+      .neosho-grid {
+        grid-template-columns: 1.2fr 0.8fr;
+      }
+    }
+
+    .neosho-box {
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .neosho-disclaimer {
+      margin-top: 14px;
+      font-size: 12.5px;
+      color: #6b7280;
       font-style: italic;
-      font-size: 13.5px;
-      color: #555;
-      margin-top: 24px;
-      text-align: center;
     }
   </style>
 </head>
 
 <body class="jenews-home">
+
   <div class="jenews-wrap">
     <header class="jenews-masthead">
       <h1 class="jenews-name">Jake Evans News</h1>
@@ -207,92 +263,89 @@
           <li><a href="about.html">About Jake Evans</a></li>
           <li><a href="preparing-to-serve.html">Preparing to Serve</a></li>
           <li>
-            <a href="charter-code.html" class="jenews-pill">Neosho Charter &amp; Code ▾</a>
+            <a href="charter-code.html">Neosho Charter &amp; Code ▾</a>
             <ul>
-              <li><a href="the-neosho-city-charter-plain-english.html">Charter - Explained</a></li>
-              <li><a href="city-code-explained.html">City Code - Explained</a></li>
+              <li><a href="the-neosho-city-charter-plain-english.html">Charter – Explained</a></li>
+              <li><a href="city-code-explained.html">City Code – Explained</a></li>
               <li><a href="who-has-authority.html">Who Has Authority</a></li>
               <li><a href="how-to-look-up.html">How to Look Things Up</a></li>
             </ul>
           </li>
-          <li><a href="#" class="jenews-pill" style="pointer-events:none; opacity:0.55;">Upcoming Meetings</a></li>
+          <li><a href="#" style="pointer-events:none; opacity:0.55;">Upcoming Meetings</a></li>
         </ul>
       </div>
     </nav>
   </div>
 
-  <div class="container">
-    <h2>Why this page exists</h2>
-    <p>When local issues come up, it’s common to hear:</p>
-    <ul>
-      <li>“Why doesn’t City Council just fix this?”</li>
-      <li>“Didn’t Council already vote on that?”</li>
-      <li>“Can the City even do that?”</li>
-    </ul>
+  <section class="neosho-wrap">
+    <h1 class="neosho-title">The Neosho City Charter — Plain English</h1>
+    <p class="neosho-subtitle">
+      What the Charter is, what it does, and why it matters.
+    </p>
 
-    <div class="info-box">
-      <strong>The honest answer is simple:</strong> it depends on the law.
+    <div class="neosho-card">
+      <p class="neosho-p">
+        The City Charter is the foundational governing document for Neosho. It functions much like a local constitution and sets the structure, authority, and limits of city government.
+      </p>
+
+      <div class="neosho-callout">
+        <strong>Key idea:</strong> If something is not authorized by the Charter (or is prohibited by Missouri law), the City cannot legally do it — regardless of popularity or intent.
+      </div>
+
+      <div class="neosho-grid">
+        <div>
+          <h2 class="neosho-h2">What the Charter establishes</h2>
+          <ul class="neosho-ul">
+            <li>The form of government used by the City</li>
+            <li>The powers and limits of City Council</li>
+            <li>The role and authority of the City Manager</li>
+            <li>How ordinances and resolutions are adopted</li>
+            <li>Financial, ethical, and election-related rules</li>
+          </ul>
+
+          <h2 class="neosho-h2">Neosho’s form of government</h2>
+          <p class="neosho-p">
+            Neosho operates under a <strong>Council–Manager</strong> form of government. This means City Council serves as the legislative body, while the City Manager is responsible for day-to-day administration.
+          </p>
+
+          <p class="neosho-p">
+            This separation is intentional. It prevents political interference in operations and helps ensure consistent, professional management.
+          </p>
+        </div>
+
+        <aside class="neosho-box">
+          <strong>What City Council does</strong>
+          <ul class="neosho-ul">
+            <li>Sets policy</li>
+            <li>Passes ordinances and resolutions</li>
+            <li>Approves the budget</li>
+            <li>Appoints the City Manager and boards</li>
+          </ul>
+
+          <strong style="display:block;margin-top:10px;">What City Council does not do</strong>
+          <ul class="neosho-ul">
+            <li>Run daily operations</li>
+            <li>Direct individual staff members</li>
+            <li>Decide enforcement outcomes</li>
+            <li>Override due process</li>
+          </ul>
+        </aside>
+      </div>
+
+      <h2 class="neosho-h2">Why the Charter matters to citizens</h2>
+      <p class="neosho-p">
+        Many frustrations with local government come from misunderstandings about authority. The Charter exists to protect residents, staff, and the City itself by clearly defining who can do what — and how.
+      </p>
+
+      <p class="neosho-p">
+        Understanding the Charter helps set realistic expectations and leads to more productive public discussion.
+      </p>
+
+      <p class="neosho-disclaimer">
+        Disclaimer: This page is for educational purposes only. It reflects my understanding as a citizen and public servant and is not an official City of Neosho publication or legal advice.
+      </p>
     </div>
+  </section>
 
-    <p>Neosho operates under a <strong>Home Rule Charter</strong> and an adopted <strong>City Code</strong>. These documents — not personalities or politics — define:</p>
-
-    <ul>
-      <li>Who has authority</li>
-      <li>How decisions are made</li>
-      <li>What processes must be followed</li>
-      <li>What limits exist to protect citizens and the City</li>
-    </ul>
-
-    <p>This page exists to explain those rules in plain English and connect you to deeper resources if you want to explore further.</p>
-
-    <div class="order-box">
-      <strong>The order of authority</strong><br>
-      1. Missouri State Law<br>
-      2. Neosho City Charter<br>
-      3. Adopting Ordinance<br>
-      4. Neosho City Code<br>
-      5. Policies &amp; procedures
-    </div>
-
-    <div class="note">
-      This page is part of a citizen-led project to make local government more understandable.
-    </div>
-  </div>
-
-  <script>
-    // Force all links to open in same tab
-    document.querySelectorAll('a.jenews-link, a.jenews-pill').forEach(link => {
-      link.setAttribute('target', '_self');
-    });
-
-    // Hover submenu fix
-    document.querySelectorAll('.jenews-nav li').forEach(li => {
-      let timer;
-      const submenu = li.querySelector('ul');
-
-      if (submenu) {
-        li.addEventListener('mouseenter', () => {
-          clearTimeout(timer);
-          submenu.style.display = 'flex';
-        });
-
-        li.addEventListener('mouseleave', () => {
-          timer = setTimeout(() => {
-            submenu.style.display = 'none';
-          }, 300);
-        });
-
-        submenu.addEventListener('mouseenter', () => {
-          clearTimeout(timer);
-        });
-
-        submenu.addEventListener('mouseleave', () => {
-          timer = setTimeout(() => {
-            submenu.style.display = 'none';
-          }, 300);
-        });
-      }
-    });
-  </script>
 </body>
 </html>
