@@ -7,120 +7,159 @@
   <style>
     body {
       margin: 0;
+      background: #f9fafb;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background-color: #f9fafb;
       color: #111827;
     }
 
-    /* ========== HEADER ========== */
-    header.site-header {
-      padding: 30px 20px 18px;
+    .jenews-home {
+      line-height: 1.45;
+    }
+
+    .jenews-wrap {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 18px 16px 28px;
+    }
+
+    .jenews-masthead {
+      border-top: 3px solid #111827;
+      border-bottom: 1px solid #d1d5db;
+      padding: 14px 0 12px;
+      margin-bottom: 14px;
       text-align: center;
-      background-color: #f9fafb;
-      border-top: 4px solid #0f172a;
-      border-bottom: 1px solid #e5e7eb;
     }
 
-    .site-header h1 {
-      font-size: clamp(30px, 5vw, 46px);
+    .jenews-name {
       margin: 0;
-      color: #0f172a;
+      font-size: clamp(30px, 4vw, 54px);
+      letter-spacing: -0.02em;
+      font-weight: 800;
     }
 
-    .site-header p {
-      margin: 8px 0 0;
-      font-size: 15px;
+    .jenews-tagline {
+      margin: 6px 0 0;
+      font-size: 14.5px;
       color: #374151;
     }
 
-    .site-nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .site-nav a {
-      font-size: 14px;
-      font-weight: 600;
-      padding: 8px 16px;
-      border-radius: 999px;
-      border: 1px solid #c7d8ee;
-      background-color: #f1f5ff;
-      text-decoration: none;
+    .jenews-hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 20px;
+      background: none;
+      border: none;
       color: #1e3a8a;
-      transition: all 0.2s ease;
+      font-weight: bold;
+      padding: 12px 0;
+      margin: 0 auto;
+      text-align: center;
     }
 
-    .site-nav a:hover {
-      background-color: #1e3a8a;
-      color: white;
+    .jenews-nav-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .site-nav a.disabled {
-      pointer-events: none;
-      opacity: 0.5;
+    .jenews-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      padding: 12px 0 14px;
+      border-bottom: 1px solid #e5e7eb;
+      margin-bottom: 16px;
     }
 
-    .dropdown {
+    .jenews-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .jenews-nav li {
       position: relative;
     }
 
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: white;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      border-radius: 10px;
-      overflow: hidden;
-      z-index: 10;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .dropdown-content a {
-      display: block;
-      padding: 10px 16px;
-      text-align: left;
+    .jenews-nav a {
+      font-size: 13.5px;
+      font-weight: 650;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid #bfdbfe;
+      background: #eff6ff;
       color: #1e3a8a;
       text-decoration: none;
-      font-weight: 500;
-      border-bottom: 1px solid #e5e7eb;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      display: inline-block;
     }
 
-    .dropdown-content a:last-child {
-      border-bottom: none;
+    .jenews-nav a:hover {
+      background: #1d4ed8;
+      color: #ffffff;
+      border-color: #1d4ed8;
     }
 
-    .dropdown-content a:hover {
-      background-color: #eff6ff;
-    }
-
-    /* ========== MAIN ========== */
-    main {
-      max-width: 860px;
-      margin: 32px auto;
-      background: white;
+    .jenews-nav ul ul {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 110%;
+      left: 0;
+      background: #eff6ff;
+      padding: 10px;
       border-radius: 12px;
-      padding: 24px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+      z-index: 100;
     }
 
-    main h2 {
+    @media (max-width: 768px) {
+      .jenews-nav {
+        flex-direction: column;
+        display: none;
+      }
+
+      .jenews-nav.show {
+        display: flex;
+      }
+
+      .jenews-nav ul {
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .jenews-nav ul ul {
+        position: relative;
+        top: auto;
+        left: auto;
+      }
+
+      .jenews-hamburger {
+        display: block;
+      }
+    }
+
+    /* CONTENT STYLES */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 32px 18px 64px;
+    }
+
+    h2 {
       font-size: 22px;
       margin-top: 0;
     }
 
-    main ul {
+    ul {
       padding-left: 20px;
     }
 
-    main li {
+    li {
       margin-bottom: 8px;
     }
 
@@ -150,32 +189,39 @@
   </style>
 </head>
 
-<body>
+<body class="jenews-home">
+  <div class="jenews-wrap">
+    <header class="jenews-masthead">
+      <h1 class="jenews-name">Jake Evans News</h1>
+      <p class="jenews-tagline">Local updates • Civic preparation • Charter &amp; Code • Upcoming meetings</p>
+    </header>
 
-  <!-- ✅ HEADER -->
-  <header class="site-header">
-    <h1>Jake Evans News</h1>
-    <p>Local updates • Civic preparation • Charter & Code • Upcoming meetings</p>
+    <button class="jenews-hamburger" onclick="document.querySelector('.jenews-nav').classList.toggle('show')">
+      ☰ Menu
+    </button>
 
-    <nav class="site-nav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About Jake Evans</a>
-      <a href="preparing-to-serve.html">Preparing to Serve</a>
-      <div class="dropdown">
-        <a href="charter-code.html">Neosho Charter & Code ▾</a>
-        <div class="dropdown-content">
-          <a href="the-neosho-city-charter-plain-english.html">Charter — Explained</a>
-          <a href="city-code-explained.html">City Code — Explained</a>
-          <a href="who-has-authority.html">Who Has Authority</a>
-          <a href="how-to-look-up.html">How to Look Things Up</a>
-        </div>
+    <nav class="jenews-nav-wrap">
+      <div class="jenews-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Jake Evans</a></li>
+          <li><a href="preparing-to-serve.html">Preparing to Serve</a></li>
+          <li>
+            <a href="charter-code.html" class="jenews-pill">Neosho Charter &amp; Code ▾</a>
+            <ul>
+              <li><a href="the-neosho-city-charter-plain-english.html">Charter - Explained</a></li>
+              <li><a href="city-code-explained.html">City Code - Explained</a></li>
+              <li><a href="who-has-authority.html">Who Has Authority</a></li>
+              <li><a href="how-to-look-up.html">How to Look Things Up</a></li>
+            </ul>
+          </li>
+          <li><a href="#" class="jenews-pill" style="pointer-events:none; opacity:0.55;">Upcoming Meetings</a></li>
+        </ul>
       </div>
-      <a href="#" class="disabled">Upcoming Meetings</a>
     </nav>
-  </header>
+  </div>
 
-  <!-- ✅ MAIN CONTENT -->
-  <main>
+  <div class="container">
     <h2>Why this page exists</h2>
     <p>When local issues come up, it’s common to hear:</p>
     <ul>
@@ -205,13 +251,48 @@
       2. Neosho City Charter<br>
       3. Adopting Ordinance<br>
       4. Neosho City Code<br>
-      5. Policies & procedures
+      5. Policies &amp; procedures
     </div>
 
     <div class="note">
       This page is part of a citizen-led project to make local government more understandable.
     </div>
-  </main>
+  </div>
 
+  <script>
+    // Force all links to open in same tab
+    document.querySelectorAll('a.jenews-link, a.jenews-pill').forEach(link => {
+      link.setAttribute('target', '_self');
+    });
+
+    // Hover submenu fix
+    document.querySelectorAll('.jenews-nav li').forEach(li => {
+      let timer;
+      const submenu = li.querySelector('ul');
+
+      if (submenu) {
+        li.addEventListener('mouseenter', () => {
+          clearTimeout(timer);
+          submenu.style.display = 'flex';
+        });
+
+        li.addEventListener('mouseleave', () => {
+          timer = setTimeout(() => {
+            submenu.style.display = 'none';
+          }, 300);
+        });
+
+        submenu.addEventListener('mouseenter', () => {
+          clearTimeout(timer);
+        });
+
+        submenu.addEventListener('mouseleave', () => {
+          timer = setTimeout(() => {
+            submenu.style.display = 'none';
+          }, 300);
+        });
+      }
+    });
+  </script>
 </body>
 </html>
