@@ -2,298 +2,251 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Preparing to Serve</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
       margin: 0;
-      background: #f9fafb;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background-color: #f9fafb;
       color: #111827;
     }
 
-    /* ===== SITE HEADER ===== */
-    .jenews-wrap {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 18px 16px 28px;
-    }
-
-    .jenews-masthead {
-      border-top: 3px solid #111827;
-      border-bottom: 1px solid #d1d5db;
-      padding: 14px 0 12px;
-      margin-bottom: 14px;
+    header.site-header {
+      padding: 30px 20px 18px;
       text-align: center;
+      background-color: #f9fafb;
+      border-top: 4px solid #0f172a;
+      border-bottom: 1px solid #e5e7eb;
     }
 
-    .jenews-name {
+    .site-header h1 {
+      font-size: clamp(30px, 5vw, 46px);
       margin: 0;
-      font-size: clamp(30px, 4vw, 54px);
-      font-weight: 800;
-      letter-spacing: -0.02em;
+      color: #0f172a;
     }
 
-    .jenews-tagline {
-      margin: 6px 0 0;
-      font-size: 14.5px;
+    .site-header p {
+      margin: 8px 0 0;
+      font-size: 15px;
       color: #374151;
     }
 
-    .jenews-hamburger {
-      display: none;
-      cursor: pointer;
-      font-size: 20px;
-      background: none;
-      border: none;
-      color: #1e3a8a;
-      font-weight: bold;
-      padding: 12px 0;
-      margin: 0 auto;
-    }
-
-    .jenews-nav-wrap {
+    .site-nav {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .jenews-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
       justify-content: center;
-      padding: 12px 0 14px;
-      border-bottom: 1px solid #e5e7eb;
-      margin-bottom: 16px;
-    }
-
-    .jenews-nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      gap: 10px;
       flex-wrap: wrap;
-      justify-content: center;
+      gap: 12px;
+      margin-top: 16px;
     }
 
-    .jenews-nav li {
-      position: relative;
-    }
-
-    .jenews-nav a {
-      font-size: 13.5px;
-      font-weight: 650;
-      padding: 8px 12px;
+    .site-nav a {
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 16px;
       border-radius: 999px;
-      border: 1px solid #bfdbfe;
-      background: #eff6ff;
-      color: #1e3a8a;
+      border: 1px solid #c7d8ee;
+      background-color: #f1f5ff;
       text-decoration: none;
+      color: #1e3a8a;
       transition: all 0.2s ease;
-      display: inline-block;
     }
 
-    .jenews-nav a:hover {
-      background: #1d4ed8;
-      color: #ffffff;
-      border-color: #1d4ed8;
-    }
-
-    .jenews-nav ul ul {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 110%;
-      left: 0;
-      background: #ffffff;
-      border: 1px solid #c7d2fe;
-      padding: 6px;
-      border-radius: 12px;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.06);
-      z-index: 100;
-      min-width: 220px;
-    }
-
-    .jenews-nav li:hover > ul {
-      display: flex;
-    }
-
-    .jenews-nav ul ul a {
-      background: #eff6ff;
-      border-radius: 999px;
-      padding: 8px 14px;
-      margin: 4px 0;
-      white-space: nowrap;
-    }
-
-    .jenews-nav ul ul a:hover {
-      background: #1d4ed8;
+    .site-nav a:hover {
+      background-color: #1e3a8a;
       color: white;
     }
 
-    @media (max-width: 768px) {
-      .jenews-nav {
-        display: none;
-        flex-direction: column;
-      }
-
-      .jenews-nav.show {
-        display: flex;
-      }
-
-      .jenews-nav ul {
-        flex-direction: column;
-      }
-
-      .jenews-nav ul ul {
-        position: relative;
-      }
-
-      .jenews-hamburger {
-        display: block;
-      }
+    .site-nav a.disabled {
+      pointer-events: none;
+      opacity: 0.5;
     }
 
-    /* ===== PREPARING TO SERVE CONTENT ===== */
-    .prepping-title {
-      font-size: clamp(32px, 5vw, 48px);
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      z-index: 10;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px 16px;
+      text-align: left;
+      color: #1e3a8a;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .dropdown-content a:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #eff6ff;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 32px auto;
+      padding: 24px 16px;
+    }
+
+    .page-title {
+      font-size: clamp(26px, 5vw, 38px);
       font-weight: 700;
       text-align: center;
-      margin-bottom: 4px;
+      color: #0f172a;
+      margin-bottom: 6px;
     }
 
-    .prepping-sub {
+    .page-subtitle {
       text-align: center;
-      color: #374151;
       font-size: 14.5px;
-      margin-bottom: 18px;
+      color: #374151;
+      margin-bottom: 32px;
     }
 
     .card-grid {
-      display: grid;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .card-row {
+      display: flex;
       gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      margin-top: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
     .series-card {
       background: white;
       border-radius: 12px;
       overflow: hidden;
+      width: 220px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       transition: transform 0.2s ease;
-      display: flex;
-      flex-direction: column;
     }
 
     .series-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
     }
 
     .series-card img {
       width: 100%;
-      height: 160px;        /* FIXED HEIGHT */
-      object-fit: cover;    /* CROP & FILL */
-      flex-shrink: 0;
+      height: 140px;
+      object-fit: cover;
+      display: block;
     }
 
     .series-card h3 {
-      margin: 12px 10px;
-      font-size: 18px;
+      font-size: 15px;
+      font-weight: 700;
       color: #1e3a8a;
+      margin: 12px 8px 16px;
     }
 
     .series-card a {
       text-decoration: none;
       color: inherit;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      .series-card {
+        width: 100%;
+        max-width: 320px;
+      }
     }
   </style>
 </head>
 
-<body class="jenews-home">
+<body>
 
-  <!-- SITE HEADER -->
-  <div class="jenews-wrap">
-    <header class="jenews-masthead">
-      <h1 class="jenews-name">Jake Evans News</h1>
-      <p class="jenews-tagline">
-        Local updates • Civic preparation • Charter &amp; Code • Upcoming meetings
-      </p>
-    </header>
+  <!-- ✅ HEADER -->
+  <header class="site-header">
+    <h1>Jake Evans News</h1>
+    <p>Local updates • Civic preparation • Charter & Code • Upcoming meetings</p>
 
-    <button class="jenews-hamburger" onclick="document.querySelector('.jenews-nav').classList.toggle('show')">
-      ☰ Menu
-    </button>
-
-    <nav class="jenews-nav-wrap">
-      <div class="jenews-nav">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Jake Evans</a></li>
-          <li><a href="preparing-to-serve.html">Preparing to Serve</a></li>
-          <li>
-            <a href="charter-code.html">Neosho Charter &amp; Code ▾</a>
-            <ul>
-              <li><a href="the-neosho-city-charter-plain-english.html">Charter – Explained</a></li>
-              <li><a href="city-code-explained.html">City Code – Explained</a></li>
-              <li><a href="who-has-authority.html">Who Has Authority</a></li>
-              <li><a href="how-to-look-up.html">How to Look Things Up</a></li>
-            </ul>
-          </li>
-          <li><a href="#" style="pointer-events:none; opacity:0.55;">Upcoming Meetings</a></li>
-        </ul>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Jake Evans</a>
+      <a href="preparing-to-serve.html">Preparing to Serve</a>
+      <div class="dropdown">
+        <a href="charter-code.html">Neosho Charter & Code ▾</a>
+        <div class="dropdown-content">
+          <a href="the-neosho-city-charter-plain-english.html">Charter — Explained</a>
+          <a href="city-code-explained.html">City Code — Explained</a>
+          <a href="who-has-authority.html">Who Has Authority</a>
+          <a href="how-to-look-up.html">How to Look Things Up</a>
+        </div>
       </div>
+      <a href="#" class="disabled">Upcoming Meetings</a>
     </nav>
+  </header>
 
-    <!-- PAGE TITLE -->
-    <div class="prepping-title">Preparing to Serve</div>
-    <div class="prepping-sub">Series overview • Articles • Insight • Civic participation</div>
-  </div>
+  <!-- ✅ MAIN CONTENT -->
+  <main>
+    <div class="page-title">Preparing to Serve</div>
+    <div class="page-subtitle">Series overview • Articles • Insight • Civic participation</div>
 
-  <!-- CARD GRID -->
-  <section class="card-grid">
-    <div class="series-card">
-      <a href="https://jakeevansnews.substack.com/s/who-i-am-before-the-title">
-        <img src="who-i-am.jpg" alt="Who I Am (Before the Title)" />
-        <h3>Who I Am (Before the Title)</h3>
-      </a>
-    </div>
+    <section class="card-grid">
+      <div class="card-row">
+        <div class="series-card">
+          <a href="https://jakeevansnews.substack.com/s/who-i-am-before-the-title">
+            <img src="who-i-am.jpg" alt="Who I Am (Before the Title)" />
+            <h3>Who I Am (Before the Title)</h3>
+          </a>
+        </div>
 
-    <div class="series-card">
-      <a href="https://jakeevansnews.substack.com/s/how-i-think-about-series-1">
-        <img src="how-i-think-about.png" alt="How I Think About..." />
-        <h3>How I Think About…</h3>
-      </a>
-    </div>
+        <div class="series-card">
+          <a href="https://jakeevansnews.substack.com/s/how-i-think-about-series-1">
+            <img src="how-i-think-about.png" alt="How I Think About…" />
+            <h3>How I Think About…</h3>
+          </a>
+        </div>
 
-    <div class="series-card">
-      <a href="https://jakeevansnews.substack.com/s/what-im-learning">
-        <img src="what-im-learning.png" alt="What I’m Learning" />
-        <h3>What I’m Learning</h3>
-      </a>
-    </div>
+        <div class="series-card">
+          <a href="https://jakeevansnews.substack.com/s/what-im-learning">
+            <img src="what-im-learning.png" alt="What I’m Learning" />
+            <h3>What I’m Learning</h3>
+          </a>
+        </div>
+      </div>
 
-    <div class="series-card">
-      <a href="https://jakeevansnews.substack.com/s/before-the-vote-series-4">
-        <img src="before-the-vote.png" alt="Before the Vote" />
-        <h3>Before the Vote</h3>
-      </a>
-    </div>
+      <div class="card-row">
+        <div class="series-card">
+          <a href="https://jakeevansnews.substack.com/s/before-the-vote-series-4">
+            <img src="before-the-vote.png" alt="Before the Vote" />
+            <h3>Before the Vote</h3>
+          </a>
+        </div>
 
-    <div class="series-card">
-      <a href="https://jakeevansnews.substack.com/s/before-im-sworn-in-series-5">
-        <img src="before-im-sworn-in.png" alt="Before I’m Sworn In" />
-        <h3>Before I’m Sworn In</h3>
-      </a>
+        <div class="series-card">
+          <a href="https://jakeevansnews.substack.com/s/before-im-sworn-in-series-5">
+            <img src="before-im-sworn-in.png" alt="Before I’m Sworn In" />
+            <h3>Before I’m Sworn In</h3>
+          </a>
+        </div>
+      </div>
     </section>
+  </main>
+
 </body>
 </html>
