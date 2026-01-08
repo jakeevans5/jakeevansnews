@@ -1,252 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Preparing to Serve</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <title>Jake Evans News</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <style>
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background-color: #f9fafb;
+      padding: 0;
+      background: #f9fafb;
+    }
+
+    .jenews-home {
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
       color: #111827;
+      line-height: 1.45;
     }
 
-    header.site-header {
-      padding: 30px 20px 18px;
+    .jenews-wrap {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 18px 16px 28px;
+    }
+
+    .jenews-masthead {
+      border-top: 3px solid #111827;
+      border-bottom: 1px solid #d1d5db;
+      padding: 14px 0 12px;
+      margin-bottom: 14px;
       text-align: center;
-      background-color: #f9fafb;
-      border-top: 4px solid #0f172a;
-      border-bottom: 1px solid #e5e7eb;
     }
 
-    .site-header h1 {
-      font-size: clamp(30px, 5vw, 46px);
+    .jenews-name {
       margin: 0;
-      color: #0f172a;
+      font-size: clamp(30px, 4vw, 54px);
+      letter-spacing: -0.02em;
+      font-weight: 800;
     }
 
-    .site-header p {
-      margin: 8px 0 0;
-      font-size: 15px;
+    .jenews-tagline {
+      margin: 6px 0 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: #374151;
+      font-size: 14.5px;
     }
 
-    .site-nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .site-nav a {
-      font-size: 14px;
-      font-weight: 600;
-      padding: 8px 16px;
-      border-radius: 999px;
-      border: 1px solid #c7d8ee;
-      background-color: #f1f5ff;
-      text-decoration: none;
+    .jenews-hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 20px;
+      background: none;
+      border: none;
       color: #1e3a8a;
-      transition: all 0.2s ease;
+      font-weight: bold;
+      padding: 12px 0;
+      margin: 0 auto;
+      text-align: center;
     }
 
-    .site-nav a:hover {
-      background-color: #1e3a8a;
-      color: white;
+    .jenews-nav-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .site-nav a.disabled {
-      pointer-events: none;
-      opacity: 0.5;
+    .jenews-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      padding: 12px 0 14px;
+      border-bottom: 1px solid #e5e7eb;
+      margin-bottom: 16px;
     }
 
-    .dropdown {
+    .jenews-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .jenews-nav li {
       position: relative;
     }
 
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: white;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      border-radius: 10px;
-      overflow: hidden;
-      z-index: 10;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .dropdown-content a {
-      display: block;
-      padding: 10px 16px;
-      text-align: left;
+    .jenews-nav a {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 13.5px;
+      font-weight: 650;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid #bfdbfe;
+      background: #eff6ff;
       color: #1e3a8a;
       text-decoration: none;
-      font-weight: 500;
-      border-bottom: 1px solid #e5e7eb;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      display: inline-block;
     }
 
-    .dropdown-content a:last-child {
-      border-bottom: none;
+    .jenews-nav a:hover {
+      background: #1d4ed8;
+      color: #ffffff;
+      border-color: #1d4ed8;
     }
 
-    .dropdown-content a:hover {
-      background-color: #eff6ff;
+    .jenews-nav ul ul {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 110%;
+      left: 0;
+      background: #eff6ff;
+      padding: 10px;
+      border-radius: 12px;
+      z-index: 100;
     }
 
-    main {
-      max-width: 1000px;
-      margin: 32px auto;
-      padding: 24px 16px;
+    @media (max-width: 768px) {
+      .jenews-nav {
+        flex-direction: column;
+        display: none;
+      }
+
+      .jenews-nav.show {
+        display: flex;
+      }
+
+      .jenews-nav ul {
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .jenews-nav ul ul {
+        position: relative;
+        top: auto;
+        left: auto;
+      }
+
+      .jenews-hamburger {
+        display: block;
+      }
     }
 
-    .page-title {
-      font-size: clamp(26px, 5vw, 38px);
-      font-weight: 700;
-      text-align: center;
-      color: #0f172a;
+    .jenews-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 920px) {
+      .jenews-grid {
+        grid-template-columns: 1.55fr 1fr;
+        align-items: start;
+      }
+    }
+
+    .jenews-card {
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 6px 16px rgba(17, 24, 39, 0.06);
+    }
+
+    .jenews-kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 11px;
+      font-weight: 750;
+      color: #1e3a8a;
+      margin: 0 0 8px;
+    }
+
+    .jenews-headline {
+      margin: 0 0 8px;
+      font-size: clamp(22px, 2.7vw, 34px);
+      line-height: 1.15;
+      font-weight: 850;
+      letter-spacing: -0.02em;
+    }
+
+    .jenews-deck {
+      margin: 0;
+      color: #374151;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .jenews-link {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      border-radius: 14px;
+      padding: 2px;
+      transition: transform 0.12s ease;
+    }
+
+    .jenews-link:hover {
+      transform: translateY(-1px);
+    }
+
+    .jenews-side {
+      display: grid;
+      gap: 12px;
+    }
+
+    .jenews-mini {
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 14px;
+      box-shadow: 0 6px 16px rgba(17, 24, 39, 0.06);
+    }
+
+    .jenews-mini .jenews-headline {
+      font-size: 18px;
       margin-bottom: 6px;
     }
 
-    .page-subtitle {
+    .jenews-footer-note {
+      margin-top: 16px;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 12px;
+      font-size: 12.5px;
+      color: #6b7280;
+      font-style: italic;
       text-align: center;
-      font-size: 14.5px;
-      color: #374151;
-      margin-bottom: 32px;
-    }
-
-    .card-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-    }
-
-    .card-row {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .series-card {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      width: 220px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      text-align: center;
-      transition: transform 0.2s ease;
-    }
-
-    .series-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .series-card img {
-      width: 100%;
-      height: 140px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .series-card h3 {
-      font-size: 15px;
-      font-weight: 700;
-      color: #1e3a8a;
-      margin: 12px 8px 16px;
-    }
-
-    .series-card a {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-
-    @media (max-width: 600px) {
-      .series-card {
-        width: 100%;
-        max-width: 320px;
-      }
     }
   </style>
 </head>
+<body class="jenews-home">
+  <div class="jenews-wrap">
+    <header class="jenews-masthead">
+      <h1 class="jenews-name">Jake Evans News</h1>
+      <p class="jenews-tagline">Local updates • Civic preparation • Charter &amp; Code • Upcoming meetings</p>
+    </header>
 
-<body>
+    <button class="jenews-hamburger" onclick="document.querySelector('.jenews-nav').classList.toggle('show')">
+      ☰ Menu
+    </button>
 
-  <!-- ✅ HEADER -->
-  <header class="site-header">
-    <h1>Jake Evans News</h1>
-    <p>Local updates • Civic preparation • Charter & Code • Upcoming meetings</p>
-
-    <nav class="site-nav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About Jake Evans</a>
-      <a href="preparing-to-serve.html">Preparing to Serve</a>
-      <div class="dropdown">
-        <a href="charter-code.html">Neosho Charter & Code ▾</a>
-        <div class="dropdown-content">
-          <a href="the-neosho-city-charter-plain-english.html">Charter — Explained</a>
-          <a href="city-code-explained.html">City Code — Explained</a>
-          <a href="who-has-authority.html">Who Has Authority</a>
-          <a href="how-to-look-up.html">How to Look Things Up</a>
-        </div>
+    <nav class="jenews-nav-wrap">
+      <div class="jenews-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Jake Evans</a></li>
+          <li><a href="preparing-to-serve.html">Preparing to Serve</a></li>
+          <li>
+            <a href="charter-code.html">Neosho Charter &amp; Code ▾</a>
+            <ul>
+              <li><a href="the-neosho-city-charter-plain-english.html">Charter - Explained</a></li>
+              <li><a href="city-code-explained.html">City Code - Explained</a></li>
+              <li><a href="who-has-authority.html">Who Has Authority</a></li>
+              <li><a href="how-to-look-up.html">How to Look Things Up</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="jenews-pill" style="pointer-events:none; opacity:0.55;">Upcoming Meetings</a>
+          </li>
+        </ul>
       </div>
-      <a href="#" class="disabled">Upcoming Meetings</a>
-    </nav>
-  </header>
+    </nav><div style="display: flex; flex-direction: column; align-items: center; gap: 24px; padding: 20px 0;">
 
-  <!-- ✅ MAIN CONTENT -->
-  <main>
-    <div class="page-title">Preparing to Serve</div>
-    <div class="page-subtitle">Series overview • Articles • Insight • Civic participation</div>
-
-    <section class="card-grid">
-      <div class="card-row">
-        <div class="series-card">
-          <a href="https://jakeevansnews.substack.com/s/who-i-am-before-the-title">
-            <img src="who-i-am.jpg" alt="Who I Am (Before the Title)" />
-            <h3>Who I Am (Before the Title)</h3>
-          </a>
-        </div>
-
-        <div class="series-card">
-          <a href="https://jakeevansnews.substack.com/s/how-i-think-about-series-1">
-            <img src="how-i-think-about.png" alt="How I Think About…" />
-            <h3>How I Think About…</h3>
-          </a>
-        </div>
-
-        <div class="series-card">
-          <a href="https://jakeevansnews.substack.com/s/what-im-learning">
-            <img src="what-im-learning.png" alt="What I’m Learning" />
-            <h3>What I’m Learning</h3>
-          </a>
-        </div>
+  <!-- First Row: 3 cards -->
+  <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;">
+    <a href="https://jakeevansnews.substack.com/s/who-i-am-before-the-title" style="text-align: center; width: 220px; text-decoration: none; color: inherit;">
+      <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08); background: #fff;">
+        <img src="https://yourdomain.com/who-i-am.jpg" alt="Who I Am" style="width: 100%; display: block;">
+        <div style="padding: 10px; font-weight: 700; font-size: 14px; color: #1e3a8a;">Who I Am (Before the Title)</div>
       </div>
+    </a>
 
-      <div class="card-row">
-        <div class="series-card">
-          <a href="https://jakeevansnews.substack.com/s/before-the-vote-series-4">
-            <img src="before-the-vote.png" alt="Before the Vote" />
-            <h3>Before the Vote</h3>
-          </a>
-        </div>
-
-        <div class="series-card">
-          <a href="https://jakeevansnews.substack.com/s/before-im-sworn-in-series-5">
-            <img src="before-im-sworn-in.png" alt="Before I’m Sworn In" />
-            <h3>Before I’m Sworn In</h3>
-          </a>
-        </div>
+    <a href="https://jakeevansnews.substack.com/s/how-i-think-about-series-1" style="text-align: center; width: 220px; text-decoration: none; color: inherit;">
+      <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08); background: #fff;">
+        <img src="https://yourdomain.com/how-i-think-about.png" alt="How I Think About..." style="width: 100%; display: block;">
+        <div style="padding: 10px; font-weight: 700; font-size: 14px; color: #1e3a8a;">How I Think About…</div>
       </div>
-    </section>
-  </main>
+    </a>
 
-</body>
-</html>
+    <a href="https://jakeevansnews.substack.com/s/what-im-learning" style="text-align: center; width: 220px; text-decoration: none; color: inherit;">
+      <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08); background: #fff;">
+        <img src="https://yourdomain.com/what-im-learning.png" alt="What I'm Learning" style="width: 100%; display: block;">
+        <div style="padding: 10px; font-weight: 700; font-size: 14px; color: #1e3a8a;">What I’m Learning</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Second Row: 2 cards -->
+  <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;">
+    <a href="https://jakeevansnews.substack.com/s/before-the-vote-series-4" style="text-align: center; width: 220px; text-decoration: none; color: inherit;">
+      <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08); background: #fff;">
+        <img src="https://yourdomain.com/before-the-vote.png" alt="Before the Vote" style="width: 100%; display: block;">
+        <div style="padding: 10px; font-weight: 700; font-size: 14px; color: #1e3a8a;">Before the Vote</div>
+      </div>
+    </a>
+
+    <a href="https://jakeevansnews.substack.com/s/before-im-sworn-in-series-5" style="text-align: center; width: 220px; text-decoration: none; color: inherit;">
+      <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08); background: #fff;">
+        <img src="https://yourdomain.com/before-im-sworn-in.png" alt="Before I'm Sworn In" style="width: 100%; display: block;">
+        <div style="padding: 10px; font-weight: 700; font-size: 14px; color: #1e3a8a;">Before I’m Sworn In</div>
+      </div>
+    </a>
+  </div>
+
+</div>
