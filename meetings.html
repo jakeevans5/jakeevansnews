@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Jake Evans</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f9fafb;
+    }
+
+    .jenews-home {
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      color: #111827;
+      line-height: 1.45;
+    }
+
+    .jenews-wrap {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 18px 16px 28px;
+    }
+
+    .jenews-masthead {
+      border-top: 3px solid #111827;
+      border-bottom: 1px solid #d1d5db;
+      padding: 14px 0 12px;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .jenews-name {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 54px);
+      letter-spacing: -0.02em;
+      font-weight: 800;
+    }
+
+    .jenews-tagline {
+      margin: 6px 0 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: #374151;
+      font-size: 14.5px;
+    }
+
+    .jenews-nav-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .jenews-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      padding: 12px 0 14px;
+      border-bottom: 1px solid #e5e7eb;
+      margin-bottom: 16px;
+    }
+
+
+    .jenews-nav li {
+      position: relative;
+    }
+
+    .jenews-nav a {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 13.5px;
+      font-weight: 650;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid #bfdbfe;
+      background: #eff6ff;
+      color: #1e3a8a;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      display: inline-block;
+    }
+
+    .jenews-nav a:hover {
+      background: #1d4ed8;
+      color: #ffffff;
+      border-color: #1d4ed8;
+    }
+
+    .jenews-nav ul ul {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 110%;
+      left: 0;
+      background: #eff6ff;
+      padding: 10px;
+      border-radius: 12px;
+      z-index: 100;
+    }
+
+    .jenews-content {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 6px 16px rgba(17, 24, 39, 0.06);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .jenews-content h2 {
+      font-size: 24px;
+      margin-top: 0;
+      text-align: center;
+    }
+    
+    .meetings-content {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 6px 16px rgba(17, 24, 39, 0.06);
+      font-size: 16px;
+      line-height: 1.6;
+      text-align: left;      
+    }
+
+    .meetings-content h2 {
+      font-size: 24px;
+      margin-top: 0;
+      text-align: left;
+    }    
+
+    .jenews-author-photo {
+      display: block;
+      max-width: 160px;
+      height: auto;
+      border-radius: 50%;
+      margin: 12px auto 20px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .jenews-footer-note {
+      margin-top: 16px;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 12px;
+      font-size: 12.5px;
+      color: #6b7280;
+      font-style: italic;
+      text-align: center;
+    }
+        .jenews-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 920px) {
+  .jenews-grid {
+    grid-template-columns: 1.55fr 1fr;
+    align-items: start;
+  }
+}
+    .jenews-card {
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 6px 16px rgba(17, 24, 39, 0.06);
+    }
+    .jenews-link {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      border-radius: 14px;
+      padding: 2px;
+      transition: transform 0.12s ease;
+    }      
+    .jenews-link:hover {
+      transform: translateY(-1px);
+    }  
+    .jenews-kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 11px;
+      font-weight: 750;
+      color: #1e3a8a;
+      margin: 0 0 8px;
+    }   
+    .jenews-headline {
+      margin: 0 0 8px;
+      font-size: clamp(22px, 2.7vw, 34px);
+      line-height: 1.15;
+      font-weight: 850;
+      letter-spacing: -0.02em;
+    }      
+    .jenews-mini .jenews-headline {
+      font-size: 18px;
+      margin-bottom: 6px;
+    }      
+    .jenews-deck {
+      margin: 0;
+      color: #374151;
+      font-size: 15px;
+      line-height: 1.5;
+    }      
+    .jenews-side {
+      display: grid;
+      gap: 12px;
+    }
+    .jenews-mini {
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 14px;
+      box-shadow: 0 6px 16px rgba(17, 24, 39, 0.06);
+    }
+
+    .jenews-mini .jenews-headline {
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+      
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 36px 18px 64px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 800;
+      color: #111827;
+      margin: 0;
+      text-align: center;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #374151;
+      text-align: center;
+      margin: 8px 0 26px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 26px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 8px 20px rgba(17,24,39,0.08);
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 14px;
+    }
+
+    .p {
+      margin: 0 0 14px;
+      font-size: 15.5px;
+      line-height: 1.65;
+    }
+
+    .ul {
+      margin: 0 0 14px 22px;
+      padding: 0;
+    }
+
+    .ul li {
+      margin: 6px 0;
+    }
+
+    .highlight-box {
+      border-left: 4px solid #1d4ed8;
+      background: #dbeafe;
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: 15.5px;
+    }
+
+    .callout-box {
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-top: 16px;
+      font-size: 15.5px;
+    }   
+
+    .jenews-hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 20px;
+      background: none;
+      border: none;
+      color: #1e3a8a;
+      font-weight: bold;
+      padding: 12px 0;
+      margin: 0 auto;
+    }
+
+    .jenews-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+
+    .jenews-nav li:hover > ul {
+      display: flex;
+    }
+
+    .jenews-nav ul ul a {
+      background: #eff6ff;
+      border-radius: 999px;
+      padding: 8px 14px;
+      margin: 4px 0;
+      white-space: nowrap;
+    }
+
+    .jenews-nav ul ul a:hover {
+      background: #1d4ed8;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .jenews-nav {
+        display: none;
+        flex-direction: column;
+      }
+
+      .jenews-nav.show {
+        display: flex;
+      }
+
+      .jenews-nav ul {
+        flex-direction: column;
+      }
+
+      .jenews-nav ul ul {
+        position: relative;
+      }
+
+      .jenews-hamburger {
+        display: block;
+      }
+    }
+      
+    .neosho-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 18px 16px 48px;
+    }
+
+    .neosho-title {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 750;
+      text-align: center
+    }
+
+    .neosho-subtitle {
+      margin: 0 0 16px;
+      font-size: 16px;
+      color: #374151;
+      text-align: center
+    }
+
+    .neosho-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 18px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 6px 16px rgba(17,24,39,0.06);
+    }
+
+    .neosho-h2 {
+      margin: 18px 0 8px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .neosho-p {
+      margin: 0 0 12px;
+      font-size: 15.5px;
+      line-height: 1.55;
+    }
+
+    .neosho-ul {
+      margin: 8px 0 14px 18px;
+      padding: 0;
+    }
+
+    .neosho-ul li {
+      margin: 6px 0;
+    }
+
+    .neosho-callout {
+      border-left: 4px solid #1d4ed8;
+      background: #eff6ff;
+      border-radius: 12px;
+      padding: 12px;
+      margin: 14px 0;
+    }
+
+    .neosho-grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr;
+    }
+
+    .neosho-box {
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .neosho-disclaimer {
+      margin-top: 14px;
+      font-size: 12.5px;
+      color: #6b7280;
+      font-style: italic;
+    }     
+    .jenews-pill {
+      font-family: inherit;
+      font-size: 13.5px;
+      font-weight: 650;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid #bfdbfe;
+      background: #eff6ff;
+      color: #1e3a8a;
+      text-decoration: none;
+      opacity: 0.55;
+      pointer-events: none;
+    }
+    .centered-photo {
+      display: block;
+      margin: 0 auto 16px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }    
+      
+  </style>
+</head>
+<body class="jenews-home">
+  <div class="jenews-wrap">
+    <header class="jenews-masthead">
+      <h1 class="jenews-name">Jake Evans News</h1>
+      <p class="jenews-tagline">Local updates • Civic preparation • Charter &amp; Code • Upcoming meetings</p>
+    </header>
+
+    <button class="jenews-hamburger" onclick="document.querySelector('.jenews-nav').classList.toggle('show')">
+      ☰ Menu
+    </button>
+
+    <nav class="jenews-nav-wrap">
+      <div class="jenews-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Jake Evans</a></li>
+          <li><a href="preparing-to-serve.html">Preparing to Serve</a></li>
+          <li>
+            <a href="charter-code.html">Neosho Charter &amp; Code ▾</a>
+            <ul>
+              <li><a href="the-neosho-city-charter-plain-english.html">Charter - Explained</a></li>
+              <li><a href="city-code-explained.html">City Code - Explained</a></li>
+              <li><a href="who-has-authority.html">Who Has Authority</a></li>
+              <li><a href="how-to-look-up.html">How to Look Things Up</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="jenews-pill" style="pointer-events:none; opacity:0.55;">Upcoming Meetings</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    
+<div class="meetings-content">
+  <h1>Meeting Overview</h1>
+  <img src="city-hall.jpg" alt="City Hall" class="centered-photo">  
+  <p><strong>Date:</strong> November 4, 2025</p>
+  <p><strong>Governing body:</strong> City Council</p>
+  <p><strong>Meeting type:</strong> Regular Session</p>
+  <p><strong>Record basis:</strong> This recap is based on the approved City Council meeting minutes.</p>
+
+  <hr>
+
+  <h2>Items Approved</h2>
+  <ul>
+    <li>Approval of the consent agenda, including:
+      <ul>
+        <li>October 21, 2025 Open Session Council Minutes</li>
+        <li>October 23, 2025 Special Session Council Minutes</li>
+        <li>Bill No. 2025-77 (Relocation of Liberty Utility power poles at the Recycle Center – easement)</li>
+        <li>Bill No. 2025-80 (Amending City Code related to franchise tax/gross receipts)</li>
+        <li>Bill No. 2025-83 (Agreement for the Big Spring Park Master Plan)</li>
+      </ul>
+    </li>
+    <li>Amendment to contract with Liberty Utilities</li>
+    <li>Sale of surplus Fire Department ATVs to Hale Fire Protection District for $7,500</li>
+    <li>Acceptance of the bid from Lost Creek Construction, LLC for new pavilion/restroom at Scenic Park ($73,375)</li>
+    <li>Approval of Bill No. 2025-84: Agreement with Allgeier, Martin and Associates, Inc. for Hwy 59 improvements (up to $88,000)</li>
+    <li>Approval of Bill No. 2025-85: Amendment to MoDOT NPE grant for Neosho Airport T-Hangar (additional grant funds and match)</li>
+    <li>Approval of Bill No. 2025-86: Acceptance of MoDOT IIJA grant for Neosho Airport T-Hangar and local match</li>
+    <li>Approval of Bill No. 2025-87: Ratifying Resolution No. 2025-41 on surplus government property</li>
+    <li>Approval of Resolution Bill No. 2025-38: MOU with Area Agency on Aging for Senior Center support</li>
+    <li>Approval of Resolution Bill No. 2025-39: MOU with Neosho Fire Department and Camp Crowder</li>
+    <li>Approval of Resolution Bill No. 2025-41: Declaring certain Police Department vehicles as surplus</li>
+    <li>Approval of request for water connection for property at 1353 Neosho Drive</li>
+  </ul>
+
+  <hr>
+
+  <h2>Items Rejected</h2>
+  <p>None.</p>
+
+  <hr>
+
+  <h2>Items Amended or Changed</h2>
+  <p>The meeting agenda was amended to remove one item under New Business prior to approval.</p>
+
+  <hr>
+
+  <h2>Items Still in Progress</h2>
+  <p>Chapter 100 bond request for a business facility expansion, which staff reported is under development and will be brought back to Council for future consideration.</p>
+
+  <hr>
+
+  <h2>What to Watch Going Forward</h2>
+  <p>Future Council consideration of a Chapter 100 bond agreement once staff work with legal counsel is complete.</p>
+
+  <hr>
+
+  <h2>Source Note</h2>
+  <p>This summary is based on the meeting agenda, agenda packet, and approved City Council meeting minutes. The minutes are treated as the final authority for all actions and outcomes.</p>
+</div>
+
+    
+
+
+
+    <div class="jenews-footer-note">
+      Disclaimer: This site is for informational purposes only and is not an official City of Neosho publication.
+    </div>
+  </div>  
+  
+  <script>
+    document.querySelectorAll('a.jenews-link, a.jenews-pill').forEach(link => {
+      link.setAttribute('target', '_self');
+    });
+
+    document.querySelectorAll('.jenews-nav li').forEach(li => {
+      let timer;
+      const submenu = li.querySelector('ul');
+
+      if (submenu) {
+        li.addEventListener('mouseenter', () => {
+          clearTimeout(timer);
+          submenu.style.display = 'flex';
+        });
+
+        li.addEventListener('mouseleave', () => {
+          timer = setTimeout(() => {
+            submenu.style.display = 'none';
+          }, 300);
+        });
+
+        submenu.addEventListener('mouseenter', () => {
+          clearTimeout(timer);
+        });
+
+        submenu.addEventListener('mouseleave', () => {
+          timer = setTimeout(() => {
+            submenu.style.display = 'none';
+          }, 300);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
