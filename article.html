@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css" />
 
   <style>
-    /* Keep your original styles here (trimmed for clarity) */
     body {
       margin: 0;
       padding: 0;
@@ -161,6 +160,16 @@
       border: 1px solid #e5e7eb;
       box-shadow: 0 6px 16px rgba(17, 24, 39, 0.06);
     }
+
+    .jenews-footer-note {
+      margin-top: 16px;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 12px;
+      font-size: 12.5px;
+      color: #6b7280;
+      font-style: italic;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -197,13 +206,18 @@
       </div>
     </nav>
 
-    <!-- Article Output -->
+    <!-- Markdown Article Content -->
     <div id="markdown-output" class="markdown-body">
       <p>Loading article...</p>
     </div>
+
+    <!-- ✅ Disclaimer Footer -->
+    <div class="jenews-footer-note">
+      Disclaimer: This site is for informational purposes only and is not an official City of Neosho publication.
+    </div>
   </div>
 
-  <!-- Markdown Parser -->
+  <!-- ✅ Markdown Loader -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
     const file = new URLSearchParams(window.location.search).get("file") || "welcome.md";
@@ -224,7 +238,7 @@
       });
   </script>
 
-  <!-- Dropdown Hover + Link Target Fix -->
+  <!-- ✅ Navigation Dropdown and Link Target Script -->
   <script>
     document.querySelectorAll('a.jenews-link, a.jenews-pill').forEach(link => {
       link.setAttribute('target', '_self');
