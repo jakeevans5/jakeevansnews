@@ -1,78 +1,204 @@
-# Series 1 - Part 1: Where I’m Coming From
-### *The experiences that shaped how I approach responsibility*
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jake Evans News - Article</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css" />
 
-Before I ever hold a title or cast a vote, I think it’s fair for people to understand where I’m coming from.
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f9fafb;
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    }
 
-My sense of responsibility didn’t come from a single place. It’s been shaped over time — through military service, through being a husband and a father, and through my professional work as a Business Process Analyst. Different environments, different stakes, but the same underlying lesson: **decisions matter**, and **shortcuts almost always cost more in the long run**.
+    .jenews-wrap {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 18px 16px 28px;
+    }
 
----
+    .jenews-masthead {
+      border-top: 3px solid #111827;
+      border-bottom: 1px solid #d1d5db;
+      padding: 14px 0 12px;
+      margin-bottom: 14px;
+      text-align: center;
+    }
 
-### 🎖️ In the Military
+    .jenews-name {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 54px);
+      font-weight: 800;
+    }
 
-Accountability isn’t theoretical.  
-If something goes wrong, you don’t get to distance yourself from it. **You own it, you learn from it, and you do better next time**. That mindset stays with you. Responsibility doesn’t end when things get uncomfortable — it **starts there**.
+    .jenews-tagline {
+      margin: 6px 0 0;
+      color: #374151;
+      font-size: 14.5px;
+    }
 
----
+    .jenews-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 0 14px;
+      border-bottom: 1px solid #e5e7eb;
+      margin-bottom: 24px;
+    }
 
-### 🏠 In Family
+    .jenews-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-Family reinforced that lesson in a different way.  
-When you’re raising kids, you’re not thinking in weeks or months. You’re thinking in **years**. You're thinking about the kind of future your decisions help create — and whether the choices you make today hold up over time.
+    .jenews-nav li {
+      position: relative;
+    }
 
----
+    .jenews-nav a {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 13.5px;
+      font-weight: 650;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid #bfdbfe;
+      background: #eff6ff;
+      color: #1e3a8a;
+      text-decoration: none;
+    }
 
-### 💼 In Professional Work
+    .jenews-nav a:hover {
+      background: #1d4ed8;
+      color: white;
+      border-color: #1d4ed8;
+    }
 
-Professionally, I’ve seen the same pattern play out again and again.  
-Doing the hard work upfront — reading carefully, asking questions, thinking through downstream consequences — prevents far bigger problems later.
+    .jenews-nav ul ul {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 110%;
+      left: 0;
+      background: #eff6ff;
+      padding: 10px;
+      border-radius: 12px;
+      z-index: 100;
+    }
 
-> Taking shortcuts feels efficient in the moment, but those costs always show up somewhere else: in rework, in confusion, or in crises that could have been avoided.
+    #markdown-output {
+      background: #fff;
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 6px 16px rgba(17, 24, 39, 0.06);
+    }
+  </style>
+</head>
+<body>
+  <div class="jenews-wrap">
+    <!-- Header -->
+    <header class="jenews-masthead">
+      <h1 class="jenews-name">Jake Evans News</h1>
+      <p class="jenews-tagline">Local updates • Civic preparation • Charter & Code • Upcoming meetings</p>
+    </header>
 
----
+    <!-- Navigation -->
+    <nav class="jenews-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Jake Evans</a></li>
+        <li><a href="preparing-to-serve.html">Preparing to Serve</a></li>
+        <li>
+          <a href="charter-code.html">Neosho Charter & Code ▾</a>
+          <ul>
+            <li><a href="the-neosho-city-charter-plain-english.html">Charter - Explained</a></li>
+            <li><a href="city-code-explained.html">City Code - Explained</a></li>
+            <li><a href="who-has-authority.html">Who Has Authority</a></li>
+            <li><a href="how-to-look-up.html">How to Look Things Up</a></li>
+          </ul>
+        </li>
+        <li><a href="meetings.html">Upcoming Meetings</a></li>
+      </ul>
+    </nav>
 
-### 🗣️ A Lesson That Stuck
+    <!-- Article Output -->
+    <div id="markdown-output" class="markdown-body">
+      <p>Loading article...</p>
+    </div>
+  </div>
 
-One thing that’s stayed with me came from a commander early in my military career. I was venting about a poor leader — someone who nitpicked the wrong things and missed what actually mattered.
+  <!-- Marked Markdown Parser -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    // Get the markdown file name from the URL
+    function getMarkdownFileFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get("file") || "welcome.md";
+    }
 
-My commander listened and then said:
+    const file = getMarkdownFileFromURL();
+    const markdownPath = `posts/${file}`;
 
-> **"When you become a leader, remember the things that were done wrong to you so you don’t repeat them. But more importantly, take the good things great leaders did and amplify them."**
+    fetch(markdownPath)
+      .then(res => {
+        if (!res.ok) throw new Error("Markdown file not found.");
+        return res.text();
+      })
+      .then(md => {
+        const html = marked.parse(md);
+        document.getElementById('markdown-output').innerHTML = html;
+      })
+      .catch(err => {
+        document.getElementById('markdown-output').innerHTML = `
+          <h2>Error</h2>
+          <p>Sorry, we couldn't load the article: <code>${file}</code></p>
+        `;
+        console.error(err);
+      });
+  </script>
 
-That advice stuck.
+  <!-- 🔁 Your Custom Link & Dropdown Script -->
+  <script>
+    document.querySelectorAll('a.jenews-link, a.jenews-pill').forEach(link => {
+      link.setAttribute('target', '_self');
+    });
 
----
+    document.querySelectorAll('.jenews-nav li').forEach(li => {
+      let timer;
+      const submenu = li.querySelector('ul');
 
-### 🧭 What Responsibility Means to Me
+      if (submenu) {
+        li.addEventListener('mouseenter', () => {
+          clearTimeout(timer);
+          submenu.style.display = 'flex';
+        });
 
-Taking responsibility seriously doesn’t mean being rigid or closed off.  
-It means **taking the problem seriously enough to invite criticism**.
+        li.addEventListener('mouseleave', () => {
+          timer = setTimeout(() => {
+            submenu.style.display = 'none';
+          }, 300);
+        });
 
-I want feedback — what’s working, what isn’t, and what could be done better.  
-That kind of input helps me evaluate how I’m operating and reminds me that I’m not the only person with insight worth listening to.
+        submenu.addEventListener('mouseenter', () => {
+          clearTimeout(timer);
+        });
 
-> I don’t believe accountability and openness are opposites. I think they go together.
-
-Being responsible means being willing to:
-- Listen to people who know more than you
-- Consider ideas outside your own
-- Adjust when something isn’t working
-
-It means being **confident enough to ask questions**, even when someone else thinks you should already know the answer.
-
----
-
-If I don’t know something, I’m going to ask.  
-If there’s a better way to understand an issue, I want to hear it.
-
-**Taking things seriously**, to me, means doing the work, staying curious, and being honest about what I know — and what I still need to learn.
-
----
-
-## This is where I’m coming from.
-
-It’s the mindset I carry into any role of responsibility,  
-and it’s the foundation I intend to keep building on.
-
----
-
-[🔙 Back to Home](index.html)
+        submenu.addEventListener('mouseleave', () => {
+          timer = setTimeout(() => {
+            submenu.style.display = 'none';
+          }, 300);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
