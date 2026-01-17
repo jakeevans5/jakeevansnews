@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Jake Evans News - Article</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css" />
+  <meta charset="UTF-8">
+  <title>Jake Evans News</title>
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Jake Evans News" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
     body {
       margin: 0;
       padding: 0;
       background: #f9fafb;
+    }
+
+    .jenews-home {
       font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      color: #111827;
+      line-height: 1.45;
     }
 
     .jenews-wrap {
@@ -32,11 +41,13 @@
     .jenews-name {
       margin: 0;
       font-size: clamp(30px, 4vw, 54px);
+      letter-spacing: -0.02em;
       font-weight: 800;
     }
 
     .jenews-tagline {
       margin: 6px 0 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: #374151;
       font-size: 14.5px;
     }
@@ -57,16 +68,6 @@
       margin-bottom: 16px;
     }
 
-    .jenews-nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
     .jenews-nav li {
       position: relative;
     }
@@ -81,11 +82,13 @@
       background: #eff6ff;
       color: #1e3a8a;
       text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      display: inline-block;
     }
 
     .jenews-nav a:hover {
       background: #1d4ed8;
-      color: white;
+      color: #ffffff;
       border-color: #1d4ed8;
     }
 
@@ -99,6 +102,54 @@
       padding: 10px;
       border-radius: 12px;
       z-index: 100;
+    }
+
+    .jenews-content {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 6px 16px rgba(17, 24, 39, 0.06);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .jenews-content h2 {
+      font-size: 24px;
+      margin-top: 0;
+      text-align: center;
+    }
+
+    .jenews-footer-note {
+      margin-top: 16px;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 12px;
+      font-size: 12.5px;
+      color: #6b7280;
+      font-style: italic;
+      text-align: center;
+    }
+
+    .jenews-hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 20px;
+      background: none;
+      border: none;
+      color: #1e3a8a;
+      font-weight: bold;
+      padding: 12px 0;
+      margin: 0 auto;
+    }
+
+    .jenews-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .jenews-nav li:hover > ul {
@@ -116,18 +167,6 @@
     .jenews-nav ul ul a:hover {
       background: #1d4ed8;
       color: white;
-    }
-
-    .jenews-hamburger {
-      display: none;
-      cursor: pointer;
-      font-size: 20px;
-      background: none;
-      border: none;
-      color: #1e3a8a;
-      font-weight: bold;
-      padding: 12px 0;
-      margin: 0 auto;
     }
 
     @media (max-width: 768px) {
@@ -152,40 +191,19 @@
         display: block;
       }
     }
-
-    #markdown-output {
-      background: #fff;
-      padding: 24px;
-      border-radius: 12px;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 6px 16px rgba(17, 24, 39, 0.06);
-    }
-
-    .jenews-footer-note {
-      margin-top: 16px;
-      border-top: 1px solid #e5e7eb;
-      padding-top: 12px;
-      font-size: 12.5px;
-      color: #6b7280;
-      font-style: italic;
-      text-align: center;
-    }
   </style>
 </head>
-<body>
+<body class="jenews-home">
   <div class="jenews-wrap">
-    <!-- Header -->
     <header class="jenews-masthead">
       <h1 class="jenews-name">Jake Evans News</h1>
-      <p class="jenews-tagline">Local updates • Civic preparation • Charter & Code • Upcoming meetings</p>
+      <p class="jenews-tagline">Local updates • Civic preparation • Charter &amp; Code • Upcoming meetings</p>
     </header>
 
-    <!-- Mobile Hamburger Menu -->
     <button class="jenews-hamburger" onclick="document.querySelector('.jenews-nav').classList.toggle('show')">
       ☰ Menu
     </button>
 
-    <!-- Navigation -->
     <nav class="jenews-nav-wrap">
       <div class="jenews-nav">
         <ul>
@@ -193,7 +211,7 @@
           <li><a href="about.html">About Jake Evans</a></li>
           <li><a href="preparing-to-serve.html">Preparing to Serve</a></li>
           <li>
-            <a href="charter-code.html">Neosho Charter & Code ▾</a>
+            <a href="charter-code.html">Neosho Charter &amp; Code ▾</a>
             <ul>
               <li><a href="the-neosho-city-charter-plain-english.html">Charter - Explained</a></li>
               <li><a href="city-code-explained.html">City Code - Explained</a></li>
@@ -206,39 +224,40 @@
       </div>
     </nav>
 
-    <!-- Markdown Article Content -->
-    <div id="markdown-output" class="markdown-body">
-      <p>Loading article...</p>
-    </div>
+    <main>
+      <!-- Markdown will load inside this section -->
+      <section class="jenews-content" id="markdown-output">
+        <p>Loading article...</p>
+      </section>
+    </main>
 
-    <!-- ✅ Disclaimer Footer -->
     <div class="jenews-footer-note">
       Disclaimer: This site is for informational purposes only and is not an official City of Neosho publication.
     </div>
   </div>
 
-  <!-- ✅ Markdown Loader -->
+  <!-- Markdown Parser -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
-    const file = new URLSearchParams(window.location.search).get("file") || "welcome.md";
+    // Get the filename from the URL query string
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get("file") || "welcome.md";
+
     fetch(`posts/${file}`)
-      .then(res => {
-        if (!res.ok) throw new Error("Markdown file not found.");
-        return res.text();
+      .then(response => {
+        if (!response.ok) throw new Error("File not found");
+        return response.text();
       })
-      .then(md => {
-        document.getElementById('markdown-output').innerHTML = marked.parse(md);
+      .then(text => {
+        document.getElementById("markdown-output").innerHTML = marked.parse(text);
       })
       .catch(err => {
-        document.getElementById('markdown-output').innerHTML = `
-          <h2>Error</h2>
-          <p>Sorry, we couldn't load the article: <code>${file}</code></p>
-        `;
+        document.getElementById("markdown-output").innerHTML = "<p>Sorry, article not found.</p>";
         console.error(err);
       });
   </script>
 
-  <!-- ✅ Navigation Dropdown and Link Target Script -->
+  <!-- Nav Dropdown + Target Fix -->
   <script>
     document.querySelectorAll('a.jenews-link, a.jenews-pill').forEach(link => {
       link.setAttribute('target', '_self');
@@ -253,18 +272,7 @@
           clearTimeout(timer);
           submenu.style.display = 'flex';
         });
-
         li.addEventListener('mouseleave', () => {
-          timer = setTimeout(() => {
-            submenu.style.display = 'none';
-          }, 300);
-        });
-
-        submenu.addEventListener('mouseenter', () => {
-          clearTimeout(timer);
-        });
-
-        submenu.addEventListener('mouseleave', () => {
           timer = setTimeout(() => {
             submenu.style.display = 'none';
           }, 300);
@@ -272,5 +280,6 @@
       }
     });
   </script>
+
 </body>
 </html>
