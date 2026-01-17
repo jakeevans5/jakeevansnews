@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css" />
 
   <style>
+    /* Keep your original styles here (trimmed for clarity) */
     body {
       margin: 0;
       padding: 0;
@@ -41,14 +42,20 @@
       font-size: 14.5px;
     }
 
+    .jenews-nav-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     .jenews-nav {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: 10px;
+      justify-content: center;
       padding: 12px 0 14px;
       border-bottom: 1px solid #e5e7eb;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
 
     .jenews-nav ul {
@@ -56,8 +63,13 @@
       padding: 0;
       margin: 0;
       display: flex;
-      flex-wrap: wrap;
       gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .jenews-nav li {
+      position: relative;
     }
 
     .jenews-nav a {
@@ -78,6 +90,70 @@
       border-color: #1d4ed8;
     }
 
+    .jenews-nav ul ul {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 110%;
+      left: 0;
+      background: #eff6ff;
+      padding: 10px;
+      border-radius: 12px;
+      z-index: 100;
+    }
+
+    .jenews-nav li:hover > ul {
+      display: flex;
+    }
+
+    .jenews-nav ul ul a {
+      background: #eff6ff;
+      border-radius: 999px;
+      padding: 8px 14px;
+      margin: 4px 0;
+      white-space: nowrap;
+    }
+
+    .jenews-nav ul ul a:hover {
+      background: #1d4ed8;
+      color: white;
+    }
+
+    .jenews-hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 20px;
+      background: none;
+      border: none;
+      color: #1e3a8a;
+      font-weight: bold;
+      padding: 12px 0;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .jenews-nav {
+        display: none;
+        flex-direction: column;
+      }
+
+      .jenews-nav.show {
+        display: flex;
+      }
+
+      .jenews-nav ul {
+        flex-direction: column;
+      }
+
+      .jenews-nav ul ul {
+        position: relative;
+      }
+
+      .jenews-hamburger {
+        display: block;
+      }
+    }
+
     #markdown-output {
       background: #fff;
       padding: 24px;
@@ -95,15 +171,30 @@
       <p class="jenews-tagline">Local updates • Civic preparation • Charter & Code • Upcoming meetings</p>
     </header>
 
+    <!-- Mobile Hamburger Menu -->
+    <button class="jenews-hamburger" onclick="document.querySelector('.jenews-nav').classList.toggle('show')">
+      ☰ Menu
+    </button>
+
     <!-- Navigation -->
-    <nav class="jenews-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Jake Evans</a></li>
-        <li><a href="preparing-to-serve.html">Preparing to Serve</a></li>
-        <li><a href="charter-code.html">Neosho Charter & Code</a></li>
-        <li><a href="meetings.html">Upcoming Meetings</a></li>
-      </ul>
+    <nav class="jenews-nav-wrap">
+      <div class="jenews-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Jake Evans</a></li>
+          <li><a href="preparing-to-serve.html">Preparing to Serve</a></li>
+          <li>
+            <a href="charter-code.html">Neosho Charter & Code ▾</a>
+            <ul>
+              <li><a href="the-neosho-city-charter-plain-english.html">Charter - Explained</a></li>
+              <li><a href="city-code-explained.html">City Code - Explained</a></li>
+              <li><a href="who-has-authority.html">Who Has Authority</a></li>
+              <li><a href="how-to-look-up.html">How to Look Things Up</a></li>
+            </ul>
+          </li>
+          <li><a href="meetings.html">Upcoming Meetings</a></li>
+        </ul>
+      </div>
     </nav>
 
     <!-- Article Output -->
@@ -112,26 +203,17 @@
     </div>
   </div>
 
-  <!-- Marked Markdown Parser -->
+  <!-- Markdown Parser -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
-    // Helper: Get ?file=filename.md from the URL
-    function getMarkdownFileFromURL() {
-      const params = new URLSearchParams(window.location.search);
-      return params.get("file") || "welcome.md";
-    }
-
-    const file = getMarkdownFileFromURL();
-    const markdownPath = `posts/${file}`;
-
-    fetch(markdownPath)
+    const file = new URLSearchParams(window.location.search).get("file") || "welcome.md";
+    fetch(`posts/${file}`)
       .then(res => {
         if (!res.ok) throw new Error("Markdown file not found.");
         return res.text();
       })
       .then(md => {
-        const html = marked.parse(md);
-        document.getElementById('markdown-output').innerHTML = html;
+        document.getElementById('markdown-output').innerHTML = marked.parse(md);
       })
       .catch(err => {
         document.getElementById('markdown-output').innerHTML = `
@@ -140,6 +222,41 @@
         `;
         console.error(err);
       });
+  </script>
+
+  <!-- Dropdown Hover + Link Target Fix -->
+  <script>
+    document.querySelectorAll('a.jenews-link, a.jenews-pill').forEach(link => {
+      link.setAttribute('target', '_self');
+    });
+
+    document.querySelectorAll('.jenews-nav li').forEach(li => {
+      let timer;
+      const submenu = li.querySelector('ul');
+
+      if (submenu) {
+        li.addEventListener('mouseenter', () => {
+          clearTimeout(timer);
+          submenu.style.display = 'flex';
+        });
+
+        li.addEventListener('mouseleave', () => {
+          timer = setTimeout(() => {
+            submenu.style.display = 'none';
+          }, 300);
+        });
+
+        submenu.addEventListener('mouseenter', () => {
+          clearTimeout(timer);
+        });
+
+        submenu.addEventListener('mouseleave', () => {
+          timer = setTimeout(() => {
+            submenu.style.display = 'none';
+          }, 300);
+        });
+      }
+    });
   </script>
 </body>
 </html>
