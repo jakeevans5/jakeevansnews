@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Article | Jake Evans News</title>
+  <title>Articles | Jake Evans News</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Favicons -->
@@ -13,7 +13,7 @@
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="apple-mobile-web-app-title" content="Jake Evans News" />
 
-  <!-- Main CSS -->
+  <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body class="jenews-home">
@@ -22,37 +22,16 @@
     <!-- Dynamic Header -->
     <div id="site-header"></div>
 
+    <!-- Content -->
     <main>
-      <!-- Markdown content will be injected here -->
-      <section class="jenews-content" id="markdown-output">
+      <section class="jenews-content markdown-body" id="markdown-output">
         <p>Loading article...</p>
       </section>
     </main>
 
     <!-- Dynamic Footer -->
     <div id="site-footer"></div>
-
   </div>
-
-  <!-- Markdown parser -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const file = params.get("file") || "welcome.md";
-
-    fetch(`/posts/${file}`)
-      .then(response => {
-        if (!response.ok) throw new Error("File not found");
-        return response.text();
-      })
-      .then(text => {
-        document.getElementById("markdown-output").innerHTML = marked.parse(text);
-      })
-      .catch(err => {
-        document.getElementById("markdown-output").innerHTML = "<p>Sorry, article not found.</p>";
-        console.error(err);
-      });
-  </script>
 
   <!-- Load Header + Footer -->
   <script>
@@ -68,7 +47,27 @@
     loadHTML('site-footer', '/partials/footer.html');
   </script>
 
-  <!-- Navigation hover fix -->
+  <!-- Markdown Renderer -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get("file") || "articles/welcome.md";
+
+    fetch(`/posts/${file}`)
+      .then(response => {
+        if (!response.ok) throw new Error("File not found");
+        return response.text();
+      })
+      .then(text => {
+        document.getElementById("markdown-output").innerHTML = marked.parse(text);
+      })
+      .catch(err => {
+        document.getElementById("markdown-output").innerHTML = "<p>Sorry, article not found.</p>";
+        console.error(err);
+      });
+  </script>
+
+  <!-- Nav Dropdown Script -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('a.jenews-link, a.jenews-pill').forEach(link => {
