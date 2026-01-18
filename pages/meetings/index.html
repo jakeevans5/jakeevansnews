@@ -13,50 +13,27 @@
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="apple-mobile-web-app-title" content="Jake Evans News" />
 
-  <!-- Main CSS -->
+  <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body class="jenews-home">
   <div class="jenews-wrap">
-    
-    <!-- Header -->
+
+    <!-- Dynamic Header -->
     <div id="site-header"></div>
 
-    <main class="neosho-wrap">
-      <section class="neosho-card" id="markdown-output">
+    <!-- Content -->
+    <main>
+      <section class="jenews-content" id="markdown-output">
         <p>Loading meeting info...</p>
       </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Dynamic Footer -->
     <div id="site-footer"></div>
-
-    <div class="jenews-footer-note">
-      Disclaimer: This site is for informational purposes only and is not an official City of Neosho publication.
-    </div>
   </div>
 
-  <!-- Markdown Support -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const file = params.get("file") || "agenda-latest.md";
-
-    fetch(`/posts/meetings/${file}`)
-      .then(response => {
-        if (!response.ok) throw new Error("File not found");
-        return response.text();
-      })
-      .then(text => {
-        document.getElementById("markdown-output").innerHTML = marked.parse(text);
-      })
-      .catch(err => {
-        document.getElementById("markdown-output").innerHTML = "<p>Sorry, meeting info not found.</p>";
-        console.error(err);
-      });
-  </script>
-
-  <!-- Header/Footer Loader -->
+  <!-- Load Header + Footer -->
   <script>
     function loadHTML(id, url) {
       fetch(url)
@@ -70,7 +47,27 @@
     loadHTML('site-footer', '/partials/footer.html');
   </script>
 
-  <!-- Nav Dropdown Behavior -->
+  <!-- Markdown Renderer -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get("file") || "meetings/2026-01-20-city-council.md";
+
+    fetch(`/posts/${file}`)
+      .then(response => {
+        if (!response.ok) throw new Error("File not found");
+        return response.text();
+      })
+      .then(text => {
+        document.getElementById("markdown-output").innerHTML = marked.parse(text);
+      })
+      .catch(err => {
+        document.getElementById("markdown-output").innerHTML = "<p>Sorry, meeting details not found.</p>";
+        console.error(err);
+      });
+  </script>
+
+  <!-- Nav Dropdown Script -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('a.jenews-link, a.jenews-pill').forEach(link => {
@@ -93,7 +90,10 @@
             }, 300);
           });
 
-          submenu.addEventListener('mouseenter', () => clearTimeout(timer));
+          submenu.addEventListener('mouseenter', () => {
+            clearTimeout(timer);
+          });
+
           submenu.addEventListener('mouseleave', () => {
             timer = setTimeout(() => {
               submenu.style.display = 'none';
