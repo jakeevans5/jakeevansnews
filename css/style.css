@@ -456,3 +456,19 @@ h1 {
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+
+/* Markdown Styling Overrides */
+.markdown-body h1 {
+  font-size: clamp(28px, 3vw, 38px);  /* Slightly smaller than default */
+  text-align: center;                 /* Keep title centered */
+  margin-bottom: 0.75em;
+}
+
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4 {
+  text-align: left;                   /* Subheadings left-aligned */
+  margin-top: 1.6em;
+  margin-bottom: 0.5em;
+}
+
