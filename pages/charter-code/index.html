@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Neosho Charter & City Code | Jake Evans News</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Favicons -->
+  <link rel="icon" href="/assets/favicons/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicons/favicon-96x96.png" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png" />
+  <link rel="manifest" href="/assets/favicons/site.webmanifest" />
+</head>
+<body class="jenews-home">
+  <div class="jenews-wrap">
+    <!-- Dynamic Header -->
+    <div id="site-header"></div>
+
+    <main class="container">
+      <h1>Neosho’s Charter &amp; City Code</h1>
+      <p class="subtitle">A practical, plain‑English guide to how local government authority and rules work.</p>
+
+      <div class="card">
+        <h2 class="section-title">Why this page exists</h2>
+        <p class="p">When local issues come up, it’s common to hear:</p>
+        <ul class="ul">
+          <li>“Why doesn’t City Council just fix this?”</li>
+          <li>“Didn’t Council already vote on that?”</li>
+          <li>“Can the City even do that?”</li>
+        </ul>
+
+        <div class="highlight-box">
+          <strong>The honest answer is simple:</strong> it depends on the law.
+        </div>
+
+        <p class="p">
+          Neosho operates under a <strong>Home Rule Charter</strong> and an adopted
+          <strong>City Code</strong>. These documents — not personalities or politics — define:
+        </p>
+
+        <ul class="ul">
+          <li>Who has authority</li>
+          <li>How decisions are made</li>
+          <li>What processes must be followed</li>
+          <li>What limits exist to protect citizens and the City</li>
+        </ul>
+
+        <p class="p">This page exists to explain those rules in plain English and connect you to deeper resources if you want to explore further.</p>
+
+        <div class="callout-box">
+          <strong>The order of authority</strong>
+          <ol class="ul">
+            <li>Missouri State Law</li>
+            <li>Neosho City Charter</li>
+            <li>Adopting Ordinance</li>
+            <li>Neosho City Code</li>
+            <li>Policies &amp; procedures</li>
+          </ol>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="site-footer"></div>
+  </div>
+
+  <!-- Load Header + Footer -->
+  <script>
+    function loadHTML(id, url) {
+      fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById(id).innerHTML = html;
+        });
+    }
+
+    loadHTML('site-header', '/partials/header.html');
+    loadHTML('site-footer', '/partials/footer.html');
+  </script>
+
+  <!-- Navigation Interaction -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('a.jenews-link, a.jenews-pill').forEach(link => {
+        link.setAttribute('target', '_self');
+      });
+
+      document.querySelectorAll('.jenews-nav li').forEach(li => {
+        let timer;
+        const submenu = li.querySelector('ul');
+
+        if (submenu) {
+          li.addEventListener('mouseenter', () => {
+            clearTimeout(timer);
+            submenu.style.display = 'flex';
+          });
+
+          li.addEventListener('mouseleave', () => {
+            timer = setTimeout(() => {
+              submenu.style.display = 'none';
+            }, 300);
+          });
+
+          submenu.addEventListener('mouseenter', () => clearTimeout(timer));
+          submenu.addEventListener('mouseleave', () => {
+            timer = setTimeout(() => {
+              submenu.style.display = 'none';
+            }, 300);
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
