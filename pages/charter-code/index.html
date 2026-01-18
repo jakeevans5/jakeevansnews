@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Jake Evans News</title>
+  <title>Neosho Charter & City Code | Jake Evans News</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="/css/style.css">
 
-  <!-- Favicon Setup -->
+  <!-- Favicons -->
   <link rel="icon" href="/assets/favicons/favicon.ico" />
   <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicons/favicon-96x96.png" />
   <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg" />
@@ -16,52 +17,56 @@
 </head>
 <body class="jenews-home">
   <div class="jenews-wrap">
-
     <!-- Dynamic Header -->
     <div id="site-header"></div>
 
-    <img src="/assets/images/city-hall.jpg" alt="City Hall" class="centered-photo">  
+    <main class="container">
+      <h1>Neosho’s Charter &amp; City Code</h1>
+      <p class="subtitle">A practical, plain‑English guide to how local government authority and rules work.</p>
 
-    <main class="jenews-grid">
-      <article class="jenews-card">
-        <a class="jenews-link" href="https://jakeevansnews.substack.com/p/2025-year-end-summary-neosho-city">
-          <p class="jenews-kicker">Lead Story</p>
-          <h2 class="jenews-headline">2025 Year-End Summary: Neosho City Council Actions</h2>
-          <p class="jenews-deck">Based on Approved Meeting Minutes Through November 4, 2025</p>
-        </a>
-      </article>
+      <div class="card">
+        <h2 class="section-title">Why this page exists</h2>
+        <p class="p">When local issues come up, it’s common to hear:</p>
+        <ul class="ul">
+          <li>“Why doesn’t City Council just fix this?”</li>
+          <li>“Didn’t Council already vote on that?”</li>
+          <li>“Can the City even do that?”</li>
+        </ul>
 
-      <aside class="jenews-side" aria-label="More stories">
-        <article class="jenews-mini">
-          <a class="jenews-link" href="https://jakeevansnews.substack.com/p/start-here">
-            <p class="jenews-kicker">Featured</p>
-            <h3 class="jenews-headline">Start Here</h3>
-            <p class="jenews-deck">How my Substack is organized and how to read it</p>
-          </a>
-        </article>
-
-        <div class="jenews-mini" aria-hidden="true">
-          <a class="jenews-link" href="/pages/preparing-to-serve/preparing-to-serve.html">          
-            <p class="jenews-kicker">News</p>
-            <h3 class="jenews-headline">Preparing to Serve</h3>
-            <p class="jenews-deck">Short, practical posts explaining how I prepare to participate responsibly in local government.</p>
-          </a>  
+        <div class="highlight-box">
+          <strong>The honest answer is simple:</strong> it depends on the law.
         </div>
 
-        <div class="jenews-mini" aria-hidden="true">
-          <a class="jenews-link" href="/pages/meetings/index.html"> 
-            <p class="jenews-kicker">News</p>
-            <h3 class="jenews-headline">Upcoming Meetings</h3>
-            <p class="jenews-deck">Agendas, packets, and what to watch for — posted ahead of meetings when available.</p>
-          </a>    
+        <p class="p">
+          Neosho operates under a <strong>Home Rule Charter</strong> and an adopted
+          <strong>City Code</strong>. These documents — not personalities or politics — define:
+        </p>
+
+        <ul class="ul">
+          <li>Who has authority</li>
+          <li>How decisions are made</li>
+          <li>What processes must be followed</li>
+          <li>What limits exist to protect citizens and the City</li>
+        </ul>
+
+        <p class="p">This page exists to explain those rules in plain English and connect you to deeper resources if you want to explore further.</p>
+
+        <div class="callout-box">
+          <strong>The order of authority</strong>
+          <ol class="ul">
+            <li>Missouri State Law</li>
+            <li>Neosho City Charter</li>
+            <li>Adopting Ordinance</li>
+            <li>Neosho City Code</li>
+            <li>Policies &amp; procedures</li>
+          </ol>
         </div>
-      </aside>
+      </div>
     </main>
 
-    <!-- Dynamic Footer -->
+    <!-- Footer -->
     <div id="site-footer"></div>
-
-  </div>  
+  </div>
 
   <!-- Load Header + Footer -->
   <script>
@@ -77,7 +82,7 @@
     loadHTML('site-footer', '/partials/footer.html');
   </script>
 
-  <!-- Dropdown + Mobile Nav JS -->
+  <!-- Navigation Interaction -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('a.jenews-link, a.jenews-pill').forEach(link => {
@@ -100,10 +105,7 @@
             }, 300);
           });
 
-          submenu.addEventListener('mouseenter', () => {
-            clearTimeout(timer);
-          });
-
+          submenu.addEventListener('mouseenter', () => clearTimeout(timer));
           submenu.addEventListener('mouseleave', () => {
             timer = setTimeout(() => {
               submenu.style.display = 'none';

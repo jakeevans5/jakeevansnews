@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Article | Jake Evans News</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="/assets/favicons/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicons/favicon-96x96.png" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="apple-mobile-web-app-title" content="Jake Evans News" />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="jenews-home">
+  <div class="jenews-wrap">
+
+    <!-- Dynamic Header -->
+    <div id="site-header"></div>
+
+    <main>
+      <!-- Markdown content will be injected here -->
+      <section class="jenews-content" id="markdown-output">
+        <p>Loading article...</p>
+      </section>
+    </main>
+
+    <!-- Dynamic Footer -->
+    <div id="site-footer"></div>
+
+  </div>
+
+  <!-- Markdown parser -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get("file") || "welcome.md";
+
+    fetch(`/posts/${file}`)
+      .then(response => {
+        if (!response.ok) throw new Error("File not found");
+        return response.text();
+      })
+      .then(text => {
+        document.getElementById("markdown-output").innerHTML = marked.parse(text);
+      })
+      .catch(err => {
+        document.getElementById("markdown-output").innerHTML = "<p>Sorry, article not found.</p>";
+        console.error(err);
+      });
+  </script>
+
+  <!-- Load Header + Footer -->
+  <script>
+    function loadHTML(id, url) {
+      fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById(id).innerHTML = html;
+        });
+    }
+
+    loadHTML('site-header', '/partials/header.html');
+    loadHTML('site-footer', '/partials/footer.html');
+  </script>
+
+  <!-- Navigation hover fix -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('a.jenews-link, a.jenews-pill').forEach(link => {
+        link.setAttribute('target', '_self');
+      });
+
+      document.querySelectorAll('.jenews-nav li').forEach(li => {
+        let timer;
+        const submenu = li.querySelector('ul');
+
+        if (submenu) {
+          li.addEventListener('mouseenter', () => {
+            clearTimeout(timer);
+            submenu.style.display = 'flex';
+          });
+
+          li.addEventListener('mouseleave', () => {
+            timer = setTimeout(() => {
+              submenu.style.display = 'none';
+            }, 300);
+          });
+
+          submenu.addEventListener('mouseenter', () => {
+            clearTimeout(timer);
+          });
+
+          submenu.addEventListener('mouseleave', () => {
+            timer = setTimeout(() => {
+              submenu.style.display = 'none';
+            }, 300);
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

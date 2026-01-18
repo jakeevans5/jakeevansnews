@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Who Has Authority | Jake Evans News</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Favicons -->
+  <link rel="icon" href="/assets/favicons/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicons/favicon-96x96.png" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="apple-mobile-web-app-title" content="Jake Evans News" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="jenews-home">
+  <div class="jenews-wrap">
+
+    <!-- Header -->
+    <div id="site-header"></div>
+
+    <!-- Page Content -->
+    <section class="neosho-wrap">
+      <h1 class="neosho-title">Who Has Authority to Do What</h1>
+      <p class="neosho-subtitle">Understanding the separation of roles in Neosho city government.</p>
+
+      <div class="neosho-card">
+        <p class="neosho-p">
+          One of the most common sources of frustration in local government is confusion about
+          who actually has the authority to make decisions.
+        </p>
+
+        <div class="neosho-callout">
+          <strong>Key principle:</strong> Authority in Neosho is intentionally divided.
+          No single person or body controls everything — and that’s by design.
+        </div>
+
+        <h2 class="neosho-h2">City Council (Legislative Authority)</h2>
+        <p class="neosho-p">
+          City Council is the legislative body of the City. Council acts collectively in public meetings
+          and exercises authority only through votes.
+        </p>
+
+        <ul class="neosho-ul">
+          <li>Adopts ordinances and resolutions</li>
+          <li>Sets policy and long-term direction</li>
+          <li>Approves the City budget</li>
+          <li>Appoints the City Manager and boards/commissions</li>
+        </ul>
+
+        <div class="neosho-box">
+          <strong>What City Council does <em>not</em> do</strong>
+          <ul class="neosho-ul">
+            <li>Run daily operations</li>
+            <li>Direct individual staff members</li>
+            <li>Decide enforcement outcomes</li>
+            <li>Prejudge appeals, hearings, or variances</li>
+          </ul>
+        </div>
+
+        <h2 class="neosho-h2">City Manager (Administrative Authority)</h2>
+        <p class="neosho-p">
+          The City Manager administers City operations and carries out policies adopted by Council.
+        </p>
+
+        <ul class="neosho-ul">
+          <li>Supervises City staff and departments</li>
+          <li>Implements Council-adopted policy</li>
+          <li>Oversees enforcement of ordinances</li>
+          <li>Manages contracts and daily operations</li>
+        </ul>
+
+        <h2 class="neosho-h2">Boards &amp; Commissions</h2>
+        <p class="neosho-p">
+          Boards and commissions exercise limited, quasi‑judicial authority within defined boundaries.
+        </p>
+
+        <ul class="neosho-ul">
+          <li>Act only within delegated authority</li>
+          <li>Must follow due‑process requirements</li>
+          <li>Do not answer to individual Council members</li>
+        </ul>
+
+        <div class="neosho-callout">
+          <strong>Why this separation matters:</strong>
+          It protects fairness, prevents favoritism, ensures due process, and reduces legal risk.
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="site-footer"></div>
+  </div>
+
+  <!-- Header/Footer Loader -->
+  <script>
+    function loadHTML(id, url) {
+      fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById(id).innerHTML = html;
+        });
+    }
+
+    loadHTML('site-header', '/partials/header.html');
+    loadHTML('site-footer', '/partials/footer.html');
+  </script>
+
+  <!-- Nav Behavior -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('a.jenews-link, a.jenews-pill').forEach(link => {
+        link.setAttribute('target', '_self');
+      });
+
+      document.querySelectorAll('.jenews-nav li').forEach(li => {
+        let timer;
+        const submenu = li.querySelector('ul');
+
+        if (submenu) {
+          li.addEventListener('mouseenter', () => {
+            clearTimeout(timer);
+            submenu.style.display = 'flex';
+          });
+
+          li.addEventListener('mouseleave', () => {
+            timer = setTimeout(() => {
+              submenu.style.display = 'none';
+            }, 300);
+          });
+
+          submenu.addEventListener('mouseenter', () => {
+            clearTimeout(timer);
+          });
+
+          submenu.addEventListener('mouseleave', () => {
+            timer = setTimeout(() => {
+              submenu.style.display = 'none';
+            }, 300);
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>City Code - Explained | Jake Evans News</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon + App Icons -->
+  <link rel="icon" href="/assets/favicons/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicons/favicon-96x96.png" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="apple-mobile-web-app-title" content="Jake Evans News" />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="jenews-home">
+  <div class="jenews-wrap">
+
+    <!-- Header -->
+    <div id="site-header"></div>
+
+    <!-- Main Content -->
+    <section class="neosho-code-explained" aria-label="Neosho City Code plain English explanation">
+      <div class="neosho-wrap">
+        <h1 class="neosho-title">Neosho City Code — How Local Laws Work</h1>
+        <p class="neosho-subtitle">
+          What the City Code is, how ordinances become enforceable rules, and how to read a code section.
+        </p>
+
+        <div class="neosho-card">
+          <p class="neosho-p">
+            The Neosho City Code is a collection of local laws (ordinances) adopted over time.
+            It covers everyday topics like land use, traffic, utilities, animals, buildings, and business regulations.
+          </p>
+
+          <div class="neosho-callout">
+            <strong>Key idea:</strong> The City Code must follow higher authority —
+            Missouri state law and the Neosho City Charter. If there’s a conflict, the higher authority controls.
+          </div>
+
+          <div class="neosho-grid">
+            <div>
+              <h2 class="neosho-h2">What the City Code does</h2>
+              <ul class="neosho-ul">
+                <li>Organizes local ordinances into topics (titles/chapters/sections)</li>
+                <li>Defines rules residents and businesses must follow</li>
+                <li>Sets procedures (permits, inspections, hearings, penalties, etc.)</li>
+                <li>Provides standards for consistent enforcement</li>
+              </ul>
+
+              <h2 class="neosho-h2">What the City Code does not do</h2>
+              <ul class="neosho-ul">
+                <li>Override Missouri law or the City Charter</li>
+                <li>Grant authority that the Charter does not allow</li>
+                <li>Replace due process (notice, hearings, appeals where required)</li>
+              </ul>
+            </div>
+
+            <aside class="neosho-box">
+              <strong>How it’s organized</strong>
+              <ul class="neosho-ul">
+                <li><strong>Titles</strong> (big topic areas)</li>
+                <li><strong>Chapters</strong> (subject groupings)</li>
+                <li><strong>Sections</strong> (the actual rules)</li>
+              </ul>
+              <div style="margin-top:10px;font-size:13px;color:#4b5563;">
+                Tip: If you know a keyword (like “fence,” “dog,” or “zoning”), you can usually search it and land in the right chapter fast.
+              </div>
+            </aside>
+          </div>
+
+          <h2 class="neosho-h2">How a local law becomes “the rule”</h2>
+          <p class="neosho-p">
+            City Council adopts local laws through ordinances. Once properly adopted and effective, they are codified (organized)
+            into the City Code so people can find them and follow them.
+          </p>
+
+          <h2 class="neosho-h2">How to read a code section (plain English)</h2>
+          <ol class="neosho-steps">
+            <li><strong>Read the main text first.</strong> That’s the enforceable rule as it exists today.</li>
+            <li><strong>Look for definitions.</strong> Many disputes come down to how a term is defined in the Code.</li>
+            <li><strong>Check for exceptions.</strong> Often the rule has carve-outs or special cases.</li>
+            <li><strong>Note enforcement process.</strong> Some issues are complaint-driven, some require notice/hearing steps.</li>
+            <li><strong>Use the history notes wisely.</strong> They show how the rule evolved, but the main text is what applies now.</li>
+          </ol>
+
+          <div class="neosho-callout">
+            <strong>Practical takeaway:</strong> When someone says “Council should just do X,” the next question should be:
+            <em>Is that allowed under state law and the Charter — and does the Code actually authorize it?</em>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="site-footer"></div>
+  </div>
+
+  <!-- Load Header and Footer Partials -->
+  <script>
+    function loadHTML(id, url) {
+      fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById(id).innerHTML = html;
+        });
+    }
+
+    loadHTML('site-header', '/partials/header.html');
+    loadHTML('site-footer', '/partials/footer.html');
+  </script>
+
+  <!-- Navigation Behavior -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('a.jenews-link, a.jenews-pill').forEach(link => {
+        link.setAttribute('target', '_self');
+      });
+
+      document.querySelectorAll('.jenews-nav li').forEach(li => {
+        let timer;
+        const submenu = li.querySelector('ul');
+
+        if (submenu) {
+          li.addEventListener('mouseenter', () => {
+            clearTimeout(timer);
+            submenu.style.display = 'flex';
+          });
+
+          li.addEventListener('mouseleave', () => {
+            timer = setTimeout(() => {
+              submenu.style.display = 'none';
+            }, 300);
+          });
+
+          submenu.addEventListener('mouseenter', () => {
+            clearTimeout(timer);
+          });
+
+          submenu.addEventListener('mouseleave', () => {
+            timer = setTimeout(() => {
+              submenu.style.display = 'none';
+            }, 300);
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

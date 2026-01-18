@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>How to Look Things Up | Jake Evans News</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="/assets/favicons/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicons/favicon-96x96.png" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="apple-mobile-web-app-title" content="Jake Evans News" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="jenews-home">
+  <div class="jenews-wrap">
+
+    <!-- Header -->
+    <div id="site-header"></div>
+
+    <!-- Page Content -->
+    <section class="neosho-wrap">
+      <h1 class="neosho-title">How to Look Things Up Yourself</h1>
+      <p class="neosho-subtitle">Finding answers in the Charter and City Code without needing inside knowledge.</p>
+
+      <div class="neosho-card">
+        <p class="neosho-p">
+          Neosho’s Charter and City Code are public documents. Anyone can access them,
+          search them, and understand how local rules are supposed to work.
+        </p>
+
+        <div class="neosho-callout">
+          <strong>Key idea:</strong> You don’t need to be a lawyer or a council member
+          to find reliable answers — you just need to know where to look and what to read.
+        </div>
+
+        <h2 class="neosho-h2">Start with the right question</h2>
+        <p class="neosho-p">Most confusion comes from jumping to conclusions too quickly. Start by asking:</p>
+
+        <ul class="neosho-ul">
+          <li>Is this a <strong>policy</strong> question or an <strong>enforcement</strong> issue?</li>
+          <li>Does this involve authority, process, or a specific rule?</li>
+          <li>Is the issue citywide or specific to a property, permit, or case?</li>
+        </ul>
+
+        <h2 class="neosho-h2">Where to look first</h2>
+        <ol class="neosho-ul">
+          <li><strong>Missouri state law</strong> — if state law controls the issue, local rules must follow it.</li>
+          <li><strong>The City Charter</strong> — for questions about authority, structure, or process.</li>
+          <li><strong>The City Code</strong> — for specific rules, requirements, or prohibitions.</li>
+        </ol>
+
+        <h2 class="neosho-h2">How to search effectively</h2>
+        <ul class="neosho-ul">
+          <li>Use <strong>plain keywords</strong> (dog, fence, parking, zoning, permit)</li>
+          <li>Check the <strong>definitions section</strong> if a term seems unclear</li>
+          <li>Search broadly first, then narrow down</li>
+          <li>Read the entire section — not just one sentence</li>
+        </ul>
+
+        <div class="neosho-box">
+          <strong>Tip:</strong>
+          If you can’t find something by browsing titles, try searching the exact word
+          a resident or official is using — the Code often mirrors that language.
+        </div>
+
+        <h2 class="neosho-h2">Understanding what you’re reading</h2>
+        <ul class="neosho-ul">
+          <li>The <strong>main text</strong> is the law as it exists today</li>
+          <li><strong>“Shall”</strong> usually means mandatory</li>
+          <li><strong>“May”</strong> usually means discretionary</li>
+          <li>History notes explain how a rule evolved but are not enforceable themselves</li>
+        </ul>
+
+        <div class="neosho-callout">
+          <strong>Important reminder:</strong>
+          If something isn’t clearly authorized, it usually means there’s a required process —
+          or that the City may not have authority at all.
+        </div>
+
+        <h2 class="neosho-h2">When to ask for clarification</h2>
+        <p class="neosho-p">
+          Sometimes the documents won’t give a clear answer. When that happens, the correct
+          next step is clarification — not assumption.
+        </p>
+
+        <ul class="neosho-ul">
+          <li>Ask staff for procedural clarification</li>
+          <li>Request legal review for ambiguous authority</li>
+          <li>Allow formal processes to play out</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="site-footer"></div>
+  </div>
+
+  <!-- Header/Footer Loader -->
+  <script>
+    function loadHTML(id, url) {
+      fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById(id).innerHTML = html;
+        });
+    }
+
+    loadHTML('site-header', '/partials/header.html');
+    loadHTML('site-footer', '/partials/footer.html');
+  </script>
+
+  <!-- Dropdown Nav JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('a.jenews-link, a.jenews-pill').forEach(link => {
+        link.setAttribute('target', '_self');
+      });
+
+      document.querySelectorAll('.jenews-nav li').forEach(li => {
+        let timer;
+        const submenu = li.querySelector('ul');
+
+        if (submenu) {
+          li.addEventListener('mouseenter', () => {
+            clearTimeout(timer);
+            submenu.style.display = 'flex';
+          });
+
+          li.addEventListener('mouseleave', () => {
+            timer = setTimeout(() => {
+              submenu.style.display = 'none';
+            }, 300);
+          });
+
+          submenu.addEventListener('mouseenter', () => {
+            clearTimeout(timer);
+          });
+
+          submenu.addEventListener('mouseleave', () => {
+            timer = setTimeout(() => {
+              submenu.style.display = 'none';
+            }, 300);
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
