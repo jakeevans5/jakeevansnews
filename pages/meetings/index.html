@@ -51,7 +51,7 @@
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
     const params = new URLSearchParams(window.location.search);
-    const file = params.get("file") || "meetings/2026-01-20-city-council.md";
+    const file = params.get("file") || "meetings/2026-02-05-city-council.md";
 
     fetch(`/posts/${file}`)
       .then(response => {
