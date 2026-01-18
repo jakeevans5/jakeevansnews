@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Preparing to Serve – Jake Evans News</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="jenews-home">
+  <div id="header"></div>
+
+  <main class="jenews-wrap">
+    <section>
+      <h2 class="neosho-title">Preparing to Serve</h2>
+      
+      <!-- Grid of Cards -->
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 24px; padding: 20px 0;">
+        <!-- First Row -->
+        <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;">
+          <a href="https://jakeevansnews.substack.com/s/who-i-am-before-the-title" class="jenews-link" style="width: 220px;">
+            <div class="jenews-card" style="padding: 0;">
+              <img src="/pages/preparing-to-serve/who-i-am.jpg" alt="Who I Am" style="width: 100%; height: 140px; object-fit: cover; border-top-left-radius: 16px; border-top-right-radius: 16px;">
+              <div style="padding: 10px; font-weight: 700; font-size: 14px; color: #1e3a8a;">Who I Am (Before the Title)</div>
+            </div>
+          </a>
+
+          <a href="https://jakeevansnews.substack.com/s/how-i-think-about-series-1" class="jenews-link" style="width: 220px;">
+            <div class="jenews-card" style="padding: 0;">
+              <img src="/pages/preparing-to-serve/how-i-think-about.png" alt="How I Think About…" style="width: 100%; height: 140px; object-fit: cover; border-top-left-radius: 16px; border-top-right-radius: 16px;">
+              <div style="padding: 10px; font-weight: 700; font-size: 14px; color: #1e3a8a;">How I Think About…</div>
+            </div>
+          </a>
+
+          <a href="https://jakeevansnews.substack.com/s/what-im-learning" class="jenews-link" style="width: 220px;">
+            <div class="jenews-card" style="padding: 0;">
+              <img src="/pages/preparing-to-serve/what-im-learning.png" alt="What I'm Learning" style="width: 100%; height: 140px; object-fit: cover; border-top-left-radius: 16px; border-top-right-radius: 16px;">
+              <div style="padding: 10px; font-weight: 700; font-size: 14px; color: #1e3a8a;">What I’m Learning</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Second Row -->
+        <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;">
+          <a href="https://jakeevansnews.substack.com/s/before-the-vote-series-4" class="jenews-link" style="width: 220px;">
+            <div class="jenews-card" style="padding: 0;">
+              <img src="/pages/preparing-to-serve/before-the-vote.png" alt="Before the Vote" style="width: 100%; height: 140px; object-fit: cover; border-top-left-radius: 16px; border-top-right-radius: 16px;">
+              <div style="padding: 10px; font-weight: 700; font-size: 14px; color: #1e3a8a;">Before the Vote</div>
+            </div>
+          </a>
+
+          <a href="https://jakeevansnews.substack.com/s/before-im-sworn-in-series-5" class="jenews-link" style="width: 220px;">
+            <div class="jenews-card" style="padding: 0;">
+              <img src="/pages/preparing-to-serve/before-im-sworn-in.png" alt="Before I'm Sworn In" style="width: 100%; height: 140px; object-fit: cover; border-top-left-radius: 16px; border-top-right-radius: 16px;">
+              <div style="padding: 10px; font-weight: 700; font-size: 14px; color: #1e3a8a;">Before I’m Sworn In</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script>
+    // Load header and footer
+    fetch("/partials/header.html").then(res => res.text()).then(data => {
+      document.getElementById("header").innerHTML = data;
+    });
+    fetch("/partials/footer.html").then(res => res.text()).then(data => {
+      document.getElementById("footer").innerHTML = data;
+    });
+  </script>
+</body>
+</html>
