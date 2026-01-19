@@ -1,5 +1,7 @@
 # What Service Means to Me
 
+<img src="/assets/images/part-3.webp" alt="What Service Means to Me" class="centered-photo" />
+
 When I use the word service, I mean something very simple.
 
 Service starts with me.
