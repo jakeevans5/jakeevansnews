@@ -473,8 +473,8 @@ h1 {
 }
 .jenews-grid-parts {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
   margin-top: 2rem;
 }
 
