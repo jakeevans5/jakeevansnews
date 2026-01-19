@@ -19,10 +19,10 @@
       </section>
 
       <!-- Navigation Buttons -->
-      <div id="post-nav" style="display: flex; justify-content: space-between; margin-top: 2rem; padding: 0 1rem;">
-        <a id="prev-link" href="#" style="visibility: hidden;">← Previous</a>
-        <a id="series-link" href="#">↑ Return to Series</a>
-        <a id="next-link" href="#" style="visibility: hidden;">Next →</a>
+      <div id="post-nav" class="jenews-nav-links">
+        <a id="prev-link" class="hidden">← Previous</a>
+        <a id="series-link">↑ Return to Series</a>
+        <a id="next-link" class="hidden">Next →</a>
       </div>
     </main>
 
@@ -30,7 +30,7 @@
     <div id="site-footer"></div>
   </div>
 
-  <!-- Scripts -->
+  <!-- Load Header/Footer -->
   <script>
     function loadHTML(id, url) {
       fetch(url)
@@ -63,7 +63,7 @@
         console.error(err);
       });
 
-    // Navigation setup
+    // Set up navigation
     const seriesMap = {
       "01-who-i-am": 5,
       "02-how-i-think": 5,
@@ -81,13 +81,15 @@
       document.getElementById("series-link").href = `/pages/preparing-to-serve/${series}/`;
 
       if (partNum > 1) {
-        document.getElementById("prev-link").style.visibility = "visible";
-        document.getElementById("prev-link").href = `?file=preparing/${series}/part-${partNum - 1}.md`;
+        const prev = document.getElementById("prev-link");
+        prev.classList.remove("hidden");
+        prev.href = `?file=preparing/${series}/part-${partNum - 1}.md`;
       }
 
       if (partNum < total) {
-        document.getElementById("next-link").style.visibility = "visible";
-        document.getElementById("next-link").href = `?file=preparing/${series}/part-${partNum + 1}.md`;
+        const next = document.getElementById("next-link");
+        next.classList.remove("hidden");
+        next.href = `?file=preparing/${series}/part-${partNum + 1}.md`;
       }
     }
   </script>
