@@ -24,7 +24,3 @@ If I don’t know something, I’m going to ask. If there’s a better way to un
 
 This is where I’m coming from.  
 It’s the mindset I carry into any role of responsibility, and it’s the foundation I intend to keep building on.
-      Next: Part 2 →
-    </button>
-  </a>
-</div>
