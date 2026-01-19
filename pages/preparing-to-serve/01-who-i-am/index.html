@@ -1,1 +1,96 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Preparing to Serve – Part</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="jenews-home">
+  <div class="jenews-wrap">
+
+    <!-- Header -->
+    <div id="site-header"></div>
+
+    <!-- Content Area -->
+    <main>
+      <section class="jenews-content markdown-body" id="markdown-output">
+        <p>Loading part...</p>
+      </section>
+
+      <!-- Navigation Buttons -->
+      <div id="post-nav" style="display: flex; justify-content: space-between; margin-top: 2rem; padding: 0 1rem;">
+        <a id="prev-link" href="#" style="visibility: hidden;">← Previous</a>
+        <a id="series-link" href="#">↑ Return to Series</a>
+        <a id="next-link" href="#" style="visibility: hidden;">Next →</a>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="site-footer"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    function loadHTML(id, url) {
+      fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById(id).innerHTML = html;
+        });
+    }
+
+    loadHTML('site-header', '/partials/header.html');
+    loadHTML('site-footer', '/partials/footer.html');
+  </script>
+
+  <!-- Markdown Renderer -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get("file") || "preparing/01-who-i-am/part-1.md";
+
+    fetch(`/posts/${file}`)
+      .then(response => {
+        if (!response.ok) throw new Error("File not found");
+        return response.text();
+      })
+      .then(text => {
+        document.getElementById("markdown-output").innerHTML = marked.parse(text);
+      })
+      .catch(err => {
+        document.getElementById("markdown-output").innerHTML = "<p>Sorry, article not found.</p>";
+        console.error(err);
+      });
+
+    // Navigation setup
+    const seriesMap = {
+      "01-who-i-am": 5,
+      "02-how-i-think": 5,
+      "03-what-im-learning": 5,
+      "04-before-the-vote": 5,
+      "05-before-im-sworn-in": 5
+    };
+
+    const match = file.match(/preparing\/(0[1-5]-[a-z0-9-]+)\/part-(\d)\.md/);
+    if (match) {
+      const [_, series, part] = match;
+      const partNum = parseInt(part);
+      const total = seriesMap[series];
+
+      document.getElementById("series-link").href = `/pages/preparing-to-serve/${series}/`;
+
+      if (partNum > 1) {
+        document.getElementById("prev-link").style.visibility = "visible";
+        document.getElementById("prev-link").href = `?file=preparing/${series}/part-${partNum - 1}.md`;
+      }
+
+      if (partNum < total) {
+        document.getElementById("next-link").style.visibility = "visible";
+        document.getElementById("next-link").href = `?file=preparing/${series}/part-${partNum + 1}.md`;
+      }
+    }
+  </script>
+</body>
+</html>
