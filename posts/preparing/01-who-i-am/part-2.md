@@ -1,4 +1,5 @@
 # Why I Care About Neosho
+### What makes this place home—and why local responsibility matters
 
 <img src="/assets/images/who-i-am.jpg" alt="Why I Care About Neosho" class="centered-photo" />
 
