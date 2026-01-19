@@ -1,4 +1,5 @@
 # How I Think About Disagreement
+### Why slowing down matters more than winning
 
 Disagreement doesn’t start with positions for me — it starts with people.
 
