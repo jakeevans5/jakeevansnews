@@ -19,10 +19,18 @@
       </section>
 
       <!-- Navigation Buttons -->
-      <div id="post-nav" class="jenews-nav-links">
-        <a id="prev-link" class="hidden">← Previous</a>
-        <a id="series-link">↑ Return to Series</a>
-        <a id="next-link" class="hidden">Next →</a>
+      <div class="jenews-nav-links">
+        <div id="prev-container">
+          <a id="prev-link" href="#">← Previous</a>
+        </div>
+
+        <div>
+          <a id="series-link" href="#">↑ Return to Series</a>
+        </div>
+
+        <div>
+          <a id="next-link" href="#">Next →</a>
+        </div>
       </div>
     </main>
 
@@ -39,7 +47,6 @@
           document.getElementById(id).innerHTML = html;
         });
     }
-
     loadHTML('site-header', '/partials/header.html');
     loadHTML('site-footer', '/partials/footer.html');
   </script>
@@ -63,7 +70,7 @@
         console.error(err);
       });
 
-    // Set up navigation
+    // Navigation setup
     const seriesMap = {
       "01-who-i-am": 5,
       "02-how-i-think": 5,
@@ -78,18 +85,31 @@
       const partNum = parseInt(part);
       const total = seriesMap[series];
 
+      // Return to Series link
       document.getElementById("series-link").href = `/pages/preparing-to-serve/${series}/`;
 
+      // Previous button logic
       if (partNum > 1) {
-        const prev = document.getElementById("prev-link");
-        prev.classList.remove("hidden");
-        prev.href = `?file=preparing/${series}/part-${partNum - 1}.md`;
+        document.getElementById("prev-link").href =
+          `?file=preparing/${series}/part-${partNum - 1}.md`;
+      } else {
+        document.getElementById("prev-container").remove(); // removes entirely on Part 1
       }
 
+      // Next button logic
       if (partNum < total) {
-        const next = document.getElementById("next-link");
-        next.classList.remove("hidden");
-        next.href = `?file=preparing/${series}/part-${partNum + 1}.md`;
+        document.getElementById("next-link").href =
+          `?file=preparing/${series}/part-${partNum + 1}.md`;
+      } else {
+        // On Part 5, go to next series landing page
+        const nextSeriesNum = parseInt(series.substring(0, 2)) + 1;
+        const nextSeriesKey = Object.keys(seriesMap).find(k => k.startsWith(String(nextSeriesNum).padStart(2, "0")));
+        if (nextSeriesKey) {
+          document.getElementById("next-link").href =
+            `/pages/preparing-to-serve/${nextSeriesKey}/`;
+        } else {
+          document.getElementById("next-link").style.display = "none";
+        }
       }
     }
   </script>
