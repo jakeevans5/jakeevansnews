@@ -20,7 +20,7 @@
 
       <!-- Navigation Buttons -->
       <div class="jenews-nav-links">
-        <div id="prev-container">
+        <div>
           <a id="prev-link" href="#">← Previous</a>
         </div>
 
@@ -81,32 +81,36 @@
 
     const match = file.match(/preparing\/(0[1-5]-[a-z0-9-]+)\/part-(\d)\.md/);
     if (match) {
-      const [_, series, part] = match;
-      const partNum = parseInt(part);
+      const series = match[1];
+      const partNum = parseInt(match[2]);
       const total = seriesMap[series];
 
-      // Return to Series link
-      document.getElementById("series-link").href = `/pages/preparing-to-serve/${series}/`;
+      // Return to Series
+      document.getElementById("series-link").href =
+        `/pages/preparing-to-serve/${series}/`;
 
-      // Previous button logic
-      if (partNum > 1) {
+      // Previous logic
+      if (partNum === 1) {
+        document.getElementById("prev-link").href =
+          "/pages/preparing-to-serve/";
+      } else {
         document.getElementById("prev-link").href =
           `?file=preparing/${series}/part-${partNum - 1}.md`;
-      } else {
-        document.getElementById("prev-container").remove(); // removes entirely on Part 1
       }
 
-      // Next button logic
+      // Next logic
       if (partNum < total) {
         document.getElementById("next-link").href =
           `?file=preparing/${series}/part-${partNum + 1}.md`;
       } else {
-        // On Part 5, go to next series landing page
+        // Go to next series landing page
         const nextSeriesNum = parseInt(series.substring(0, 2)) + 1;
-        const nextSeriesKey = Object.keys(seriesMap).find(k => k.startsWith(String(nextSeriesNum).padStart(2, "0")));
-        if (nextSeriesKey) {
+        const nextKey = Object.keys(seriesMap)
+          .find(k => k.startsWith(String(nextSeriesNum).padStart(2, "0")));
+
+        if (nextKey) {
           document.getElementById("next-link").href =
-            `/pages/preparing-to-serve/${nextSeriesKey}/`;
+            `/pages/preparing-to-serve/${nextKey}/`;
         } else {
           document.getElementById("next-link").style.display = "none";
         }
