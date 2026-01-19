@@ -1,7 +1,7 @@
 # What Service Means to Me
 ### Listening first, understanding what’s needed, and showing up
 
-<img src="/assets/images/part-3.webp" alt="What Service Means to Me" class="centered-photo" />
+<img src="/assets/images/series-1/part-3.webp" alt="What Service Means to Me" class="centered-photo" />
 
 When I use the word service, I mean something very simple.
 
