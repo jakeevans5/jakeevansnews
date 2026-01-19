@@ -1,7 +1,7 @@
 # Why I Care About Neosho
 ### What makes this place home—and why local responsibility matters
 
-<img src="/assets/images/who-i-am.jpg" alt="Why I Care About Neosho" class="centered-photo" />
+<img src="assets/images/series-1/part-2.webp" alt="Why I Care About Neosho" class="centered-photo" />
 
 I’ve been thinking a lot about what it means to say a place is “home.”
 
