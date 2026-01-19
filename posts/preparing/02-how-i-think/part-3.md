@@ -1,6 +1,8 @@
 # How I Think About Listening to the Public
 ### Why understanding comes before responding
 
+<img src="/assets/images/series-2/part-3.webp" alt="How I Think About Listening to the Public" class="centered-photo" />
+
 Listening, to me, isn’t about waiting for my turn to speak. It’s about making sure I actually understand what someone is trying to tell me — without misinterpretation, assumption, or unnecessary filtering.
 
 When someone from the public brings a concern or opinion to me, the first thing I’m focused on is clarity. Before facts, before solutions, before responses, I want to be confident that I understand what they mean — not just the words they’re using, but the concern underneath them. A lot of misunderstanding happens not because people disagree, but because they’re talking past each other without realizing it.
