@@ -1,6 +1,8 @@
 # How I Think About Decision-Making
 ### Why process matters more to me than certainty
 
+<img src="/assets/images/series-2/part-1.webp" alt="How I Think About Decision-Making" class="centered-photo" />
+
 When people talk about decision-making, it’s often framed as confidence versus hesitation, or instinct versus analysis. For me, it’s less about speed or certainty and more about process — how I arrive at a decision, not how quickly I land on one.
 
 When a decision actually matters — not a routine choice, not something automatic — my first instinct is to slow down. Before weighing options or forming opinions, I start by trying to understand the subject itself. That usually means gathering as much information as I reasonably can. Sometimes that looks like independent research. Sometimes it involves tools like search engines or AI. Other times, it means talking directly with people who know more than I do.
