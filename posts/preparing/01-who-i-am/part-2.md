@@ -1,5 +1,7 @@
 # Why I Care About Neosho
 
+<img src="/assets/images/who-i-am.jpg" alt="Why I Care About Neosho" class="centered-photo" />
+
 I’ve been thinking a lot about what it means to say a place is “home.”
 
 For some people, that word is tied to friend groups, social circles, or nostalgia. For me, it’s simpler and more grounded than that.
