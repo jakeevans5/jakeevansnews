@@ -1,6 +1,8 @@
 # How I Think About Being Wrong and Course-Correcting
 ### Why learning from mistakes matters more than avoiding them
 
+<img src="/assets/images/series-2/part-5.jpg" alt="How I Think About Being Wrong and Course-Correcting" class="centered-photo" />
+
 Being wrong doesn’t bother me the way it seems to bother some people. I don’t attach embarrassment, guilt, or defensiveness to it. I see being wrong — and correcting myself — as part of being human. History is full of genuinely great people who were wrong about things they believed were right. I don’t see myself as above that.
 
 What matters to me isn’t avoiding being wrong. It’s what happens when I realize I might be.
