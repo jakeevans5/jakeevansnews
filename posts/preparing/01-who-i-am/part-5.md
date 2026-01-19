@@ -1,6 +1,8 @@
 # What People Can Expect From Me (And What They Shouldn’t)
 ### Consistency, honesty, and process over promises
 
+<img src="/assets/images/part-5.jpg" alt="Part 5 Image" class="centered-photo" />
+
 For me, staying grounded doesn’t come from a single habit or routine.
 
 It comes from experience.
