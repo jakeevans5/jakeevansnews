@@ -1,6 +1,8 @@
 # How I Stay Grounded and Accountable
 ### Learning from mistakes and improving through reflection
 
+<img src="/assets/images/part-4.webp" alt="Part 4 Image" class="centered-photo" />
+
 For me, staying grounded doesn’t come from a single habit or routine.
 
 It comes from experience.
