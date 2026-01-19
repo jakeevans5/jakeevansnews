@@ -1,6 +1,8 @@
 # How I Think About Transparency
 ### Why clarity matters more than access
 
+<img src="/assets/images/series-2/part-4.webp" alt="How I Think About Transparency" class="centered-photo" />
+
 Transparency, to me, isn’t complicated or abstract. It’s face value. It’s about letting people see how things actually work so they’re not left confused, guessing, or filling in gaps on their own.
 
 When people don’t understand what’s happening behind the scenes, confusion takes over — and confusion almost always turns into frustration or mistrust. That’s one of the main reasons I started sharing information publicly through a website, a Facebook page, and longer written explanations. Not to persuade or spin, but to help people understand processes that are often invisible or poorly explained.
