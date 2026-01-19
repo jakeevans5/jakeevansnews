@@ -1,4 +1,5 @@
 # How I Think About Decision-Making
+### Why slowing down matters more than winning.
 
 When people talk about decision-making, it’s often framed as confidence versus hesitation, or instinct versus analysis. For me, it’s less about speed or certainty and more about process — how I arrive at a decision, not how quickly I land on one.
 
