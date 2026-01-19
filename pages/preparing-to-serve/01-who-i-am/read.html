@@ -15,7 +15,7 @@
     <!-- Content Area -->
     <main>
       <section class="jenews-content markdown-body" id="markdown-output">
-        <p>Loading part...</p>
+        <p>Loading part…</p>
       </section>
 
       <!-- Navigation Buttons -->
@@ -38,61 +38,88 @@
     <div id="site-footer"></div>
   </div>
 
-  <!-- Load Header/Footer -->
-<script>
-  const params = new URLSearchParams(window.location.search);
-  const file = params.get("file") || "preparing/01-who-i-am/part-1.md";
-
-  fetch(`/posts/${file}`)
-    .then(response => {
-      if (!response.ok) throw new Error("File not found");
-      return response.text();
-    })
-    .then(text => {
-      document.getElementById("markdown-output").innerHTML = marked.parse(text);
-    })
-    .catch(err => {
-      document.getElementById("markdown-output").innerHTML = "<p>Sorry, article not found.</p>";
-      console.error(err);
-    });
-
-  const seriesMap = {
-    "01-who-i-am": 5,
-    "02-how-i-think": 5,
-    "03-what-im-learning": 5,
-    "04-before-the-vote": 5,
-    "05-before-im-sworn-in": 5
-  };
-
-  const match = file.match(/preparing\/(0[1-5]-[a-z0-9-]+)\/part-(\d)\.md/);
-  if (match) {
-    const series = match[1];
-    const partNum = parseInt(match[2]);
-    const total = seriesMap[series];
-
-    // Return to Series
-    document.getElementById("series-link").href = `/pages/preparing-to-serve/${series}/`;
-
-    // Previous logic
-    if (partNum === 1) {
-      document.getElementById("prev-link").href = `/pages/preparing-to-serve/${series}/`;
-    } else {
-      document.getElementById("prev-link").href = `?file=preparing/${series}/part-${partNum - 1}.md`;
+  <!-- Load Header + Footer FIRST -->
+  <script>
+    function loadHTML(id, url, callback) {
+      fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById(id).innerHTML = html;
+          if (callback) callback();
+        })
+        .catch(console.error);
     }
 
-    // Next logic
-    if (partNum < total) {
-      document.getElementById("next-link").href = `?file=preparing/${series}/part-${partNum + 1}.md`;
-    } else {
-      const nextSeriesNum = parseInt(series.substring(0, 2)) + 1;
-      const nextKey = Object.keys(seriesMap).find(k => k.startsWith(String(nextSeriesNum).padStart(2, "0")));
-      if (nextKey) {
-        document.getElementById("next-link").href = `/pages/preparing-to-serve/${nextKey}/`;
+    // Load header and footer before parsing markdown
+    loadHTML('site-header', '/partials/header.html', loadMarkdown);
+    loadHTML('site-footer', '/partials/footer.html');
+
+    function loadMarkdown() {
+      const params = new URLSearchParams(window.location.search);
+      const file = params.get("file") || "preparing/01-who-i-am/part-1.md";
+
+      fetch(`/posts/${file}`)
+        .then(response => {
+          if (!response.ok) throw new Error("File not found");
+          return response.text();
+        })
+        .then(text => {
+          document.getElementById("markdown-output").innerHTML = marked.parse(text);
+          setupNavigation(file);
+        })
+        .catch(err => {
+          document.getElementById("markdown-output").innerHTML = "<p>Sorry, article not found.</p>";
+          console.error(err);
+        });
+    }
+
+    function setupNavigation(file) {
+      const seriesMap = {
+        "01-who-i-am": 5,
+        "02-how-i-think": 5,
+        "03-what-im-learning": 5,
+        "04-before-the-vote": 5,
+        "05-before-im-sworn-in": 5
+      };
+
+      const match = file.match(/preparing\/(0[1-5]-[a-z0-9-]+)\/part-(\d)\.md/);
+      if (!match) return;
+
+      const series = match[1];
+      const partNum = parseInt(match[2]);
+      const total = seriesMap[series];
+
+      // Return to Series
+      document.getElementById("series-link").href = `/pages/preparing-to-serve/${series}/`;
+
+      // Previous logic (Part 1 goes to series landing)
+      if (partNum === 1) {
+        document.getElementById("prev-link").href =
+          `/pages/preparing-to-serve/${series}/`;
       } else {
-        document.getElementById("next-link").style.display = "none";
+        document.getElementById("prev-link").href =
+          `?file=preparing/${series}/part-${partNum - 1}.md`;
+      }
+
+      // Next logic
+      if (partNum < total) {
+        document.getElementById("next-link").href =
+          `?file=preparing/${series}/part-${partNum + 1}.md`;
+      } else {
+        const nextSeriesNum = parseInt(series.substring(0, 2)) + 1;
+        const nextKey = Object.keys(seriesMap)
+          .find(k => k.startsWith(String(nextSeriesNum).padStart(2, "0")));
+        if (nextKey) {
+          document.getElementById("next-link").href =
+            `/pages/preparing-to-serve/${nextKey}/`;
+        } else {
+          document.getElementById("next-link").style.display = "none";
+        }
       }
     }
-  }
-</script>
+  </script>
+
+  <!-- Markdown Parser -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </body>
 </html>
