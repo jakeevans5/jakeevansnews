@@ -1,5 +1,7 @@
 # Where I'm Coming From
 
+![Part 1 image](../../../assets/images/part-1.webp)
+
 Before I ever hold a title or cast a vote, I think it’s fair for people to understand where I’m coming from.
 
 My sense of responsibility didn’t come from a single place. It’s been shaped over time—through military service, through being a husband and a father, and through my professional work as a Business Process Analyst. Different environments, different stakes, but the same underlying lesson: decisions matter, and shortcuts almost always cost more in the long run.
