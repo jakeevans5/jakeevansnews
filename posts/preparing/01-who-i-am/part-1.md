@@ -1,7 +1,7 @@
 # Where I'm Coming From
 ### The experiences that shaped how I approach responsibility
 
-![Part 1 image](../../../assets/images/series-1/part-1.webp)
+<img src="/assets/images/part-1.webp" alt="Where I'm Coming From" class="centered-photo" />
 
 Before I ever hold a title or cast a vote, I think it’s fair for people to understand where I’m coming from.
 
