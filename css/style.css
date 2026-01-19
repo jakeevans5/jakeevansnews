@@ -471,4 +471,43 @@ h1 {
   margin-top: 1.6em;
   margin-bottom: 0.5em;
 }
+.jenews-grid-parts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
 
+.jenews-card {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+}
+
+.jenews-card.disabled {
+  background: #f9f9fc;
+  color: #999;
+  cursor: default;
+  pointer-events: none;
+}
+
+.jenews-card .jenews-kicker {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.jenews-card .jenews-headline {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.jenews-card .jenews-deck {
+  font-size: 0.95rem;
+  color: #555;
+}
