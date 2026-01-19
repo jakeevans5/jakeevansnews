@@ -1,6 +1,8 @@
 # How I Think About Disagreement
 ### Why slowing down matters more than winning
 
+<img src="/assets/images/series-2/part-2.webp" alt="How I Think About Disagreement" class="centered-photo" />
+
 Disagreement doesn’t start with positions for me — it starts with people.
 
 When I realize I disagree with someone, my first instinct isn’t to prepare a rebuttal. Instead, I notice how invested they are. Are they confident? Emotionally attached? Speaking from experience? Or simply assertive by nature? That initial observation matters, because confidence can come from many places, and not all of them are about being right or wrong.
