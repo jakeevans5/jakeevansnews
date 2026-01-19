@@ -1,4 +1,5 @@
 # Where I'm Coming From
+### The experiences that shaped how I approach responsibility
 
 ![Part 1 image](../../../assets/images/part-1.webp)
 
