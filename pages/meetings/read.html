@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Meeting Details | Jake Evans News</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="jenews-home">
+  <div class="jenews-wrap">
+
+    <!-- Header -->
+    <div id="site-header"></div>
+
+    <!-- Content Area -->
+    <main>
+      <section class="jenews-content markdown-body" id="markdown-output">
+        <p>Loading meeting details...</p>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="site-footer"></div>
+  </div>
+
+  <!-- Load Header/Footer -->
+  <script>
+    function loadHTML(id, url) {
+      fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById(id).innerHTML = html;
+        });
+    }
+    loadHTML('site-header', '/partials/header.html');
+    loadHTML('site-footer', '/partials/footer.html');
+  </script>
+
+  <!-- Markdown Parser -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get("file") || "2026-02-05-city-council.md";
+
+    fetch(`/posts/meetings/${file}`)
+      .then(res => {
+        if (!res.ok) throw new Error("Not found");
+        return res.text();
+      })
+      .then(text => {
+        document.getElementById("markdown-output").innerHTML = marked.parse(text);
+      })
+      .catch(err => {
+        document.getElementById("markdown-output").innerHTML = "<p>Sorry, meeting details not found.</p>";
+        console.error(err);
+      });
+  </script>
+</body>
+</html>
