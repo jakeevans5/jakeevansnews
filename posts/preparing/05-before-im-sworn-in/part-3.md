@@ -1,6 +1,8 @@
 # How I Think About Accountability
 ### Due Diligence Before Authority
 
+![Series 5 – Part 3 header image](/assets/images/series-5/part-3.webp)
+
 Before I’m sworn in, accountability looks like due diligence—nothing more and nothing less.
 
 It means learning an issue thoroughly, studying its background, and grounding my understanding in empirical evidence whenever possible. If a law, the charter, or existing code applies, accountability means following it. Not because it aligns with my personal views, but because it already exists.
