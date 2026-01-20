@@ -1,6 +1,8 @@
 # How Board and Commission Service Shaped My Approach
 ### Listening longer and preparing better
 
+![Series 4 – Part 3 header image](/assets/images/series-4/part-3.jpg)
+
 Serving on boards and commissions didn’t change who I am in meetings as much as it deepened habits I already valued.
 
 One of the biggest things it reinforced was an appreciation for different perspectives. Being part of those discussions made it clear that people often arrive at the same issue from very different places. Disagreement isn’t unusual — and it doesn’t automatically mean someone is wrong or acting in bad faith.
