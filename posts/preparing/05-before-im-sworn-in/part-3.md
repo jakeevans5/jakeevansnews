@@ -1,7 +1,7 @@
 # How I Think About Accountability
 ### Due Diligence Before Authority
 
-![Series 5 – Part 3 header image](/assets/images/series-5/part-3.webp)
+<img src="/assets/images/series-5/part-3.webp" alt="How I Think About Accountability" class="centered-photo" />
 
 Before I’m sworn in, accountability looks like due diligence—nothing more and nothing less.
 
