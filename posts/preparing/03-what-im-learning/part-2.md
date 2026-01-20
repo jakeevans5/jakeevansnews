@@ -1,6 +1,7 @@
 # Council vs. Staff Roles
 ### Why understanding who does what changes how people engage
 
+<img src="/assets/images/series-3/part-2.webp" alt="Council vs. Staff Roles" class="centered-photo" />
 
 Before I started paying close attention to local government, I assumed it worked like a smaller version of the federal system.
 
