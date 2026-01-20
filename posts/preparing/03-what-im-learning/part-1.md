@@ -1,6 +1,8 @@
 # How City Government Actually Functions
 ### Why local government isn’t as uniform as we often assume
 
+<img src="/assets/images/series-3/part-1.webp" alt="How City Government Actually Functions" class="centered-photo" />
+
 One thing I’ve learned pretty quickly is that most people—including me, not that long ago—tend to think of city government as a single, uniform thing. We hear “city council” or “the city” and assume it works more or less the same everywhere.
 
 It doesn’t.
