@@ -1,5 +1,5 @@
 # How I Prepare Questions
-### 
+### Understanding the basics before anything moves forward
 
 When I decide to ask a question, it’s usually because I’m trying to fill in basic gaps — not challenge intent or push an outcome.
 
