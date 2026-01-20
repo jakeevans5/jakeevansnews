@@ -1,6 +1,8 @@
 # What I'm Intentionally Not Doing Yet
 ### Understanding Without Assuming Authority
 
+<img src="/assets/images/series-5/part-2.webp" alt="What I'm Intentionally Not Doing Yet" class="centered-photo" />
+
 Before I’m sworn in, I don’t think in terms of acting or holding anything back—because there is no authority to act with.
 
 Right now, I’m still just a citizen. No different than anyone else.
