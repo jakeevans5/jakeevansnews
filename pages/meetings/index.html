@@ -4,103 +4,48 @@
   <meta charset="UTF-8" />
   <title>Upcoming Meetings | Jake Evans News</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Favicons -->
-  <link rel="icon" href="/assets/favicons/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicons/favicon-96x96.png" />
-  <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-  <meta name="apple-mobile-web-app-title" content="Jake Evans News" />
-
-  <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body class="jenews-home">
   <div class="jenews-wrap">
-
-    <!-- Dynamic Header -->
+    <!-- Header -->
     <div id="site-header"></div>
 
     <!-- Content -->
     <main>
-      <section class="jenews-content markdown-body" id="markdown-output">
-        <p>Loading meeting info...</p>
+      <section class="jenews-content">
+        <h1 class="neosho-title">Upcoming Meetings</h1>
+        <p>
+          This section is where I post upcoming city council meeting agendas — often with commentary on what’s in them,
+          what I’m watching for, and why it matters.
+        </p>
+        <p>
+          My goal is to help others understand what decisions are being made and how they affect the community. After
+          the meetings, I’ll revisit these posts to summarize what actually happened, note any key differences, and
+          reflect on how things were handled.
+        </p>
+        <p>
+          These aren’t official records. They’re personal summaries based on my own reading, research, and observation.
+        </p>
+
+        <div class="jenews-callout" style="margin-top: 2rem;">
+          <strong>Looking for the next meeting?</strong><br />
+          <a class="jenews-link" href="read.html?file=2026-02-05-city-council.md">→ February 5, 2026 – City Council Meeting</a>
+        </div>
       </section>
     </main>
 
-    <!-- Dynamic Footer -->
+    <!-- Footer -->
     <div id="site-footer"></div>
   </div>
 
-  <!-- Load Header + Footer -->
+  <!-- Header/Footer Loader -->
   <script>
-    function loadHTML(id, url) {
-      fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById(id).innerHTML = html;
-        });
-    }
-
-    loadHTML('site-header', '/partials/header.html');
-    loadHTML('site-footer', '/partials/footer.html');
-  </script>
-
-  <!-- Markdown Renderer -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const file = params.get("file") || "meetings/2026-02-05-city-council.md";
-
-    fetch(`/posts/${file}`)
-      .then(response => {
-        if (!response.ok) throw new Error("File not found");
-        return response.text();
-      })
-      .then(text => {
-        document.getElementById("markdown-output").innerHTML = marked.parse(text);
-      })
-      .catch(err => {
-        document.getElementById("markdown-output").innerHTML = "<p>Sorry, meeting details not found.</p>";
-        console.error(err);
-      });
-  </script>
-
-  <!-- Nav Dropdown Script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('a.jenews-link, a.jenews-pill').forEach(link => {
-        link.setAttribute('target', '_self');
-      });
-
-      document.querySelectorAll('.jenews-nav li').forEach(li => {
-        let timer;
-        const submenu = li.querySelector('ul');
-
-        if (submenu) {
-          li.addEventListener('mouseenter', () => {
-            clearTimeout(timer);
-            submenu.style.display = 'flex';
-          });
-
-          li.addEventListener('mouseleave', () => {
-            timer = setTimeout(() => {
-              submenu.style.display = 'none';
-            }, 300);
-          });
-
-          submenu.addEventListener('mouseenter', () => {
-            clearTimeout(timer);
-          });
-
-          submenu.addEventListener('mouseleave', () => {
-            timer = setTimeout(() => {
-              submenu.style.display = 'none';
-            }, 300);
-          });
-        }
-      });
+    fetch("/partials/header.html").then(res => res.text()).then(data => {
+      document.getElementById("site-header").innerHTML = data;
+    });
+    fetch("/partials/footer.html").then(res => res.text()).then(data => {
+      document.getElementById("site-footer").innerHTML = data;
     });
   </script>
 </body>
