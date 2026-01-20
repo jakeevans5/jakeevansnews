@@ -1,7 +1,7 @@
 # What I’m Learning, Part 3: Budgets, Constraints, and Tradeoffs
 ### Why funding decisions aren’t as flexible as they appear
 
-![Series 3 – Part 3 header image](assets/images/series-3/part-3.jpeg)
+![Series 3 – Part 3 header image](/assets/images/series-3/part-3.jpeg)
 
 Going into this, I felt like I already had a decent understanding of how city budgets worked.
 
