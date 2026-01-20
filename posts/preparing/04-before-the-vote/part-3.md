@@ -1,7 +1,8 @@
 # How Board and Commission Service Shaped My Approach
 ### Listening longer and preparing better
 
-![Series 4 – Part 3 header image](/assets/images/series-4/part-3.jpg)
+<img src="/assets/images/series-4/part-3.jpg" alt="How Board and Commission Service Shaped My Approach" class="centered-photo" />
+
 
 Serving on boards and commissions didn’t change who I am in meetings as much as it deepened habits I already valued.
 
