@@ -1,6 +1,8 @@
 # How I Prepare Questions
 ### Understanding the basics before anything moves forward
 
+<img src="/assets/images/series-4/part-2.webp" alt="How I Prepare Questions" class="centered-photo" />
+
 When I decide to ask a question, it’s usually because I’m trying to fill in basic gaps — not challenge intent or push an outcome.
 
 As I read through an agenda item or packet, I’m mentally walking through the fundamentals: who, what, when, where, why, and how. If I can’t answer those for myself from what’s written, that’s when a question forms.
