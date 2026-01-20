@@ -1,6 +1,8 @@
 # What I'm Focused on Right Now
 ### Learning Before Forming Opinions
 
+<img src="/assets/images/series-5/part-1.webp" alt="What I'm Focused on Right Now" class="centered-photo" />
+
 Before I’m sworn in, my focus is fairly narrow and very intentional.
 
 Right now, I’m spending most of my time learning the issues that are already in front of the city—and then digging into why certain processes exist the way they do.
