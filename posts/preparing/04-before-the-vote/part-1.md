@@ -1,6 +1,8 @@
 # How I Read Agendas and Packets
 ### Finding context before details
 
+<img src="/assets/images/series-4/part-1.webp" alt="How I Read Agendas and Packets" class="centered-photo" />
+
 I always start with the agenda.
 
 Before I open a packet, I want to understand what’s actually being brought forward and where each item sits in the process. My first pass through the agenda is about orientation, not judgment. I scan for anything that’s out of the ordinary — new items I haven’t seen before, emergency readings, town halls, or anything that breaks the normal rhythm of a meeting.
