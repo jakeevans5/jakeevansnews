@@ -2,39 +2,92 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>How Government Works – Neosho Government 101</title>
+  <title>How Government Works | Neosho Government 101 | Jake Evans News</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Favicon Setup -->
+  <link rel="icon" href="/assets/favicons/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicons/favicon-96x96.png" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png" />
+  <link rel="manifest" href="/assets/favicons/site.webmanifest" />
 </head>
-<body class="jenews-page">
+<body class="jenews-home">
+  <div class="jenews-wrap">
 
-  <div id="site-header"></div>
+    <!-- Dynamic Header -->
+    <div id="site-header"></div>
 
-  <main class="jenews-main">
-    <article class="jenews-article">
-      <h1>How Local Government Works</h1>
-      <p>This section breaks down the actual functioning of Neosho’s city government — how meetings happen, how decisions are made, and how you can take part. If you’ve ever wondered what the Council does or how an ordinance gets passed, this is the place.</p>
+    <main>
+      <section class="jenews-content">
+        <h2>How Local Government Works</h2>
+        <p>This section breaks down the actual functioning of Neosho’s city government — how meetings happen, how decisions are made, and how you can take part. If you’ve ever wondered what the Council does or how an ordinance gets passed, this is the place.</p>
 
-      <h2>Start Learning</h2>
-      <ul>
-        <li><a href="#">🏛️ What City Council Does (Coming Soon)</a></li>
-        <li><a href="#">📅 Meeting Basics and Procedures (Coming Soon)</a></li>
-        <li><a href="#">🗳️ How Decisions Are Made (Coming Soon)</a></li>
-        <li><a href="#">📣 How to Participate (Coming Soon)</a></li>
-      </ul>
-    </article>
-  </main>
+        <h3>Start Learning</h3>
+        <ul>
+          <li><a href="#">🏛️ What City Council Does (Coming Soon)</a></li>
+          <li><a href="#">📅 Meeting Basics and Procedures (Coming Soon)</a></li>
+          <li><a href="#">🗳️ How Decisions Are Made (Coming Soon)</a></li>
+          <li><a href="#">📣 How to Participate (Coming Soon)</a></li>
+        </ul>
+      </section>
+    </main>
 
-  <div id="site-footer"></div>
+    <!-- Dynamic Footer -->
+    <div id="site-footer"></div>
 
+  </div>
+
+  <!-- Load Header + Footer -->
   <script>
     function loadHTML(id, url) {
-      fetch(url).then(res => res.text()).then(html => {
-        document.getElementById(id).innerHTML = html;
-      });
+      fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById(id).innerHTML = html;
+        });
     }
+
     loadHTML('site-header', '/partials/header.html');
     loadHTML('site-footer', '/partials/footer.html');
+  </script>
+
+  <!-- Dropdown + Mobile Nav JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('a.jenews-link, a.jenews-pill').forEach(link => {
+        link.setAttribute('target', '_self');
+      });
+
+      document.querySelectorAll('.jenews-nav li').forEach(li => {
+        let timer;
+        const submenu = li.querySelector('ul');
+
+        if (submenu) {
+          li.addEventListener('mouseenter', () => {
+            clearTimeout(timer);
+            submenu.style.display = 'flex';
+          });
+
+          li.addEventListener('mouseleave', () => {
+            timer = setTimeout(() => {
+              submenu.style.display = 'none';
+            }, 300);
+          });
+
+          submenu.addEventListener('mouseenter', () => {
+            clearTimeout(timer);
+          });
+
+          submenu.addEventListener('mouseleave', () => {
+            timer = setTimeout(() => {
+              submenu.style.display = 'none';
+            }, 300);
+          });
+        }
+      });
+    });
   </script>
 </body>
 </html>
