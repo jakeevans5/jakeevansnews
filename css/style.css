@@ -537,3 +537,15 @@ h1 {
   color: #ffffff;
   border-color: #1d4ed8;
 }
+/* Global link styling */
+a {
+  color: #1a0dab; /* Use your preferred blue, or change this */
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline; /* Optional: add underline on hover for accessibility */
+  color: #003366; /* Slightly darker blue on hover */
+}
