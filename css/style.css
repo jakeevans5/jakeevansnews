@@ -561,3 +561,15 @@ a:focus {
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
+.jenews-gov101-image {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin: 12px 0 24px;
+}
+
+.jenews-gov101-image img {
+  max-width: 70%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
