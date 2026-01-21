@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>How Government Works – Neosho Government 101</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="jenews-page">
+
+  <div id="site-header"></div>
+
+  <main class="jenews-main">
+    <article class="jenews-article">
+      <h1>How Local Government Works</h1>
+      <p>This section breaks down the actual functioning of Neosho’s city government — how meetings happen, how decisions are made, and how you can take part. If you’ve ever wondered what the Council does or how an ordinance gets passed, this is the place.</p>
+
+      <h2>Start Learning</h2>
+      <ul>
+        <li><a href="#">🏛️ What City Council Does (Coming Soon)</a></li>
+        <li><a href="#">📅 Meeting Basics and Procedures (Coming Soon)</a></li>
+        <li><a href="#">🗳️ How Decisions Are Made (Coming Soon)</a></li>
+        <li><a href="#">📣 How to Participate (Coming Soon)</a></li>
+      </ul>
+    </article>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    function loadHTML(id, url) {
+      fetch(url).then(res => res.text()).then(html => {
+        document.getElementById(id).innerHTML = html;
+      });
+    }
+    loadHTML('site-header', '/partials/header.html');
+    loadHTML('site-footer', '/partials/footer.html');
+  </script>
+</body>
+</html>
