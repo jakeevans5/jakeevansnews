@@ -2,118 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Neosho Charter & City Code | Jake Evans News</title>
+  <title>Neosho Government 101</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Stylesheet -->
   <link rel="stylesheet" href="/css/style.css">
-
-  <!-- Favicons -->
-  <link rel="icon" href="/assets/favicons/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicons/favicon-96x96.png" />
-  <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png" />
-  <link rel="manifest" href="/assets/favicons/site.webmanifest" />
 </head>
-<body class="jenews-home">
-  <div class="jenews-wrap">
-    <!-- Dynamic Header -->
-    <div id="site-header"></div>
+<body class="jenews-page">
 
-    <main class="container">
-      <h1>Neosho’s Charter &amp; City Code</h1>
-      <p class="subtitle">A practical, plain‑English guide to how local government authority and rules work.</p>
+  <div id="site-header"></div>
 
-      <div class="card">
-        <h2 class="section-title">Why this page exists</h2>
-        <p class="p">When local issues come up, it’s common to hear:</p>
-        <ul class="ul">
-          <li>“Why doesn’t City Council just fix this?”</li>
-          <li>“Didn’t Council already vote on that?”</li>
-          <li>“Can the City even do that?”</li>
-        </ul>
+  <main class="jenews-main">
+    <article class="jenews-article">
+      <h1>Neosho Government 101</h1>
+      <p>This educational series is designed to help residents of Neosho understand how their local government works — in plain English. Whether you're preparing to serve, trying to make sense of city ordinances, or simply want to be an informed voter or citizen, this is your place to start.</p>
 
-        <div class="highlight-box">
-          <strong>The honest answer is simple:</strong> it depends on the law.
-        </div>
+      <h2>Explore by Topic</h2>
 
-        <p class="p">
-          Neosho operates under a <strong>Home Rule Charter</strong> and an adopted
-          <strong>City Code</strong>. These documents — not personalities or politics — define:
-        </p>
+      <ul>
+        <li>
+          <a href="/pages/government-101/structure/">
+            🏛️ <strong>Government Structure</strong><br>
+            Learn about the City Charter, City Code, and who has legal authority in Neosho.
+          </a>
+        </li>
 
-        <ul class="ul">
-          <li>Who has authority</li>
-          <li>How decisions are made</li>
-          <li>What processes must be followed</li>
-          <li>What limits exist to protect citizens and the City</li>
-        </ul>
+        <li>
+          <a href="/pages/government-101/process/">
+            ⚙️ <strong>How Government Works</strong><br>
+            Understand how the Council functions, how decisions are made, and how residents can participate.
+          </a>
+        </li>
 
-        <p class="p">This page exists to explain those rules in plain English and connect you to deeper resources if you want to explore further.</p>
+        <li>
+          <a href="/pages/government-101/research/">
+            🔍 <strong>How to Research</strong><br>
+            Find out how to access records, look up city laws, and stay informed about what's happening.
+          </a>
+        </li>
+      </ul>
 
-        <div class="callout-box">
-          <strong>The order of authority</strong>
-          <ol class="ul">
-            <li>Missouri State Law</li>
-            <li>Neosho City Charter</li>
-            <li>Adopting Ordinance</li>
-            <li>Neosho City Code</li>
-            <li>Policies &amp; procedures</li>
-          </ol>
-        </div>
-      </div>
-    </main>
+      <p>These guides are built with clarity and practicality in mind — ideal for anyone who wants to understand and engage with Neosho’s local government.</p>
+    </article>
+  </main>
 
-    <!-- Footer -->
-    <div id="site-footer"></div>
-  </div>
+  <div id="site-footer"></div>
 
-  <!-- Load Header + Footer -->
   <script>
     function loadHTML(id, url) {
-      fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById(id).innerHTML = html;
-        });
+      fetch(url).then(res => res.text()).then(html => {
+        document.getElementById(id).innerHTML = html;
+      });
     }
-
     loadHTML('site-header', '/partials/header.html');
     loadHTML('site-footer', '/partials/footer.html');
-  </script>
-
-  <!-- Navigation Interaction -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('a.jenews-link, a.jenews-pill').forEach(link => {
-        link.setAttribute('target', '_self');
-      });
-
-      document.querySelectorAll('.jenews-nav li').forEach(li => {
-        let timer;
-        const submenu = li.querySelector('ul');
-
-        if (submenu) {
-          li.addEventListener('mouseenter', () => {
-            clearTimeout(timer);
-            submenu.style.display = 'flex';
-          });
-
-          li.addEventListener('mouseleave', () => {
-            timer = setTimeout(() => {
-              submenu.style.display = 'none';
-            }, 300);
-          });
-
-          submenu.addEventListener('mouseenter', () => clearTimeout(timer));
-          submenu.addEventListener('mouseleave', () => {
-            timer = setTimeout(() => {
-              submenu.style.display = 'none';
-            }, 300);
-          });
-        }
-      });
-    });
   </script>
 </body>
 </html>
