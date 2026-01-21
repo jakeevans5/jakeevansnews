@@ -573,3 +573,6 @@ a:focus {
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
+.gov101-logo {
+  margin-bottom: 18px; /* or try 20–24px depending on feel */
+}
