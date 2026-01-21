@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>How to Research – Neosho Government 101</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="jenews-page">
+
+  <div id="site-header"></div>
+
+  <main class="jenews-main">
+    <article class="jenews-article">
+      <h1>How to Research Local Government</h1>
+      <p>This section covers the tools, documents, and digital platforms available to help you understand what's happening in Neosho’s government. Learn how to look things up, access records, and track new developments.</p>
+
+      <h2>Start Learning</h2>
+      <ul>
+        <li><a href="/pages/government-101/research/how-to-look-up.html">🔍 How to Look Things Up</a></li>
+        <!-- Future articles -->
+        <li><a href="#">📄 Public Documents Explained (Coming Soon)</a></li>
+        <li><a href="#">🗂️ Understanding Meeting Packets (Coming Soon)</a></li>
+      </ul>
+    </article>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    function loadHTML(id, url) {
+      fetch(url).then(res => res.text()).then(html => {
+        document.getElementById(id).innerHTML = html;
+      });
+    }
+    loadHTML('site-header', '/partials/header.html');
+    loadHTML('site-footer', '/partials/footer.html');
+  </script>
+</body>
+</html>
