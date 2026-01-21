@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Government Structure | Neosho Government 101 | Jake Evans News</title>
+  <title>Government Structure – Neosho Government 101 | Jake Evans News</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/css/style.css">
 
@@ -22,30 +22,20 @@
     <main>
       <section class="jenews-content">
         <h2>Government Structure</h2>
-
         <p>Understanding how Neosho’s government is organized is the foundation for meaningful civic participation. This section explains the legal framework that defines what the city can do — and who has the authority to do it.</p>
 
         <h3>Start Learning</h3>
         <ul>
-          <li>
-            <a href="/pages/government-101/structure/charter.html">
-              📜 <strong>City Charter – Explained</strong><br>
+          <li>📜 <a href="/pages/government-101/structure/charter.html">City Charter – Explained</a><br>
               Learn what the City Charter is, why it matters, and how it shapes Neosho’s form of government.
-            </a>
           </li>
 
-          <li>
-            <a href="/pages/government-101/structure/city-code.html">
-              📘 <strong>City Code – Explained</strong><br>
+          <li>📘 <a href="/pages/government-101/structure/city-code.html">City Code – Explained</a><br>
               Understand what the City Code covers, how ordinances are organized, and how they’re enforced.
-            </a>
           </li>
 
-          <li>
-            <a href="/pages/government-101/structure/authority.html">
-              ⚖️ <strong>Who Has Authority</strong><br>
+          <li>⚖️ <a href="/pages/government-101/structure/authority.html">Who Has Authority</a><br>
               Clarifies who makes decisions in Neosho — including the roles of Council, Mayor, and City Manager.
-            </a>
           </li>
         </ul>
       </section>
@@ -53,7 +43,6 @@
 
     <!-- Dynamic Footer -->
     <div id="site-footer"></div>
-
   </div>
 
   <!-- Load Header + Footer -->
@@ -68,43 +57,6 @@
 
     loadHTML('site-header', '/partials/header.html');
     loadHTML('site-footer', '/partials/footer.html');
-  </script>
-
-  <!-- Dropdown + Mobile Nav JS -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('a.jenews-link, a.jenews-pill').forEach(link => {
-        link.setAttribute('target', '_self');
-      });
-
-      document.querySelectorAll('.jenews-nav li').forEach(li => {
-        let timer;
-        const submenu = li.querySelector('ul');
-
-        if (submenu) {
-          li.addEventListener('mouseenter', () => {
-            clearTimeout(timer);
-            submenu.style.display = 'flex';
-          });
-
-          li.addEventListener('mouseleave', () => {
-            timer = setTimeout(() => {
-              submenu.style.display = 'none';
-            }, 300);
-          });
-
-          submenu.addEventListener('mouseenter', () => {
-            clearTimeout(timer);
-          });
-
-          submenu.addEventListener('mouseleave', () => {
-            timer = setTimeout(() => {
-              submenu.style.display = 'none';
-            }, 300);
-          });
-        }
-      });
-    });
   </script>
 </body>
 </html>
