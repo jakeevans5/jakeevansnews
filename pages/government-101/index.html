@@ -2,58 +2,110 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Neosho Government 101</title>
+  <title>Neosho Government 101 | Jake Evans News</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Favicon Setup -->
+  <link rel="icon" href="/assets/favicons/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicons/favicon-96x96.png" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png" />
+  <link rel="manifest" href="/assets/favicons/site.webmanifest" />
 </head>
-<body class="jenews-page">
+<body class="jenews-home">
+  <div class="jenews-wrap">
 
-  <div id="site-header"></div>
+    <!-- Dynamic Header -->
+    <div id="site-header"></div>
 
-  <main class="jenews-main">
-    <article class="jenews-article">
-      <h1>Neosho Government 101</h1>
-      <p>This educational series is designed to help residents of Neosho understand how their local government works — in plain English. Whether you're preparing to serve, trying to make sense of city ordinances, or simply want to be an informed voter or citizen, this is your place to start.</p>
+    <main>
+      <section class="jenews-content">
+        <h2>Neosho Government 101</h2>
+        <p>This educational series is designed to help residents of Neosho understand how their local government works — in plain English. Whether you're preparing to serve, trying to make sense of city ordinances, or simply want to be an informed voter or citizen, this is your place to start.</p>
 
-      <h2>Explore by Topic</h2>
+        <h3>Explore by Topic</h3>
+        <ul>
+          <li>
+            <a href="/pages/government-101/structure/">
+              🏛️ <strong>Government Structure</strong><br>
+              Learn about the City Charter, City Code, and who has legal authority in Neosho.
+            </a>
+          </li>
 
-      <ul>
-        <li>
-          <a href="/pages/government-101/structure/">
-            🏛️ <strong>Government Structure</strong><br>
-            Learn about the City Charter, City Code, and who has legal authority in Neosho.
-          </a>
-        </li>
+          <li>
+            <a href="/pages/government-101/process/">
+              ⚙️ <strong>How Government Works</strong><br>
+              Understand how the Council functions, how decisions are made, and how residents can participate.
+            </a>
+          </li>
 
-        <li>
-          <a href="/pages/government-101/process/">
-            ⚙️ <strong>How Government Works</strong><br>
-            Understand how the Council functions, how decisions are made, and how residents can participate.
-          </a>
-        </li>
+          <li>
+            <a href="/pages/government-101/research/">
+              🔍 <strong>How to Research</strong><br>
+              Find out how to access records, look up city laws, and stay informed about what's happening.
+            </a>
+          </li>
+        </ul>
 
-        <li>
-          <a href="/pages/government-101/research/">
-            🔍 <strong>How to Research</strong><br>
-            Find out how to access records, look up city laws, and stay informed about what's happening.
-          </a>
-        </li>
-      </ul>
+        <p>These guides are built with clarity and practicality in mind — ideal for anyone who wants to understand and engage with Neosho’s local government.</p>
+      </section>
+    </main>
 
-      <p>These guides are built with clarity and practicality in mind — ideal for anyone who wants to understand and engage with Neosho’s local government.</p>
-    </article>
-  </main>
+    <!-- Dynamic Footer -->
+    <div id="site-footer"></div>
 
-  <div id="site-footer"></div>
+  </div>
 
+  <!-- Load Header + Footer -->
   <script>
     function loadHTML(id, url) {
-      fetch(url).then(res => res.text()).then(html => {
-        document.getElementById(id).innerHTML = html;
-      });
+      fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById(id).innerHTML = html;
+        });
     }
+
     loadHTML('site-header', '/partials/header.html');
     loadHTML('site-footer', '/partials/footer.html');
+  </script>
+
+  <!-- Dropdown + Mobile Nav JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('a.jenews-link, a.jenews-pill').forEach(link => {
+        link.setAttribute('target', '_self');
+      });
+
+      document.querySelectorAll('.jenews-nav li').forEach(li => {
+        let timer;
+        const submenu = li.querySelector('ul');
+
+        if (submenu) {
+          li.addEventListener('mouseenter', () => {
+            clearTimeout(timer);
+            submenu.style.display = 'flex';
+          });
+
+          li.addEventListener('mouseleave', () => {
+            timer = setTimeout(() => {
+              submenu.style.display = 'none';
+            }, 300);
+          });
+
+          submenu.addEventListener('mouseenter', () => {
+            clearTimeout(timer);
+          });
+
+          submenu.addEventListener('mouseleave', () => {
+            timer = setTimeout(() => {
+              submenu.style.display = 'none';
+            }, 300);
+          });
+        }
+      });
+    });
   </script>
 </body>
 </html>
