@@ -549,3 +549,15 @@ a:focus {
   text-decoration: underline; /* Optional: add underline on hover for accessibility */
   color: #003366; /* Slightly darker blue on hover */
 }
+.jenews-full-image {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin: 18px 0;
+}
+
+.jenews-full-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
