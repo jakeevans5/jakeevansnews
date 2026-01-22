@@ -5,7 +5,6 @@
   <title>How to Research – Neosho Government 101 | Jake Evans News</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/css/style.css">
-
   <!-- Favicon Setup -->
   <link rel="icon" href="/assets/favicons/favicon.ico" />
   <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicons/favicon-96x96.png" />
@@ -15,8 +14,6 @@
 </head>
 <body class="jenews-home">
   <div class="jenews-wrap">
-
-    <!-- Dynamic Header -->
     <div id="site-header"></div>
 
     <main class="jenews-grid">
@@ -24,51 +21,50 @@
         <p class="jenews-kicker">Research</p>
         <h2 class="jenews-headline">How to Research Local Government</h2>
         <p class="jenews-deck">
-          This section walks you through the tools and records available to help you stay informed about what’s happening in Neosho’s city government. Learn how to access city documents, look up local ordinances and decisions, understand public records, and follow official updates — whether you're preparing to speak at a meeting or just trying to stay in the loop.
+          This section walks you through the tools and records available to help you stay informed about what’s happening in Neosho’s city government.
+          Learn how to access city documents, look up local ordinances and decisions, understand public records, and follow official updates —
+          whether you’re preparing to speak at a meeting or just trying to stay in the loop.
         </p>
-
-        <ul class="neosho-ul">
-          <li>🔍 <a href="/pages/government-101/research/how-to-look-up.html">How to Look Things Up</a></li>
-          <li>📄 <strong>Public Documents Explained</strong> <em>(Coming Soon)</em></li>
-          <li>🗂️ <strong>Understanding Meeting Packets</strong> <em>(Coming Soon)</em></li>
-        </ul>
       </article>
 
-      <aside class="jenews-side" aria-label="Related sections">
+      <aside class="jenews-side">
         <div class="jenews-mini">
-          <a class="jenews-link" href="/pages/government-101/structure/index.html">
-            <p class="jenews-kicker">Structure</p>
-            <h3 class="jenews-headline">Government Structure</h3>
-            <p class="jenews-deck">Learn about the City Charter, City Code, and who has legal authority in Neosho.</p>
+          <a class="jenews-link" href="/pages/government-101/research/how-to-look-up.html">
+            <p class="jenews-kicker">Tools</p>
+            <h3 class="jenews-headline">How to Look Things Up</h3>
+            <p class="jenews-deck">A practical guide to finding ordinances, records, and key decisions online or in person.</p>
           </a>
         </div>
 
         <div class="jenews-mini">
-          <a class="jenews-link" href="/pages/government-101/process/index.html">
-            <p class="jenews-kicker">Process</p>
-            <h3 class="jenews-headline">How Government Works</h3>
-            <p class="jenews-deck">Understand how the Council functions, how decisions are made, and how residents can participate.</p>
+          <a class="jenews-link" href="#">
+            <p class="jenews-kicker">Documents</p>
+            <h3 class="jenews-headline">Public Documents Explained</h3>
+            <p class="jenews-deck"><em>Coming Soon:</em> What these records are, where to find them, and what they tell you.</p>
+          </a>
+        </div>
+
+        <div class="jenews-mini">
+          <a class="jenews-link" href="#">
+            <p class="jenews-kicker">Meetings</p>
+            <h3 class="jenews-headline">Understanding Meeting Packets</h3>
+            <p class="jenews-deck"><em>Coming Soon:</em> How to read and interpret official city meeting documents.</p>
           </a>
         </div>
       </aside>
     </main>
 
-    <!-- Dynamic Footer -->
     <div id="site-footer"></div>
-  </div>
 
-  <!-- Load Header + Footer -->
-  <script>
-    function loadHTML(id, url) {
-      fetch(url)
-        .then(res => res.text())
-        .then(html => {
+    <script>
+      function loadHTML(id, url) {
+        fetch(url).then(res => res.text()).then(html => {
           document.getElementById(id).innerHTML = html;
         });
-    }
-
-    loadHTML('site-header', '/partials/header.html');
-    loadHTML('site-footer', '/partials/footer.html');
-  </script>
+      }
+      loadHTML('site-header', '/partials/header.html');
+      loadHTML('site-footer', '/partials/footer.html');
+    </script>
+  </div>
 </body>
 </html>
