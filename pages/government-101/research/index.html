@@ -5,6 +5,7 @@
   <title>How to Research – Neosho Government 101 | Jake Evans News</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/css/style.css">
+
   <!-- Favicon Setup -->
   <link rel="icon" href="/assets/favicons/favicon.ico" />
   <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicons/favicon-96x96.png" />
@@ -14,25 +15,33 @@
 </head>
 <body class="jenews-home">
   <div class="jenews-wrap">
+
+    <!-- Header -->
     <div id="site-header"></div>
 
+    <!-- Main Layout Grid -->
     <main class="jenews-grid">
+
+      <!-- Left Column: Intro Card -->
       <article class="jenews-card">
         <p class="jenews-kicker">Research</p>
         <h2 class="jenews-headline">How to Research Local Government</h2>
         <p class="jenews-deck">
-          This section walks you through the tools and records available to help you stay informed about what’s happening in Neosho’s city government.
-          Learn how to access city documents, look up local ordinances and decisions, understand public records, and follow official updates —
-          whether you’re preparing to speak at a meeting or just trying to stay in the loop.
+          Learn how to follow what's happening in Neosho’s government using public tools and records.
+          This section shows you how to find ordinances, look up decisions, access meeting packets,
+          and understand the documents that guide local policy. Whether you’re preparing to speak
+          at a meeting or just staying informed, this is your toolkit for learning how to research effectively.
         </p>
       </article>
 
+      <!-- Right Column: Topic Cards -->
       <aside class="jenews-side">
+
         <div class="jenews-mini">
           <a class="jenews-link" href="/pages/government-101/research/how-to-look-up.html">
             <p class="jenews-kicker">Tools</p>
             <h3 class="jenews-headline">How to Look Things Up</h3>
-            <p class="jenews-deck">A practical guide to finding ordinances, records, and key decisions online or in person.</p>
+            <p class="jenews-deck">How to search Neosho’s online records, ordinances, and databases.</p>
           </a>
         </div>
 
@@ -40,7 +49,7 @@
           <a class="jenews-link" href="#">
             <p class="jenews-kicker">Documents</p>
             <h3 class="jenews-headline">Public Documents Explained</h3>
-            <p class="jenews-deck"><em>Coming Soon:</em> What these records are, where to find them, and what they tell you.</p>
+            <p class="jenews-deck"><em>Coming Soon:</em> What these records are and what they reveal about decisions.</p>
           </a>
         </div>
 
@@ -48,20 +57,26 @@
           <a class="jenews-link" href="#">
             <p class="jenews-kicker">Meetings</p>
             <h3 class="jenews-headline">Understanding Meeting Packets</h3>
-            <p class="jenews-deck"><em>Coming Soon:</em> How to read and interpret official city meeting documents.</p>
+            <p class="jenews-deck"><em>Coming Soon:</em> How to interpret the documents that go to Council before votes.</p>
           </a>
         </div>
+
       </aside>
     </main>
 
+    <!-- Footer -->
     <div id="site-footer"></div>
 
+    <!-- Header/Footer Loader -->
     <script>
       function loadHTML(id, url) {
-        fetch(url).then(res => res.text()).then(html => {
-          document.getElementById(id).innerHTML = html;
-        });
+        fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            document.getElementById(id).innerHTML = html;
+          });
       }
+
       loadHTML('site-header', '/partials/header.html');
       loadHTML('site-footer', '/partials/footer.html');
     </script>
