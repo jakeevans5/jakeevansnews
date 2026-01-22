@@ -5,7 +5,6 @@
   <title>How Government Works – Neosho Government 101 | Jake Evans News</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/css/style.css">
-
   <!-- Favicon Setup -->
   <link rel="icon" href="/assets/favicons/favicon.ico" />
   <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicons/favicon-96x96.png" />
@@ -15,8 +14,6 @@
 </head>
 <body class="jenews-home">
   <div class="jenews-wrap">
-
-    <!-- Dynamic Header -->
     <div id="site-header"></div>
 
     <main class="jenews-grid">
@@ -24,53 +21,58 @@
         <p class="jenews-kicker">Process</p>
         <h2 class="jenews-headline">How Local Government Works</h2>
         <p class="jenews-deck">
-          This section explains how decisions are made in Neosho's local government, how the City Council operates, and how residents can engage with the process. 
-          Whether you're curious about how meetings run, how ordinances get passed, or how to make your voice heard, you'll find clear and practical answers here.
+          This section explains how decisions are made in Neosho’s local government, how the City Council operates, 
+          and how residents can engage with the process. Whether you're curious about how meetings run, how ordinances 
+          get passed, or how to make your voice heard, you'll find clear and practical answers here.
         </p>
-
-        <ul class="neosho-ul">
-          <li>🏛️ <strong>What City Council Does</strong> <em>(Coming Soon)</em></li>
-          <li>📅 <strong>Meeting Basics and Procedures</strong> <em>(Coming Soon)</em></li>
-          <li>🗳️ <strong>How Decisions Are Made</strong> <em>(Coming Soon)</em></li>
-          <li>📣 <strong>How to Participate</strong> <em>(Coming Soon)</em></li>
-        </ul>
       </article>
 
-      <aside class="jenews-side" aria-label="Related sections">
+      <aside class="jenews-side">
         <div class="jenews-mini">
-          <a class="jenews-link" href="/pages/government-101/structure/index.html">
-            <p class="jenews-kicker">Structure</p>
-            <h3 class="jenews-headline">Government Structure</h3>
-            <p class="jenews-deck">Learn about the City Charter, City Code, and who has legal authority in Neosho.</p>
-          </a>
+          <div class="jenews-link">
+            <p class="jenews-kicker">Coming Soon</p>
+            <h3 class="jenews-headline">What City Council Does</h3>
+            <p class="jenews-deck">A plain-language breakdown of Council responsibilities and what happens behind the scenes.</p>
+          </div>
         </div>
 
         <div class="jenews-mini">
-          <a class="jenews-link" href="/pages/government-101/research/index.html">
-            <p class="jenews-kicker">Research</p>
-            <h3 class="jenews-headline">How to Research</h3>
-            <p class="jenews-deck">Find out how to access records, look up city laws, and stay informed about what's happening.</p>
-          </a>
+          <div class="jenews-link">
+            <p class="jenews-kicker">Coming Soon</p>
+            <h3 class="jenews-headline">Meeting Basics and Procedures</h3>
+            <p class="jenews-deck">From agendas to Roberts Rules — what to expect at meetings and how they’re run.</p>
+          </div>
+        </div>
+
+        <div class="jenews-mini">
+          <div class="jenews-link">
+            <p class="jenews-kicker">Coming Soon</p>
+            <h3 class="jenews-headline">How Decisions Are Made</h3>
+            <p class="jenews-deck">Explore how ordinances and policies are passed, including key steps and votes.</p>
+          </div>
+        </div>
+
+        <div class="jenews-mini">
+          <div class="jenews-link">
+            <p class="jenews-kicker">Coming Soon</p>
+            <h3 class="jenews-headline">How to Participate</h3>
+            <p class="jenews-deck">Tips for engaging in local government — from speaking at meetings to submitting feedback.</p>
+          </div>
         </div>
       </aside>
     </main>
 
-    <!-- Dynamic Footer -->
     <div id="site-footer"></div>
-  </div>
 
-  <!-- Load Header + Footer -->
-  <script>
-    function loadHTML(id, url) {
-      fetch(url)
-        .then(res => res.text())
-        .then(html => {
+    <script>
+      function loadHTML(id, url) {
+        fetch(url).then(res => res.text()).then(html => {
           document.getElementById(id).innerHTML = html;
         });
-    }
-
-    loadHTML('site-header', '/partials/header.html');
-    loadHTML('site-footer', '/partials/footer.html');
-  </script>
+      }
+      loadHTML('site-header', '/partials/header.html');
+      loadHTML('site-footer', '/partials/footer.html');
+    </script>
+  </div>
 </body>
 </html>
