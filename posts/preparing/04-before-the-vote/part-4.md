@@ -1,7 +1,7 @@
 # What I Focus On Before Meetings
 ### Listening for understanding, not conclusions
 
-<img src="/assets/images/series-4/part-4.webp" alt="Empty Room" class="centered-photo" />
+<img src="/assets/images/series-4/part-4.jpg" alt="Empty Room" class="centered-photo" />
 
 Before I walk into a meeting where I’m serving on a board or commission, my focus isn’t on what I want to say — it’s on what I need to hear.
 
