@@ -452,9 +452,9 @@ h1 {
   display: block;
   width: 100%;
   max-width: 1040px;
-  height: 420px;
+  height: 500px;
   object-fit: cover;
-  object-position: center 25%;
+  object-position: center 35%;
   margin: 0 auto 16px;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
