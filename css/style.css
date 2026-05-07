@@ -450,9 +450,12 @@ h1 {
 /* Centered Feature Image */
 .centered-photo {
   display: block;
+  width: 100%;
+  max-width: 1040px;
+  height: 540px;
+  object-fit: cover;
+  object-position: center;
   margin: 0 auto 16px;
-  max-width: 100%;
-  height: auto;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
